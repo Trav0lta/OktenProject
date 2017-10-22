@@ -52,7 +52,7 @@ public class RegistrationController {
         }
 
         userService.save(user);
-        mailService.send(user);
+        //mailService.send(user);
         return "redirect:/login";
     }
 }
