@@ -1,0 +1,18 @@
+diff a/.idea/workspace.xml b/.idea/workspace.xml	(rejected hunks)
+@@ -30,16 +30,6 @@
+   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+   <component name="FileEditorManager">
+     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.jsp">
+-          <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="484">
+-              <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+-              <folding />
+-            </state>
+-          </provider>
+-        </entry>
+-      </file>
+       <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/src/main/java/ua/lv/controller/AccountController.java">
+           <provider selected="true" editor-type-id="text-editor">
