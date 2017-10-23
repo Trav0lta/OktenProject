@@ -43,9 +43,7 @@ public class RegistrationController {
 
     @RequestMapping(value = "/saveUserSpringForm", method = RequestMethod.POST)
     public String addUserSpringForm(@ModelAttribute("emptyUser") @Valid User user,
-                                    BindingResult bindingResult,
-                                    Model model,
-                                    MultipartFile multipartFile) {
+                                    BindingResult bindingResult) {
         userValidator.validate(user,bindingResult);
         if(bindingResult.hasErrors()){
             return "registration";

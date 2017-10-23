@@ -21,7 +21,7 @@
         body {
             font-size: 120%;
             font-family: Verdana, Arial, Helvetica, sans-serif;
-            color: #101918;
+            color: #65979c;
             background: #0b384f;
         }
     </style>
