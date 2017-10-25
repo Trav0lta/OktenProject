@@ -10,6 +10,17 @@
         <a href="/index" class="btn btn-outline-danger">Back</a>
     </form>
 </nav>
+
+<div id="error-log">
+    <ul>
+        <li id="empty-fields-error">Fields can't be empty</li>
+        <li id="invalid-username-error">Username should be 4 characters at least</li>
+        <li id="invalid-password-error">Password should be 4 characters at least</li>
+        <li id="invalid-email-error">Invalid email</li>
+        <li id="passwords-conflict-error">Passwords are not same</li>
+    </ul>
+</div>
+
 <section class="container" >
     <div class="row align-items-center" style="height:700px">
         <div class="col-8">
