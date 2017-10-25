@@ -6,8 +6,12 @@
 
 <nav class="navbar navbar-light bg-light ">
     <form class="form-inline">
-        <a href="/registration"><button class="btn btn-outline-success mr-sm-2" type="button">Registration</button></a>
-        <a href="/index" class="btn btn-outline-danger">Back</a>
+        <ul class="pull-left">
+            <li><a href="/registration"><button class="btn btn-header btn-sign-in mr-sm-2" type="button"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</button></a></li>
+        </ul>
+        <ul class="pull-right">
+            <li><a href="/index" class="btn btn-header btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></li>
+        </ul>
     </form>
 </nav>
 

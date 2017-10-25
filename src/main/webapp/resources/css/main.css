@@ -12,3 +12,48 @@
 .cs{
     color: #bd2130;
 }
+#error-log {
+    background: rgba(255, 253, 231, 0.8);
+    /*padding: 15px;*/
+    color: #EF5350;
+    font-size: 13px;
+    border-radius: 5px;
+    position: fixed;
+    width: 35%;
+    top: 10%;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    margin: 0 auto
+}
+#error-log ul {
+    margin: 0;
+}
+#error-log li {
+    padding: 5px 0
+}
+.btn-sign-in, .btn-sign-up {
+    color: #1976D2
+}
+.btn-back, .btn-log-out {
+    color: #2196F3
+}
+.btn-header:hover {
+    color: #0D47A1
+}
+.btn-header {
+    background: none;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .5s
+}
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+.navbar li {
+    display: inline-block
+}
