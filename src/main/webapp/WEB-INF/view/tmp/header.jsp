@@ -16,6 +16,7 @@
     <link href="../../resources/css/bootstrap-grid.min.css" rel="stylesheet"/>
     <link href="../../resources/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../../resources/css/bootstrap.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="../../resources/css/main.css" rel="stylesheet">
     <style type="text/css">
         body {
