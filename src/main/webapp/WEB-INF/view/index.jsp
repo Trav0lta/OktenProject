@@ -16,17 +16,95 @@
         </form>
     </nav>
 
-    <div class="row justify-content-center">
-        <a class="btn btn-info" href="/account" role="button">to Personal page</a>
+    <div id="top-section">
+        <div class="container">
+            <div class="poster">
+                <h1>PROJECT NAME</h1>
+                <p>In publishing and graphic design, lorem ipsum is a filler text or greeking commonly<br>
+                    used to demonstrate the textual elements of a graphic document or visual presentation.</p>
+            </div>
+        </div>
     </div>
 
-    <%--<div class="view">--%>
-        <%--<a href="/login"><button class="btn btn-header btn-sign-in mr-sm-2" type="button">Sign in</button></a>--%>
-        <%--<a href="/registration"><button class="btn btn-header btn-sign-up" type="button">Registration</button></a>--%>
-        <%--<a href="/logout"><button class="btn btn-ouetline-primary cs" type="button">Logout</button></a>--%>
-        <%--<div class="row justify-content-center">--%>
-            <%--<a class="btn btn-info" href="/account" role="button">to Personal page</a>--%>
-        <%--</div>--%>
-    <%--</div>--%>
+    <div id="main-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="../../resources/img/landing/goal.png">
+                    <br>
+                    Goal
+                </div>
+                <div class="col-md-3">
+                    <img src="../../resources/img/landing/analytics.png">
+                    <br>
+                    Progress
+                </div>
+                <div class="col-md-3">
+                    <img src="../../resources/img/landing/planning.png">
+                    <br>
+                    To-do
+                </div>
+                <div class="col-md-3">
+                    <img src="../../resources/img/landing/chronometer.png">
+                    <br>
+                    Time
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="first-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../resources/img/landing/target.png">
+                </div>
+                <div class="col-md-8">
+                    <h3>Header</h3>
+                    <p>
+                        In publishing and graphic design, lorem ipsum<br>
+                        is a filler text or greeking commonly used to<br>
+                        demonstrate the textual elements of a graphic<br>
+                        document or visual presentation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="second-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Header</h3>
+                    <p>
+                        In publishing and graphic design, lorem ipsum<br>
+                        is a filler text or greeking commonly used to<br>
+                        demonstrate the textual elements of a graphic<br>
+                        document or visual presentation.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="../../resources/img/landing/study.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pre-footer">
+        <div class="container">
+            <div class="poster">
+                <h1>SIGN UP AND ACHIEVE YOUR GOALS</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="pull-right">
+            Developed by Okten
+        </div>
+        <div style="clear: both"></div>
+    </div>
+
 </form:form>
 <%@include file="tmp/footer.jsp"%>
