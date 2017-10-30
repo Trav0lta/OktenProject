@@ -19,10 +19,10 @@
     </nav>
     <div class="collapse" id="collapseExample" style="position: absolute;left: 10px;">
         <ul class="list-group">
-<c:if test="${pageContext.request.userPrincipal.name != null}">
+            <li class="list-group-item"><a href="/settings">Settings</a></li>
+            <c:if test="${pageContext.request.userPrincipal.name != null}">
             <li class="list-group-item"><a href="/logout">Exit</a></li>
-</c:if>
-            <li class="list-group-item"><a href="#">Settings</a></li>
+        </c:if>
         </ul>
     </div>
     <!-- navbar end -->

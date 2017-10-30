@@ -28,6 +28,11 @@ public class AccountController {
         return "account";
     }
 
+    @GetMapping("/settings")
+    public String toSettings(){
+        return "settings";
+    }
+
     @RequestMapping(value = "account",method = RequestMethod.POST)
     public String addAccount(Model model,
                              Principal principal,
