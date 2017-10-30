@@ -50,4 +50,6 @@ public class AccountController {
         model.addAttribute("AllInterestsName", accounts);
         return "welcome";
     }
+
+    
 }
