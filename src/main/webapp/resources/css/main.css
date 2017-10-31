@@ -158,6 +158,13 @@ body {
 .autoheight2 p{
     margin:0;
 }
-select.form-control:not([size]):not([multiple]) {
+#user select.form-control:not([size]):not([multiple]) {
     height: calc(2.55rem + 2px);
+}
+#goal .form-group{
+    padding: 5px;
+}
+#goal .form-row>.col, #goal .form-row>[class*=col-] {
+    padding-right: 20px;
+    padding-left: 20px;
 }
