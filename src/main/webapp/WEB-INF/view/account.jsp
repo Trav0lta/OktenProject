@@ -4,7 +4,7 @@
 
 <%@include file="tmp/headerUser.jsp" %>
 
-<div class="autoheight">
+<div id="user" class="autoheight">
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light ">
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
@@ -32,7 +32,7 @@
             <div class="col text-center">
                 <h2>Your goals for a <select class="form-control" style="display: inline-block; width: 15%;">
                     <option>Day</option><option>Week</option><option>Month</option><option>Year</option>
-                </select></h2>
+                </select><a href="/goal" class="btn btn-outline-primary btn-sm ml-5" role="button" aria-pressed="true">Add goal</a></h2>
             </div>
         </div>
         <div class="container-fluid">

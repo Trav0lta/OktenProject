@@ -32,6 +32,10 @@ public class AccountController {
     public String toSettings(){
         return "settings";
     }
+    @GetMapping("/goal")
+    public String toGoal(){
+        return "goal";
+    }
 
     @RequestMapping(value = "account",method = RequestMethod.POST)
     public String addAccount(Model model,
