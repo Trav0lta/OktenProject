@@ -14,7 +14,7 @@
         </span>
         <a class="navbar-item mr-3">
             <%--<img src="../../resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">--%>
-                <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt=${currentUser.username}">
+                <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
             <c:if test="${currentUser.avatar == null}">
                  <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">
             </c:if>
