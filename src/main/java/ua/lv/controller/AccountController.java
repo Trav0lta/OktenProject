@@ -23,7 +23,11 @@ public class AccountController {
     UserService userService;
 
     @GetMapping("/account")
-    public String toWelcome(Model model){
+    public String toWelcome(Model model,
+                            Principal principal){
+        String principalName = principal.getName();
+        User byUsername = userService.findByName(principalName);
+        model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyAccount",new Account());
         return "account";
     }
@@ -33,8 +37,12 @@ public class AccountController {
         return "settings";
     }
     @GetMapping("/goal")
-    public String toGoal(){
-        return "goal";
+    public String toGoal (Model model,
+                Principal principal){
+            String principalName = principal.getName();
+            User byUsername = userService.findByName(principalName);
+            model.addAttribute("currentUser", byUsername);
+          return "goal";
     }
 
     @RequestMapping(value = "account",method = RequestMethod.POST)
@@ -45,12 +53,17 @@ public class AccountController {
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
-        Account account = new Account();
-        account.setInterestName(interestName);
-        account.setAim(aim);
-        account.setUser(byUsername);
-        accountService.save(account);
-        return "/welcome";
+//        Account account = new Account();
+//        account.setInterestName(interestName);
+//        account.setAim(aim);
+//        account.setUser(byUsername);
+//        accountService.save(account);
+
+
+//        User user = userService.findOne(idUser);
+//        model.addAttribute("user", user);
+//        System.out.println(idUser);
+        return "/account";
     }
 
     @RequestMapping(value = "/showAllInterests", method = RequestMethod.GET)
