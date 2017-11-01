@@ -12,8 +12,8 @@ import java.util.List;
  * Created by User on 20.10.2017.
  */
 public interface AccountDAO extends JpaRepository<Account,Integer> {
-    @Query("from Account a where a.interestName=:interestName")
-    Account findByAccountInterest(@Param("interestName")String interestName);
+    @Query("from Account a where a.goalName=:goalName")
+    Account findByAccountInterest(@Param("goalName")String goalName);
 
     List<Account> findAll();
 
