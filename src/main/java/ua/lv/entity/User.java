@@ -161,7 +161,7 @@ public class User implements UserDetails {
     }
 
     public void setAvatar(MultipartFile multipartFile) {
-        String path = System.getProperty("user.home") + File.separator + "images\\";
+        String path = System.getProperty("user.home") + File.separator + "Pictures\\";
         try {
             multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
         } catch (IOException e) {

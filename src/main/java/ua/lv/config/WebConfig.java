@@ -73,7 +73,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
                 .addResourceLocations("/resources/");
         registry
                 .addResourceHandler("/avatar/**")
-                .addResourceLocations("file:" + System.getProperty("user.home") + File.separator + "images\\");
+                .addResourceLocations("file:" + System.getProperty("user.home") + File.separator + "Pictures\\");
     }
 
 }
