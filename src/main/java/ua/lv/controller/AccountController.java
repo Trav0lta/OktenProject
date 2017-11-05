@@ -45,6 +45,9 @@ public class AccountController {
           return "goal";
     }
 
+    @GetMapping("/edit-profile")
+    public String toEditProfile(){ return "edit-profile"; }
+
     @RequestMapping(value = "goal",method = RequestMethod.POST)
     public String addAccount(Model model,
                              Principal principal,

@@ -21,23 +21,23 @@ $(document).ready(function () {
 
     // Check if password are correct
     $("#validationRegister02").blur(function () {
-         if ($("#validationRegister03").val() !== $("#validationRegister02").val() || !$("#validationRegister03").val() || !$("#validationRegister02").val().match(/^[a-zA-Z0-9]{4,}$/)) {
-             $("#validationRegister03").css("background", "#FFFDE7");
-             $("#passwords-conflict-error").show();
-         } else {
-             $("#validationRegister03").css("background", "#fff");
-             $("#passwords-conflict-error").hide();
-         }
+        if ($("#validationRegister03").val() !== $("#validationRegister02").val() || !$("#validationRegister03").val() || !$("#validationRegister02").val().match(/^[a-zA-Z0-9]{4,}$/)) {
+            $("#validationRegister03").css("background", "#FFFDE7");
+            $("#passwords-conflict-error").show();
+        } else {
+            $("#validationRegister03").css("background", "#fff");
+            $("#passwords-conflict-error").hide();
+        }
     });
 
     $("#validationRegister03").blur(function () {
-         if ($("#validationRegister03").val() !== $("#validationRegister02").val() || !$("#validationRegister03").val() || !$("#validationRegister03").val().match(/^[a-zA-Z0-9]{4,}$/)) {
-             $("#validationRegister03").css("background", "#FFFDE7");
-             $("#passwords-conflict-error").show();
-         } else {
-             $("#validationRegister03").css("background", "#fff");
-             $("#passwords-conflict-error").hide();
-         }
+        if ($("#validationRegister03").val() !== $("#validationRegister02").val() || !$("#validationRegister03").val() || !$("#validationRegister03").val().match(/^[a-zA-Z0-9]{4,}$/)) {
+            $("#validationRegister03").css("background", "#FFFDE7");
+            $("#passwords-conflict-error").show();
+        } else {
+            $("#validationRegister03").css("background", "#fff");
+            $("#passwords-conflict-error").hide();
+        }
     });
 
     $("#validationRegister02").blur(function () {
@@ -65,14 +65,14 @@ $(document).ready(function () {
 
     // Click for submit
     $("#sign-up-submit").click(function () {
-         valid = true;
+        valid = true;
 
-         // Check if empty
-         $(".required-sign-up-field").each(function () {
-             checkIfFieldIsEmpty(this);
-         });
+        // Check if empty
+        $(".required-sign-up-field").each(function () {
+            checkIfFieldIsEmpty(this);
+        });
 
-         // Check email
+        // Check email
         if (!$("#validationRegisterEmail").val()||!$("#validationRegisterEmail").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
             $("#validationRegisterEmail").css("background", "#FFFDE7");
             valid = false;
@@ -115,25 +115,55 @@ $(document).ready(function () {
             $("#sign-up-form").submit();
         }
     });
+
+    // Profile Settings
+    $(".field-editable .btn").click(function () {
+        var btnId = $(this).attr("id");
+        $(".field-editable .btn").hide();
+        btnId = btnId.slice(0, -5);
+        var field = $("#"+btnId);
+        var oldValue = field.text();
+        var editableField = "<div class='temp-edit-block'><input class='edit-input' type='text'><div class='save-field'>Save</div><div class='cancel-field'>Cancel</div></div>";
+        field.after(editableField);
+        field.hide();
+        $("#profile-settings input").attr('class', '').addClass("edit-input").addClass("input-"+btnId);
+        var data = field.text();
+        $(".input-"+btnId).val(data);
+
+        $(".save-field").click(function () {
+            field.text($(".input-"+btnId).val());
+            $(".temp-edit-block").remove();
+            field.show();
+            $(".field-editable .btn").show()
+        });
+
+        $(".cancel-field").click(function () {
+            field.text(oldValue);
+            $(".temp-edit-block").remove();
+            field.show();
+            $(".field-editable .btn").show()
+        });
+    });
+
 });
 
 var valid;
 
 function checkIfFieldIsEmpty(field) {
-     if (!$(field).val()) {
-         $(field).css("background", "#FFFDE7");
-         $(this).closest(".error-log-field").css("background", "black");
-         valid = false;
-         $("#empty-fields-error").show();
-     } else {
-         $(field).css("background", "#fff");
-     }
+    if (!$(field).val()) {
+        $(field).css("background", "#FFFDE7");
+        $(this).closest(".error-log-field").css("background", "black");
+        valid = false;
+        $("#empty-fields-error").show()
+    } else {
+        $(field).css("background", "#fff")
+    }
 }
 
 function hideErrorLog() {
-    $("#error-log").hide();
+    $("#error-log").hide()
 }
 
 function showErrorLog() {
-    $("#error-log").show();
+    $("#error-log").show()
 }
