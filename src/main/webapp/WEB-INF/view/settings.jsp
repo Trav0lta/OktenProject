@@ -10,10 +10,13 @@
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
         <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
         <span class="navbar-text ml-auto mr-3">
-      	Hello, <b>User User!</b>
+      		<b>${currentUser.firstName} ${currentUser.lastName}</b>
     	</span>
         <a class="navbar-item mr-3">
-            <img src="../../resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">
+            <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle">
+            <c:if test="${currentUser.avatar == null}">
+                <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle">
+            </c:if>
         </a>
 
     </nav>
@@ -28,7 +31,7 @@
     <!-- navbar end -->
     <!-- main section -->
     <div class="container autoheightS">
-
+        <a href="/edit-profile">Edit your profile</a>
     </div>
     <!-- main section end -->
 

@@ -32,10 +32,8 @@ public class AccountController {
         return "account";
     }
 
-    @GetMapping("/settings")
-    public String toSettings(){
-        return "settings";
-    }
+
+
     @GetMapping("/goal")
     public String toGoal (Model model,
                 Principal principal){
@@ -45,8 +43,7 @@ public class AccountController {
           return "goal";
     }
 
-    @GetMapping("/edit-profile")
-    public String toEditProfile(){ return "edit-profile"; }
+
 
     @RequestMapping(value = "goal",method = RequestMethod.POST)
     public String addAccount(Model model,
