@@ -32,15 +32,6 @@ public class AccountController {
         return "account";
     }
 
-<<<<<<< HEAD
-    @GetMapping("/settings")
-    public String toSettings(){
-        return "account/settings";
-    }
-=======
-
-
->>>>>>> 4ef7459a8559248612cd7217bb12d86e1339da43
     @GetMapping("/goal")
     public String toGoal (Model model,
                 Principal principal){
