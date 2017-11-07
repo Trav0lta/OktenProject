@@ -74,10 +74,10 @@
                             <input type="number" name="goalCrNum" min="1" class="form-control" id="goalCrNum" placeholder="Quantity">
                         </div>
                     </div>
-                    <div class="form-row"> class="form-group col-md-3">
+                    <div class="form-row"> <div  class="form-group col-md-3">
                         <button type="reset" class="btn btn-outline-danger">Cancel</button>
                         <input type="submit" class="btn btn-outline-success"/>
-                        <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
+                        <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/></div>
                     </div>
                 </form>
             </div>
