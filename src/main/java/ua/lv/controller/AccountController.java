@@ -34,7 +34,7 @@ public class AccountController {
 
     @GetMapping("/settings")
     public String toSettings(){
-        return "settings";
+        return "account/settings";
     }
     @GetMapping("/goal")
     public String toGoal (Model model,
