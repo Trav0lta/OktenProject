@@ -5,29 +5,38 @@
 <%@include file="tmp/headerUser.jsp" %>
 
 <div id="user" class="autoheight">
-    <!-- Navbar -->
+
     <nav class="navbar navbar-light bg-light ">
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
         <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
         <span class="navbar-text ml-auto mr-3">
-      	Hello, <b>${currentUser.firstName} ${currentUser.lastName}!</b>
+      	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
         </span>
         <a class="navbar-item mr-3">
+<<<<<<< HEAD
             <%--<img src="../../resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">--%>
             <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="${currentUser.username}">
         </a>
+=======
+>>>>>>> 4ef7459a8559248612cd7217bb12d86e1339da43
 
+                <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
+
+            <c:if test="${currentUser.avatar == null}">
+                 <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">
+            </c:if>
+        </a>
     </nav>
+
     <div class="collapse" id="collapseExample" style="position: absolute;left: 10px;">
         <ul class="list-group">
             <li class="list-group-item"><a href="/settings">Settings</a></li>
             <c:if test="${pageContext.request.userPrincipal.name != null}">
-            <li class="list-group-item"><a href="/logout">Exit</a></li>
-        </c:if>
+                <li class="list-group-item"><a href="/logout">Exit</a></li>
+            </c:if>
         </ul>
     </div>
-    <!-- navbar end -->
-    <!-- main section -->
+
     <div class="container">
         <div class="row mt-5">
             <div class="col text-center">
@@ -191,8 +200,5 @@
                 </div>
             </div>
         </div>
-        <!-- main section end -->
-
-
     </div>
 <%@include file="tmp/footerUser.jsp"%>

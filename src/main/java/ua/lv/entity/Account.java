@@ -10,10 +10,27 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String interestName;
-    private String aim;
+    private String goalName;
+    private String category;
+    @Column(columnDefinition = "text")
+    private String goalDesc;
+    private String Deadline;
+    private String goalCrName;
+    private String goalCrNum;
     @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     private User user;
+
+
+    public Account() {
+    }
+
+    public String getDeadline() {
+        return Deadline;
+    }
+
+    public void setDeadline(String deadline) {
+        Deadline = deadline;
+    }
 
     public int getId() {
         return id;
@@ -23,20 +40,44 @@ public class Account {
         this.id = id;
     }
 
-    public String getInterestName() {
-        return interestName;
+    public String getGoalName() {
+        return goalName;
     }
 
-    public void setInterestName(String interestName) {
-        this.interestName = interestName;
+    public void setGoalName(String goalName) {
+        this.goalName = goalName;
     }
 
-    public String getAim() {
-        return aim;
+    public String getCategory() {
+        return category;
     }
 
-    public void setAim(String aim) {
-        this.aim = aim;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getGoalDesc() {
+        return goalDesc;
+    }
+
+    public void setGoalDesc(String goalDesc) {
+        this.goalDesc = goalDesc;
+    }
+
+    public String getGoalCrName() {
+        return goalCrName;
+    }
+
+    public void setGoalCrName(String goalCrName) {
+        this.goalCrName = goalCrName;
+    }
+
+    public String getGoalCrNum() {
+        return goalCrNum;
+    }
+
+    public void setGoalCrNum(String goalCrNum) {
+        this.goalCrNum = goalCrNum;
     }
 
     public User getUser() {
@@ -51,8 +92,11 @@ public class Account {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", interestName='" + interestName + '\'' +
-                ", aim='" + aim + '\'' +
+                ", goalName='" + goalName + '\'' +
+                ", category='" + category + '\'' +
+                ", goalDesc='" + goalDesc + '\'' +
+                ", goalCrName='" + goalCrName + '\'' +
+                ", goalCrNum='" + goalCrNum + '\'' +
                 '}';
     }
 }

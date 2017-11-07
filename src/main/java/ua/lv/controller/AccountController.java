@@ -32,10 +32,15 @@ public class AccountController {
         return "account";
     }
 
+<<<<<<< HEAD
     @GetMapping("/settings")
     public String toSettings(){
         return "account/settings";
     }
+=======
+
+
+>>>>>>> 4ef7459a8559248612cd7217bb12d86e1339da43
     @GetMapping("/goal")
     public String toGoal (Model model,
                 Principal principal){
@@ -45,24 +50,29 @@ public class AccountController {
           return "goal";
     }
 
-    @RequestMapping(value = "account",method = RequestMethod.POST)
+
+
+    @RequestMapping(value = "goal",method = RequestMethod.POST)
     public String addAccount(Model model,
                              Principal principal,
-                             @RequestParam("interestName") String interestName,
-                             @RequestParam("aim") String aim){
+                             @RequestParam("goalName") String goalName,
+                             @RequestParam("category") String category,
+                             @RequestParam("goalDesc") String goalDesc,
+                             @RequestParam("Deadline") String Deadline,
+                             @RequestParam("goalCrName") String goalCrName,
+                             @RequestParam("goalCrNum") String goalCrNum){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
-//        Account account = new Account();
-//        account.setInterestName(interestName);
-//        account.setAim(aim);
-//        account.setUser(byUsername);
-//        accountService.save(account);
-
-
-//        User user = userService.findOne(idUser);
-//        model.addAttribute("user", user);
-//        System.out.println(idUser);
+        Account account = new Account();
+        account.setGoalName(goalName);
+        account.setCategory(category);
+        account.setGoalDesc(goalDesc);
+        account.setDeadline(Deadline);
+        account.setGoalCrName(goalCrName);
+        account.setGoalCrNum(goalCrNum);
+        account.setUser(byUsername);
+        accountService.save(account);
         return "/account";
     }
 

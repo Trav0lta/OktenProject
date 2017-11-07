@@ -19,9 +19,8 @@
     <div id="top-section">
         <div class="container">
             <div class="poster">
-                <h1>PROJECT NAME</h1>
-                <p>In publishing and graphic design, lorem ipsum is a filler text or greeking commonly<br>
-                    used to demonstrate the textual elements of a graphic document or visual presentation.</p>
+                <h1>Goal Tracker</h1>
+                <p>Set goals & crush 'em!</p>
             </div>
         </div>
     </div>
@@ -32,22 +31,22 @@
                 <div class="col-md-3">
                     <img src="../../resources/img/landing/goal.png">
                     <br>
-                    Goal
+                    Set new goal
                 </div>
                 <div class="col-md-3">
                     <img src="../../resources/img/landing/analytics.png">
                     <br>
-                    Progress
+                    Monitor your progress
                 </div>
                 <div class="col-md-3">
                     <img src="../../resources/img/landing/planning.png">
                     <br>
-                    To-do
+                    Set deadline and stick to it!
                 </div>
                 <div class="col-md-3">
                     <img src="../../resources/img/landing/chronometer.png">
                     <br>
-                    Time
+                    Voila! Done!
                 </div>
             </div>
         </div>
@@ -60,12 +59,18 @@
                     <img src="../../resources/img/landing/target.png">
                 </div>
                 <div class="col-md-8">
-                    <h3>Header</h3>
+                    <h3>Be a SMART "goal digger"</h3>
                     <p>
-                        In publishing and graphic design, lorem ipsum<br>
-                        is a filler text or greeking commonly used to<br>
-                        demonstrate the textual elements of a graphic<br>
-                        document or visual presentation.
+                        A useful way of making goals more powerful is to use the SMART mnemonic.
+
+                    <ul>
+                        <li>S - Specific (or Significant).</li>
+                        <li>M - Measurable (or Meaningful).</li>
+                        <li>A - Attainable (or Action-Oriented).</li>
+                        <li>R - Relevant (or Rewarding).</li>
+                        <li>T - Time-bound (or Trackable)</li>
+                    </ul>
+
                     </p>
                 </div>
             </div>
@@ -76,12 +81,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h3>Header</h3>
+                    <h3>8 Ways to Motivate Yourself From the Beginning</h3>
                     <p>
-                        In publishing and graphic design, lorem ipsum<br>
-                        is a filler text or greeking commonly used to<br>
-                        demonstrate the textual elements of a graphic<br>
-                        document or visual presentation.
+                    <ul>
+                        <li>Start small.</li>
+                        <li>Start with 2-3 goals.</li>
+                        <li>Examine your motivation.</li>
+                        <li>Really, really want it.</li>
+                        <li>Commit publicly.</li>
+                        <li>Get excited.</li>
+                        <li>Build anticipation.</li>
+                        <li>Print it out, post it up.</li>
+                    </ul>
                     </p>
                 </div>
                 <div class="col-md-4">
