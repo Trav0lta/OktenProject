@@ -13,9 +13,9 @@
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
         </span>
         <a class="navbar-item mr-3">
-
+            <c:if test="${currentUser.avatar != null}">
                 <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
-
+            </c:if>
             <c:if test="${currentUser.avatar == null}">
                  <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">
             </c:if>

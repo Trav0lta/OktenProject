@@ -32,8 +32,6 @@ public class AccountController {
         return "account";
     }
 
-
-
     @GetMapping("/goal")
     public String toGoal (Model model,
                 Principal principal){
