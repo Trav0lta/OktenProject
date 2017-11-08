@@ -23,7 +23,8 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/responsive.css" media="screen and (max-width:1024px)">
     <link rel="stylesheet" href="../../resources/css/open-iconic-bootstrap.css">
     <script src="../../resources/js/scriptUser.js"></script>
-
+    <script src="../../resources/js/script.js"></script>
+    <script src="https://use.fontawesome.com/a714bae699.js"></script>
 </head>
 
 <body>

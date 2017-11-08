@@ -168,3 +168,37 @@ body {
     padding-right: 20px;
     padding-left: 20px;
 }
+.edit-button {
+    text-align: right
+}
+.edit-btn {
+    cursor: pointer;
+    color: #157FFB;
+    text-align: right
+}
+.cancel-field, .save-field {
+    text-align: center;
+    cursor: pointer
+}
+.cancel-field {
+    color: #E53935
+}
+.save-field {
+    color: #43A047
+}
+.edit-input {
+    font-size: 22px;
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid #157FFB;
+    outline: none
+}
+#profile-settings {
+    margin: 25% 0
+}
+#profile-settings .col-md-5 h4 {
+    font-weight: 400
+}
+.field-editable {
+    margin: 10px 0
+}

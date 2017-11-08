@@ -117,32 +117,84 @@ $(document).ready(function () {
     });
 
     // Profile Settings
-    $(".field-editable .btn").click(function () {
-        var btnId = $(this).attr("id");
-        $(".field-editable .btn").hide();
-        btnId = btnId.slice(0, -5);
-        var field = $("#"+btnId);
-        var oldValue = field.text();
-        var editableField = "<div class='temp-edit-block'><input class='edit-input' type='text'><div class='save-field'>Save</div><div class='cancel-field'>Cancel</div></div>";
-        field.after(editableField);
-        field.hide();
-        $("#profile-settings input").attr('class', '').addClass("edit-input").addClass("input-"+btnId);
-        var data = field.text();
-        $(".input-"+btnId).val(data);
+    $(".field-editable .edit-btn").click(function () {
+        if ($(this).attr('id') === 'password-edit') {
+            var btnId = $(this).attr("id");
+            $(".field-editable .edit-btn").hide();
+            btnId = btnId.slice(0, -5);
+            var field = $("#"+btnId);
+            var oldValue = field.text();
+            var editableField = "<div class='temp-edit-block'><input class='edit-input password-field-change' placeholder='New password' type='password'><input class='edit-input password-field-change-confirm' placeholder='Repeat new password' type='password'><div class='row'><div class='save-field col-md-3'><i class=\"fa fa-check\" aria-hidden=\"true\"></i></div><div class='cancel-field col-md-3'><i class=\"fa fa-times\" aria-hidden=\"true\"></i></div></div></div>";
+            field.after(editableField);
+            field.hide();
+            // $("#profile-settings input").attr('class', '').addClass("edit-input").addClass("input-"+btnId);
 
-        $(".save-field").click(function () {
-            field.text($(".input-"+btnId).val());
-            $(".temp-edit-block").remove();
-            field.show();
-            $(".field-editable .btn").show()
-        });
+            $(".save-field").click(function () {
+                if ($(".password-field-change").val() !== $(".password-field-change-confirm").val() || !$(".password-field-change").val() || !$(".password-field-change").val().match(/^[a-zA-Z0-9]{4,}$/)) {
+                    alert("Password error")
+                } else {
+                    $(".temp-edit-block").remove();
+                    field.show();
+                    $(".field-editable .edit-btn").show()
+                }
+            });
 
-        $(".cancel-field").click(function () {
-            field.text(oldValue);
-            $(".temp-edit-block").remove();
-            field.show();
-            $(".field-editable .btn").show()
-        });
+            $(".cancel-field").click(function () {
+                $(".temp-edit-block").remove();
+                field.show();
+                $(".field-editable .edit-btn").show()
+            });
+        } else {
+            var btnId = $(this).attr("id");
+            $(".field-editable .edit-btn").hide();
+            btnId = btnId.slice(0, -5);
+            var field = $("#" + btnId);
+            var oldValue = field.text();
+            var editableField = "<div class='temp-edit-block'><input class='edit-input' type='text'><div class='row'><div class='save-field col-md-3'><i class=\"fa fa-check\" aria-hidden=\"true\"></i></div><div class='cancel-field col-md-3'><i class=\"fa fa-times\" aria-hidden=\"true\"></i></div></div></div>";
+            field.after(editableField);
+            field.hide();
+            $("#profile-settings input").attr('class', '').addClass("edit-input").addClass("input-" + btnId);
+            var data = field.text();
+            $(".input-" + btnId).val(data);
+
+            $(".save-field").click(function () {
+                if (btnId === "nickname") {
+                    if (!$(".input-" + btnId).val() || !$(".input-" + btnId).val().match(/^[a-zA-Z0-9]{4,}$/)) {
+                        alert("At least 4 characters")
+                    } else {
+                        field.text($(".input-" + btnId).val());
+                        $(".temp-edit-block").remove();
+                        field.show();
+                        $(".field-editable .edit-btn").show()
+                    }
+                } else if (btnId === "email") {
+                    if (!$(".input-" + btnId).val() || !$(".input-" + btnId).val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                        alert("Invalid email")
+                    } else {
+                        field.text($(".input-" + btnId).val());
+                        $(".temp-edit-block").remove();
+                        field.show();
+                        $(".field-editable .edit-btn").show()
+                    }
+                } else {
+                    if (!$(".input-" + btnId).val()) {
+                        alert("Can't be empty")
+                    } else {
+                        field.text($(".input-" + btnId).val());
+                        $(".temp-edit-block").remove();
+                        field.show();
+                        $(".field-editable .edit-btn").show()
+                    }
+                }
+            });
+
+            $(".cancel-field").click(function () {
+                field.text(oldValue);
+                $(".temp-edit-block").remove();
+                field.show();
+                $(".field-editable .edit-btn").show()
+            });
+        }
     });
 
 });
