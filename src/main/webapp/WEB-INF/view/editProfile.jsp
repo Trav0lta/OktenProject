@@ -30,17 +30,41 @@
     </div>
     <!-- navbar end -->
     <!-- main section -->
-    <div class="container autoheightS">
-        <div>
-            <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle">
-            <c:if test="${currentUser.avatar == null}">
-                <img src="/resources/img/avatar.png" width="200" height="200" class="rounded-circle">
-            </c:if>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <form:form action= "updateUser" method="post"  modelAttribute="currentUser">
+                <table>
+
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type='text' name='firstName' value="${currentUser.firstName}"></td>
+                    </tr>
+                    <tr>
+                        <td>Lastname:</td>
+                        <td><input type='text' name='lastName' value="${currentUser.lastName}"></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type='text' name='email' value="${currentUser.email}"></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type='text' name='username' value="${currentUser.username}"></td>
+                    </tr>
+
+                </table>
+
+                <input name="submit" type="submit" value="submit"/>
+
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                <input type="hidden" name="userId" value="${currentUser.id}" />
+            </form:form>
         </div>
-        <a href="/edit-profile">Edit your profile</a><br>
-        <a href="/editProfile">Edit your profile by vav</a>
     </div>
+
     <!-- main section end -->
 
 

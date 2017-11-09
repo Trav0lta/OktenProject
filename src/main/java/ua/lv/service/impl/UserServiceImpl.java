@@ -1,10 +1,12 @@
 package ua.lv.service.impl;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.lv.dao.UserDAO;
@@ -25,7 +27,6 @@ public class UserServiceImpl implements UserService,UserDetailsService{
     PasswordEncoder passwordEncoder;
 
 
-
     public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDAO.save(user);
@@ -38,6 +39,9 @@ public class UserServiceImpl implements UserService,UserDetailsService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return findByName(username);
     }
+    public UserDetails loadUserByID (Integer id) throws UsernameNotFoundException {
+        return findOne(id);
+    }
 
     public List<User> findAll() {
         return userDAO.findAll();
@@ -46,4 +50,6 @@ public class UserServiceImpl implements UserService,UserDetailsService{
     public User findOne(int id) {
         return userDAO.findOne(id);
     }
+
+
 }

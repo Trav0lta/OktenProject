@@ -157,10 +157,7 @@ public class User implements UserDetails {
     }
 
     public String getAvatar() {
-
-        String avatarPath =  System.getProperty("user.home") + File.separator + "images" + avatar;
-
-        return avatarPath;
+        return avatar;
     }
 
     public void setAvatar(MultipartFile multipartFile) {
