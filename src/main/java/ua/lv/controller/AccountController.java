@@ -25,47 +25,39 @@ public class AccountController {
     @GetMapping("/account")
     public String toWelcome(Model model,
                             Principal principal){
-        String principalName = principal.getName();
-        User byUsername = userService.findByName(principalName);
-        model.addAttribute("currentUser", byUsername);
-        model.addAttribute("emptyAccount",new Account());
+//        String principalName = principal.getName();
+//        User byUsername = userService.findByName(principalName);
+//        model.addAttribute("currentUser", byUsername);
+        model.addAttribute("emptyGoal",new Account());
+        model.addAttribute("goalList", accountService.findAll());
         return "account";
     }
 
     @GetMapping("/goal")
     public String toGoal (Model model,
                 Principal principal){
-            String principalName = principal.getName();
-            User byUsername = userService.findByName(principalName);
-            model.addAttribute("currentUser", byUsername);
+            model.addAttribute("emptyGoal", new Account());
+//            String principalName = principal.getName();
+//            User byUsername = userService.findByName(principalName);
+//            model.addAttribute("currentUser", byUsername);
+
           return "goal";
     }
 
 
-
-    @RequestMapping(value = "goal",method = RequestMethod.POST)
-    public String addAccount(Model model,
-                             Principal principal,
-                             @RequestParam("goalName") String goalName,
-                             @RequestParam("category") String category,
-                             @RequestParam("goalDesc") String goalDesc,
-                             @RequestParam("Deadline") String Deadline,
-                             @RequestParam("goalCrName") String goalCrName,
-                             @RequestParam("goalCrNum") String goalCrNum){
+    @RequestMapping(value = "/account" ,method = RequestMethod.POST)
+    public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
-        Account account = new Account();
-        account.setGoalName(goalName);
-        account.setCategory(category);
-        account.setGoalDesc(goalDesc);
-        account.setDeadline(Deadline);
-        account.setGoalCrName(goalCrName);
-        account.setGoalCrNum(goalCrNum);
-        account.setUser(byUsername);
         accountService.save(account);
-        return "/account";
+        return "goal";
     }
+
+
+
+
+
 
     @RequestMapping(value = "/showAllInterests", method = RequestMethod.GET)
     public String showAllInterests(Model model) {

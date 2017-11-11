@@ -7,11 +7,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import ua.lv.dto.UserDTO;
+
 import ua.lv.entity.User;
 import ua.lv.service.UserService;
-import ua.lv.service.impl.UserServiceImpl;
 
 import java.security.Principal;
 import java.util.Date;
