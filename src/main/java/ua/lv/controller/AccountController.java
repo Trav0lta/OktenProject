@@ -40,7 +40,6 @@ public class AccountController {
             String principalName = principal.getName();
             User byUsername = userService.findByName(principalName);
             model.addAttribute("currentUser", byUsername);
-
           return "goal";
     }
 

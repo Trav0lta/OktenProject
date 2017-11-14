@@ -46,26 +46,28 @@
                     <div class="col" style="max-width: 1400px">
                         <div class="card autoheight1" style="overflow-y: auto;">
                             <div class="list-group list-group-flush">
-                                <c:forEach items="${goalList}" var="go">
-                                    <div class="list-group-item autoheight2 row m-0">
-                                        <div class="col-sm-8">
-                                            <h5>${go.goalName}</h5>
-                                            <p>${go.goalDesc}</p>
-                                            <h4>${go.user.username}</h4>
-                                        </div>
-                                        <div class="col-sm-2 mTop">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <c:forEach items="${goalList}" var="go">
+                                        <c:if test="${go.user.id == currentUser.id}">
+                                            <div class="list-group-item autoheight2 row m-0">
+                                                <div class="col-sm-8">
+                                                    <h5>${go.goalName}</h5>
+                                                    <p>${go.goalDesc}</p>
+                                                    <h4>${go.user.username}</h4>
+                                                </div>
+                                                <div class="col-sm-2 mTop">
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1 text-center mTop">
+                                                    <a href="#"><span class="oi oi-plus"></span></a>
+                                                </div>
+                                                <div class="col-sm-1 text-center mTop">
+                                                    <a href="#"><span class="oi oi-pencil"></span></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-1 text-center mTop">
-                                            <a href="#"><span class="oi oi-plus"></span></a>
-                                        </div>
-                                        <div class="col-sm-1 text-center mTop">
-                                            <a href="#"><span class="oi oi-pencil"></span></a>
-                                        </div>
-                                    </div>
-                                </c:forEach>
+                                        </c:if>
+                                    </c:forEach>
                             </div>
                         </div>
                     </div>

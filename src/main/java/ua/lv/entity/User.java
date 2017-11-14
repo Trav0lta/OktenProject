@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 @Entity
 public class User implements UserDetails {
     @Id
@@ -23,18 +25,14 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
     private String avatar;
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
-    private Account account;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "user")
+    private List<Account> accounts;
 
 
     public User() {
     }
 
-    public User(String username, String password, Account acaunt) {
-        this.username = username;
-        this.password = password;
-        this.account = acaunt;
-    }
+
 
     @Enumerated(EnumType.STRING)
     private Authority authority = Authority.ROLE_USER;
@@ -124,12 +122,12 @@ public class User implements UserDetails {
         this.lastName = lastName;
     }
 
-    public Account getAcaunt() {
-        return account;
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setAcaunt(Account acaunt) {
-        this.account = acaunt;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
     public Authority getAuthority() {

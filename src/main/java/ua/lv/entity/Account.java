@@ -17,7 +17,7 @@ public class Account {
     private String Deadline;
     private String goalCrName;
     private String goalCrNum;
-    @OneToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private User user;
 
 
