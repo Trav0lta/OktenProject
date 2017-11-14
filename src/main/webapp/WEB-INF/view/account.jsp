@@ -52,7 +52,6 @@
                                                 <div class="col-sm-8">
                                                     <h5>${go.goalName}</h5>
                                                     <p>${go.goalDesc}</p>
-                                                    <h4>${go.user.username}</h4>
                                                 </div>
                                                 <div class="col-sm-2 mTop">
                                                     <div class="progress">
@@ -73,5 +72,6 @@
                     </div>
                 </div>
             </div>
+
     </div>
 <%@include file="tmp/footerUser.jsp"%>
