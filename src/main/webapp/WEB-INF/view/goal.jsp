@@ -13,7 +13,10 @@
     	</span>
 
         <a class="navbar-item mr-3">
-            <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle">
+            <c:if test="${currenUser != null}">
+                <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle">
+            </c:if>
+
             <c:if test="${currentUser.avatar == null}">
                  <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle">
             </c:if>
@@ -31,31 +34,39 @@
     <div class="container autoheightS">
         <div class="row align-items-center h-100">
             <div class="col-12">
-                <form method="POST" action="goal">
+                <form:form action="/account" modelAttribute="emptyGoal">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="goalName">Goal name:</label>
-                            <input type="text" name="goalName" class="form-control" id="goalName" placeholder="Name">
+                            <form:label path="goalName">
+                                <spring:message text="Goal"/>
+                            </form:label>
+                            <form:input path="goalName" class="form-control" id="goalName" placeholder="Name"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="category">Category:</label>
-                            <select name="category" class="form-control" id="category">
+                            <form:label path="category">
+                                <spring:message text="Category"/>
+                            </form:label>
+                            <form:select path="category" class="form-control" id="category">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
                                 <option>4</option>
                                 <option>5</option>
-                            </select>
+                            </form:select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="goalDesc">Goal description:</label>
-                            <textarea class="form-control" name="goalDesc" id="goalDesc" rows="3"></textarea>
+                            <form:label path="goalDesc">
+                                <spring:message text="Desc"/>
+                            </form:label>
+                            <form:textarea path="goalDesc" class="form-control" name="goalDesc" id="goalDesc" rows="3"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="datepicker">Deadline:</label>
-                            <input name="Deadline" id="datepicker" width="276" />
+                            <form:label path="Deadline">
+                                <spring:message text="Deadline"/>
+                            </form:label>
+                            <form:input path="deadline" id="datepicker" width="276"/>
                             <script>
                                 $('#datepicker').datepicker({
                                     uiLibrary: 'bootstrap4',
@@ -66,12 +77,16 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="goalCrName">Criterion of achivement:</label>
-                            <input type="text" name="goalCrName" class="form-control" id="goalCrName" placeholder="Criterion">
+                            <form:label path="goalCrName">
+                                <spring:message text="Criterion"/>
+                            </form:label>
+                            <form:input path="goalCrName" class="form-control" id="goalCrName" placeholder="Criterion"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="goalCrNum">Quantity:</label>
-                            <input type="number" name="goalCrNum" min="1" class="form-control" id="goalCrNum" placeholder="Quantity">
+                            <form:label path="goalCrNum">
+                                <spring:message text="Quantity"/>
+                            </form:label>
+                            <form:input path="goalCrNum" min="1" class="form-control" id="goalCrNum" placeholder="Quantity"/>
                         </div>
                     </div>
                     <div class="form-row"> <div  class="form-group col-md-3">
@@ -79,7 +94,7 @@
                         <input type="submit" class="btn btn-outline-success"/>
                         <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/></div>
                     </div>
-                </form>
+                </form:form>
             </div>
         </div>
     </div>

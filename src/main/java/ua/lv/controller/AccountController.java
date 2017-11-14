@@ -25,9 +25,9 @@ public class AccountController {
     @GetMapping("/account")
     public String toWelcome(Model model,
                             Principal principal){
-//        String principalName = principal.getName();
-//        User byUsername = userService.findByName(principalName);
-//        model.addAttribute("currentUser", byUsername);
+        String principalName = principal.getName();
+        User byUsername = userService.findByName(principalName);
+        model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal",new Account());
         model.addAttribute("goalList", accountService.findAll());
         return "account";
@@ -37,9 +37,9 @@ public class AccountController {
     public String toGoal (Model model,
                 Principal principal){
             model.addAttribute("emptyGoal", new Account());
-//            String principalName = principal.getName();
-//            User byUsername = userService.findByName(principalName);
-//            model.addAttribute("currentUser", byUsername);
+            String principalName = principal.getName();
+            User byUsername = userService.findByName(principalName);
+            model.addAttribute("currentUser", byUsername);
 
           return "goal";
     }
@@ -50,20 +50,9 @@ public class AccountController {
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
+        account.setUser(byUsername);
         accountService.save(account);
         return "goal";
-    }
-
-
-
-
-
-
-    @RequestMapping(value = "/showAllInterests", method = RequestMethod.GET)
-    public String showAllInterests(Model model) {
-        List<Account> accounts = accountService.findAll();
-        model.addAttribute("AllInterestsName", accounts);
-        return "welcome";
     }
 
     

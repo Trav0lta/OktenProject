@@ -32,6 +32,7 @@
     </div>
 
     <div class="container">
+
         <div class="row mt-5">
             <div class="col text-center">
                 <h2>Your goals for a <select class="form-control" style="display: inline-block; width: 15%;">
@@ -39,160 +40,36 @@
                 </select><a href="/goal" class="btn btn-outline-primary btn-sm ml-5" role="button" aria-pressed="true">Add goal</a></h2>
             </div>
         </div>
-        <div class="container-fluid">
-            <div  class="row ml-5 mr-5 mt-4 justify-content-center">
-                <div class="col" style="max-width: 1400px">
-                    <div class="card autoheight1" style="overflow-y: auto;">
-                        <div class="list-group list-group-flush">
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="container-fluid">
+                <div  class="row ml-5 mr-5 mt-4 justify-content-center">
+                    <div class="col" style="max-width: 1400px">
+                        <div class="card autoheight1" style="overflow-y: auto;">
+                            <div class="list-group list-group-flush">
+                                <c:forEach items="${goalList}" var="go">
+                                    <div class="list-group-item autoheight2 row m-0">
+                                        <div class="col-sm-8">
+                                            <h5>${go.goalName}</h5>
+                                            <p>${go.goalDesc}</p>
+                                            <h4>${go.user.username}</h4>
+                                        </div>
+                                        <div class="col-sm-2 mTop">
+                                            <div class="progress">
+                                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1 text-center mTop">
+                                            <a href="#"><span class="oi oi-plus"></span></a>
+                                        </div>
+                                        <div class="col-sm-1 text-center mTop">
+                                            <a href="#"><span class="oi oi-pencil"></span></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
+                                </c:forEach>
                             </div>
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title1</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
-                            </div>
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title2</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
-                            </div>
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title3</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
-                            </div>
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title4</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
-                            </div>
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title5</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
-                            </div>
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title6</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
-                            </div>
-                            <div class="list-group-item autoheight2 row m-0">
-                                <div class="col-sm-8">
-                                    <h5>Card title7</h5>
-                                    <p >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                                <div class="col-sm-2 mTop">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-plus"></span></a>
-                                </div>
-                                <div class="col-sm-1 text-center mTop">
-                                    <a href="#"><span class="oi oi-pencil"></span></a>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 <%@include file="tmp/footerUser.jsp"%>
