@@ -56,10 +56,36 @@
                                                 <div class="col-sm-2 mTop">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
+                                                    </div><p class="progressText"><b>10/20</b></p>
                                                 </div>
                                                 <div class="col-sm-1 text-center mTop">
-                                                    <a href="#"><span class="oi oi-plus"></span></a>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal"><span class="oi oi-plus"></span></a>
+                                                </div>
+                                                <div class="modal fade" id="myModal" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Add to goal</h4>
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Your current progres: <b>10/20</b></p><br>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                </div><br>
+                                                                <p>Change your progress:</p><br>
+                                                                <div class="range-slider">
+                                                                    <input class="range-slider__range" type="range" value="10" min="10" max="20">
+                                                                    <span class="range-slider__value">10</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-sm-1 text-center mTop">
                                                     <a href="#"><span class="oi oi-pencil"></span></a>
