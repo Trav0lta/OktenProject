@@ -47,11 +47,11 @@
                                 <spring:message text="Category"/>
                             </form:label>
                             <form:select path="category" class="form-control" id="category">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <option>Sport</option>
+                                <option>Power up my skills</option>
+                                <option>Studying</option>
+                                <option>Improving myself</option>
+                                <option>Success</option>
                             </form:select>
                         </div>
                     </div>
@@ -84,14 +84,15 @@
                         </div>
                         <div class="form-group col-md-6">
                             <form:label path="goalCrNum">
-                                <spring:message text="Quantity"/>
+                                <spring:message text="Quantity (only numbers)"/>
                             </form:label>
                             <form:input path="goalCrNum" min="1" class="form-control" id="goalCrNum" placeholder="Quantity"/>
                         </div>
                     </div>
                     <div class="form-row"> <div  class="form-group col-md-3">
-                        <button type="reset" class="btn btn-outline-danger">Cancel</button>
-                        <input type="submit" class="btn btn-outline-success"/>
+                        <a href="/backToAccount"  class="btn btn-outline-primary" role="button" aria-pressed="true">Back</a>
+                        <button type="reset" class="btn btn-outline-danger">Reset</button>
+                        <input type="submit" class="btn btn-outline-success" />
                         <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/></div>
                     </div>
                 </form:form>

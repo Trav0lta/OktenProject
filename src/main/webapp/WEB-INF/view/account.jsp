@@ -55,8 +55,8 @@
                                                 </div>
                                                 <div class="col-sm-2 mTop">
                                                     <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div><p class="progressText"><b>10/20</b></p>
+                                                        <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div><p class="progressText"><b>${go.currentGoalCrNum}/${go.goalCrNum}</b></p>
                                                 </div>
                                                 <div class="col-sm-1 text-center mTop">
                                                     <a href="#" data-toggle="modal" data-target="#myModal"><span class="oi oi-plus"></span></a>
@@ -66,24 +66,30 @@
 
                                                         <!-- Modal content-->
                                                         <div class="modal-content">
+                                                            <form action="/changeGoal" method="post">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title">Add to goal</h4>
+                                                                <h4 class="modal-title">Add progress to your goal</h4>
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p>Your current progres: <b>10/20</b></p><br>
+                                                                <p>Your current progress: <b>${go.currentGoalCrNum}/${go.goalCrNum}</b></p><br>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                                 </div><br>
                                                                 <p>Change your progress:</p><br>
                                                                 <div class="range-slider">
-                                                                    <input class="range-slider__range" type="range" value="10" min="10" max="20">
-                                                                    <span class="range-slider__value">10</span>
+                                                                    <input class="range-slider__range" type="range" name="currentGoalCrNum" value="${go.currentGoalCrNum}" min="${go.currentGoalCrNum}" max="${go.goalCrNum}">
+                                                                    <span class="range-slider__value">${go.currentGoalCrNum}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
+                                                                <%--<a href="/changeGoal"  class="btn btn-outline-primary" role="button" aria-pressed="true">Save</a>--%>
+                                                                    <input type="submit" class="tn btn-outline-primary">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                             </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>

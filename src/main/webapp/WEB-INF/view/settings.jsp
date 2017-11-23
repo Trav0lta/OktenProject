@@ -32,10 +32,10 @@
     <!-- main section -->
     <div class="container autoheightS">
         <div>
-            <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle">
+           <a href="/editYourAva"> <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle" >
             <c:if test="${currentUser.avatar == null}">
                 <img src="/resources/img/avatar.png" width="200" height="200" class="rounded-circle">
-            </c:if>
+            </c:if></a><br>
 
         </div>
         <a href="/edit-profile">Edit your profile</a><br>

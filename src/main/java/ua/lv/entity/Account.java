@@ -16,9 +16,11 @@ public class Account {
     private String goalDesc;
     private String Deadline;
     private String goalCrName;
-    private String goalCrNum;
+    private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private User user;
+
+    private int currentGoalCrNum = 0;
 
 
     public Account() {
@@ -72,11 +74,11 @@ public class Account {
         this.goalCrName = goalCrName;
     }
 
-    public String getGoalCrNum() {
+    public int getGoalCrNum() {
         return goalCrNum;
     }
 
-    public void setGoalCrNum(String goalCrNum) {
+    public void setGoalCrNum(int goalCrNum) {
         this.goalCrNum = goalCrNum;
     }
 
@@ -88,6 +90,14 @@ public class Account {
         this.user = user;
     }
 
+    public int getCurrentGoalCrNum() {
+        return currentGoalCrNum;
+    }
+
+    public void setCurrentGoalCrNum(int currentGoalCrNum) {
+        this.currentGoalCrNum = currentGoalCrNum;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -97,6 +107,7 @@ public class Account {
                 ", goalDesc='" + goalDesc + '\'' +
                 ", goalCrName='" + goalCrName + '\'' +
                 ", goalCrNum='" + goalCrNum + '\'' +
+                ", currentGoalCrNum='" + currentGoalCrNum + '\'' +
                 '}';
     }
 }

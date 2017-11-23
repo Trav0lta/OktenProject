@@ -44,6 +44,8 @@ public class AccountController {
     }
 
 
+
+
     @RequestMapping(value = "/account" ,method = RequestMethod.POST)
     public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account){
         String principalName = principal.getName();
@@ -51,8 +53,23 @@ public class AccountController {
         model.addAttribute("currentUser", byUsername);
         account.setUser(byUsername);
         accountService.save(account);
-        return "goal";
+        return "redirect:/account";
     }
 
+    @RequestMapping(value = "/backToAccount" ,method = RequestMethod.GET)
+    public String backAc(){
+        return "redirect:/account";
+    }
+
+    @RequestMapping(value = "/changeGoal" ,method = RequestMethod.POST)
+    public String changeProgress( @RequestParam int currentGoalCrNum,
+                                 Principal principal){
+
+
+        Account currentGoal = accountService.findByInterest(principal.getName());
+        currentGoal.setCurrentGoalCrNum(currentGoalCrNum);
+        accountService.save(currentGoal);
+        return "redirect:/account";
+    }
     
 }

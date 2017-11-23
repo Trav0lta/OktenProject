@@ -66,7 +66,7 @@
                     </div>
                     <div class="field">
                         <div class="${status.error ? 'has-error' : ''}">
-                            <label for="validationRegister03">confirmPassword</label>
+                            <label for="validationRegister03">ConfirmPassword</label>
                             <form:input type="password" path="confirmPassword" class="form-control required-sign-up-field" id="validationRegister03" placeholder="Confirm your password"/>
                             <form:errors path="confirmPassword" class="cs"/>
                         </div>
