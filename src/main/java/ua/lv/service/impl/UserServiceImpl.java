@@ -51,13 +51,17 @@ public class UserServiceImpl implements UserService,UserDetailsService{
         return userDAO.findOne(id);
     }
 
-    public void updateUser(int id, String firstName, String lastName, String email, String username, String password) {
-        userDAO.updateUser(id, firstName, lastName, email, username, password);
+    public void updateUser(int id, String firstName, String lastName, String email, String username) {
+        userDAO.updateUser(id, firstName, lastName, email, username);
     }
 
-    public void updateUsername(int id, String username) {
-        userDAO.updateUsername(id, username);
+    public void updatePassword(User user, int id, String password) {
+
+        userDAO.updatePassword(id, password);
     }
+//    public void updatePassword(int id, String password) {
+//        userDAO.updatePassword(id, password);
+//    }
 
     public void updateAvatar(String username, String avatar) {
         userDAO.updateAvatar(username, avatar);

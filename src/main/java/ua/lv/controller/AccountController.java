@@ -63,12 +63,12 @@ public class AccountController {
 
     @RequestMapping(value = "/changeGoal" ,method = RequestMethod.POST)
     public String changeProgress( @RequestParam int currentGoalCrNum,
+                                  @RequestParam int goalId,
                                  Principal principal){
 
 
-        Account currentGoal = accountService.findByInterest(principal.getName());
-        currentGoal.setCurrentGoalCrNum(currentGoalCrNum);
-        accountService.save(currentGoal);
+//        Account currentGoal = accountService.findByAccountInterest(principal.getName());
+        accountService.updateProgress(goalId, currentGoalCrNum);
         return "redirect:/account";
     }
     

@@ -31,58 +31,81 @@
     <!-- navbar end -->
     <!-- main section -->
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div id="profile-settings" class="row">
-                    <div class="field-editable col-md-6 row">
-                        <div class="col-md-5">
-                            <h4 id="name" class="user-field-edit">${currentUser.firstName}</h4>
-                        </div>
-                        <div class="col-md-7">
-                            <div id="name-edit" class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
+    <div class="col-sm-8 text-center">
+        <form action="/updateUserSpring"
+              method="post" class="form-horizontal">
 
-                    <div class="field-editable col-md-6 row">
-                        <div class="col-md-5">
-                            <h4 id="lastname" class="user-field-edit">${currentUser.lastName}</h4>
-                        </div>
-                        <div class="col-md-7">
-                            <div id="lastname-edit" class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
 
-                    <div class="field-editable col-md-12 row">
-                        <div class="col-md-5">
-                            <h4 id="email" class="user-field-edit">${currentUser.email}</h4>
-                        </div>
-                        <div class="col-md-7">
-                            <div id="email-edit" class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
+            <!-- Form Name -->
+            <legend>Update your info</legend>
+            <input type="hidden" value="${currentUser.id}" name="userId">
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="fn">First name:</label>
+                <div class="col-md-4">
+                    <input id="fn"
+                           type="text"
 
-                    <div class="field-editable col-md-12 row">
-                        <div class="col-md-5">
-                            <h4 id="nickname" class="user-field-edit">${currentUser.username}</h4>
-                        </div>
-                        <div class="col-md-7">
-                            <div id="nickname-edit" class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
-
-                    <div class="field-editable col-md-12 row">
-                        <div class="col-md-5">
-                            <h4 id="password" class="user-field-edit">Password</h4>
-                        </div>
-                        <div class="col-md-7">
-                            <div id="password-edit" class="edit-btn"><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                        </div>
-                    </div>
+                           name="firstName"
+                           class="form-control input-md"
+                           value="${currentUser.firstName}"
+                           >
                 </div>
             </div>
-        </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ln">Last name:</label>
+                <div class="col-md-4">
+                    <input id="an"
+                           type="text"
+
+                           name="lastName"
+                           class="form-control input-md"
+                           value="${currentUser.lastName}"
+                           >
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ln">Email:</label>
+                <div class="col-md-4">
+                    <input id="bn"
+                           type="text"
+
+                           name="email"
+                           class="form-control input-md"
+                           value="${currentUser.email}"
+                           >
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="ln">Username:</label>
+                <div class="col-md-4">
+                    <input id="ln"
+                           type="text"
+
+                           name="username"
+                           class="form-control input-md"
+                           value="${currentUser.username}"
+                           >
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+                    <input id="submit" type="submit" class="btn btn-primary"></input>
+                    <input type="hidden"
+                           name="${_csrf.parameterName}"
+                           value="${_csrf.token}"/>
+                </div>
+            </div>
+
+        </form>
+
     </div>
 
     <!-- main section end -->

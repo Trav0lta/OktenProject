@@ -22,8 +22,12 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.save(account);
     }
 
-    public Account findByInterest(String interestName) {
-        return accountDAO.findByAccountInterest(interestName);
+    public Account findByAccountInterest(String goalName) {
+       return accountDAO.findByAccountInterest(goalName);
+    }
+
+    public void updateProgress(int id, int currentGoalCrNum) {
+        accountDAO.updateProgress(id, currentGoalCrNum);
     }
 
     public List<Account> findAll() {

@@ -67,6 +67,7 @@
                                                         <!-- Modal content-->
                                                         <div class="modal-content">
                                                             <form action="/changeGoal" method="post">
+                                                                <input type="hidden" value="${go.id}" name="goalId">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title">Add progress to your goal</h4>
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>

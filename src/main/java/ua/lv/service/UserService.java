@@ -13,8 +13,8 @@ public interface UserService {
     List<User> findAll();
     User findOne(int id);
 
-    void updateUsername (int id, String username);
-    void updateUser (int id, String firstName, String lastName, String email, String username, String password);
+    void updatePassword (User user, int id, String password);
+    void updateUser (int id, String firstName, String lastName, String email, String username);
 
     void updateAvatar(String username, String avatar);
 

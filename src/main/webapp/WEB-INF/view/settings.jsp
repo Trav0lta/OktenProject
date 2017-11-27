@@ -39,7 +39,7 @@
 
         </div>
         <a href="/edit-profile">Edit your profile</a><br>
-        <a href="/editProfile">Edit your profile by vav</a>
+        <a href="/editPassword">Edit your password</a>
     </div>
     <!-- main section end -->
 

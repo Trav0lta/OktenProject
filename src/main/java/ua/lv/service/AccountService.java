@@ -1,5 +1,6 @@
 package ua.lv.service;
 
+import org.springframework.data.repository.query.Param;
 import ua.lv.entity.Account;
 
 import java.util.List;
@@ -10,7 +11,9 @@ import java.util.List;
 public interface AccountService {
     void save(Account account);
 
-    Account findByInterest(String interestName);
+    Account findByAccountInterest(String goalName);
+
+    void updateProgress(int id, int currentGoalCrNum);
 
     List<Account> findAll();
     Account findOne(int id);

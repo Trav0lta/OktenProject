@@ -31,39 +31,22 @@
     <!-- navbar end -->
     <!-- main section -->
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
+            <div class="container">
+                <form class="form-horizontal" role="form" action="/changePassword" method="post">
+                    <h2>Changing password</h2>
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <input type="hidden" value="${currentUser.id}" name="userId" >
+                            <p><input type="password" name="password" class="form-control"></p>
+                            <p><input type="submit" value="Change password" class="btn btn-primary btn-block"></p>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-            <form:form action= "updateUser" method="post"  modelAttribute="currentUser">
-                <table>
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>Name:</td>
-                        <td><input type='text' name='firstName' value="${currentUser.firstName}"></td>
-                    </tr>
-                    <tr>
-                        <td>Lastname:</td>
-                        <td><input type='text' name='lastName' value="${currentUser.lastName}"></td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td><input type='text' name='email' value="${currentUser.email}"></td>
-                    </tr>
-                    <tr>
-                        <td>Username:</td>
-                        <td><input type='text' name='username' value="${currentUser.username}"></td>
-                    </tr>
 
-                </table>
-
-                <input name="submit" type="submit" value="submit"/>
-
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                <input type="hidden" name="userId" value="${currentUser.id}" />
-            </form:form>
-        </div>
-    </div>
+                </form>
+            </div>
 
     <!-- main section end -->
 

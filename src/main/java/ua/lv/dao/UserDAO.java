@@ -19,13 +19,13 @@ public interface UserDAO extends JpaRepository<User,Integer> {
     User findOne(@Param("id")int id);
 
     @Modifying
-    @Query("update User set username=:username where id=:id ")
-    void updateUsername(@Param("id") int id, @Param("username") String username);
+    @Query("update User user set user.password=:password where user.id=:id ")
+    void updatePassword(@Param("id") int id, @Param("password") String password);
 
     @Modifying
-    @Query("update User set firstName=:firstName, lastName=:lastName, email=:email, username=:username, password=:password  where id=:id ")
+    @Query("update User set firstName=:firstName, lastName=:lastName, email=:email, username=:username where id=:id ")
     void updateUser(@Param("id") int id, @Param("firstName") String firstName,
-                    @Param("lastName") String lastName, @Param("email") String email, @Param("username") String username, @Param("password") String password);
+                    @Param("lastName") String lastName, @Param("email") String email, @Param("username") String username);
 
     @Modifying
     @Query("update User set avatar=:avatar where username=:username")

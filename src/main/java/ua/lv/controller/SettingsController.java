@@ -6,12 +6,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.multipart.MultipartFile;
 import ua.lv.entity.User;
 import ua.lv.service.UserService;
+import ua.lv.validator.UserValidator;
 
+import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
@@ -21,7 +24,8 @@ import java.util.Date;
 @Controller
 public class SettingsController {
 
-
+    @Autowired
+    UserValidator userValidator;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -45,43 +49,42 @@ public class SettingsController {
         model.addAttribute("currentUser", byUsername);
         return "edit-profile"; }
 
-    @GetMapping("/editProfile")
-    public String toEditProfileVav (Model model,
+    @RequestMapping(value = "/updateUserSpring", method = RequestMethod.POST)
+    public String updateUserSpring(Principal principal,
+                                   @RequestParam int userId,
+                                   @RequestParam String firstName,
+                                   @RequestParam String lastName,
+                                   @RequestParam String email,
+                                   @RequestParam String username) {
+        String principalName = principal.getName();
+        User byUsername = userService.findByName(principalName);
+
+        userService.updateUser(byUsername.getId(), firstName, lastName, email, username);
+        return "redirect:/settings";
+    }
+
+    @GetMapping("/editPassword")
+    public String toChangePass(Model model,
                                 Principal principal){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
-        return "editProfile"; }
+        return "edit-password"; }
 
-    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
-    public String updateProfile(@ModelAttribute("currentUser")User userFromRequest) {
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    public String changePass(Principal principal,
+                                   @RequestParam int userId,
+                                   @RequestParam String password) {
+        String principalName = principal.getName();
+        User user = userService.findByName(principalName);
 
-        String userUsername = userFromRequest.getUsername();
-        System.out.println(userUsername);
 
-        User userFromDb = userService.findByName(userUsername);
-
-//        Integer userId = userFromRequest.getId();
-//        System.out.println(userId);
-//
-//        User userFromDb = userService.findOne(userId);
-
-                userFromDb.setFirstName(userFromRequest.getFirstName());
-                userFromDb.setLastName(userFromRequest.getLastName());
-                userFromDb.setEmail(userFromRequest.getEmail());
-                userFromDb.setUsername(userFromRequest.getUsername());
-//                String password = userFromRequest.getPassword();
-//                if (password != null && !"".equals(password)) {
-//                    userFromDb.setPassword(passwordEncoder.encode(password));
-//                }
-                userFromDb.setId(userFromDb.getId());
-                userService.save(userFromDb);
-
+        userService.updatePassword(user, user.getId(),  passwordEncoder.encode(password));
         return "redirect:/settings";
     }
 
     @GetMapping("/editYourAva")
-    public String tochangeava (Model model,
+    public String toChangeAva (Model model,
                                Principal principal){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
@@ -101,7 +104,6 @@ public class SettingsController {
 
 
         userService.updateAvatar(username, "\\avatar\\" + avatar.getOriginalFilename());
-        userService.save(user);
         return "redirect:/settings";
     }
 
