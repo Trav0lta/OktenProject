@@ -85,7 +85,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <%--<a href="/changeGoal"  class="btn btn-outline-primary" role="button" aria-pressed="true">Save</a>--%>
-                                                                    <input type="submit" class="tn btn-outline-primary">
+                                                                    <input type="submit" value="Add progress" class="tn btn-outline-primary">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
                                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

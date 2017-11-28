@@ -13,9 +13,11 @@
       		<b>${currentUser.firstName} ${currentUser.lastName}</b>
     	</span>
         <a class="navbar-item mr-3">
-            <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle">
+            <c:if test="${currentUser.avatar != null}">
+                <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
+            </c:if>
             <c:if test="${currentUser.avatar == null}">
-                <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle">
+                <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">
             </c:if>
         </a>
 
@@ -38,7 +40,9 @@
             <form class="form-horizontal" role="form" action="changeAvatar" method="post" enctype="multipart/form-data">
                 <h2>changing Ava</h2>
                 <div>
-                    <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle">
+                    <c:if test="${currentUser.avatar != null}">
+                        <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle">
+                    </c:if>
                     <c:if test="${currentUser.avatar == null}">
                         <img src="/resources/img/avatar.png" width="200" height="200" class="rounded-circle">
                     </c:if>
@@ -55,7 +59,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="submit"></label>
                             <div class="col-md-4">
-                                <input id="submit" type="submit" class="btn btn-primary"></input>
+                                <input id="submit" type="submit" value="Save" class="btn btn-primary"></input>
                                 <input type="hidden"
                                        name="${_csrf.parameterName}"
                                        value="${_csrf.token}"/>

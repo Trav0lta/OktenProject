@@ -158,13 +158,19 @@ public class User implements UserDetails {
         return avatar;
     }
 
-    public void setAvatar(MultipartFile multipartFile) {
-        String path = System.getProperty("user.home") + File.separator + "Pictures\\";
-        try {
-            multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void setAvatar(MultipartFile multipartFile, String avatar) {
+
+        if (multipartFile != null) {
+            String path = System.getProperty("user.home") + File.separator + "Pictures\\";
+            try {
+                multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            this.avatar = "\\avatar\\" + multipartFile.getOriginalFilename();
         }
-        this.avatar = "\\avatar\\" + multipartFile.getOriginalFilename();
+        else{
+            this.avatar =avatar;
+        }
     }
 }

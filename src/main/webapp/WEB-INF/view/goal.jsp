@@ -92,7 +92,7 @@
                     <div class="form-row"> <div  class="form-group col-md-3">
                         <a href="/backToAccount"  class="btn btn-outline-primary" role="button" aria-pressed="true">Back</a>
                         <button type="reset" class="btn btn-outline-danger">Reset</button>
-                        <input type="submit" class="btn btn-outline-success" />
+                        <input type="submit" value="Save goal" class="btn btn-outline-success" />
                         <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/></div>
                     </div>
                 </form:form>

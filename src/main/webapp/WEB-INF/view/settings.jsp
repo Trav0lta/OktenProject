@@ -13,9 +13,11 @@
       		<b>${currentUser.firstName} ${currentUser.lastName}</b>
     	</span>
         <a class="navbar-item mr-3">
-            <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle">
+            <c:if test="${currentUser.avatar != null}">
+                <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
+            </c:if>
             <c:if test="${currentUser.avatar == null}">
-                <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle">
+                <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">
             </c:if>
         </a>
 
@@ -32,7 +34,10 @@
     <!-- main section -->
     <div class="container autoheightS">
         <div>
-           <a href="/editYourAva"> <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle" >
+           <a href="/editYourAva">
+            <c:if test="${currentUser.avatar != null}">
+               <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle" >
+            </c:if>
             <c:if test="${currentUser.avatar == null}">
                 <img src="/resources/img/avatar.png" width="200" height="200" class="rounded-circle">
             </c:if></a><br>
