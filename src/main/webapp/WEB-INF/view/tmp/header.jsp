@@ -22,12 +22,13 @@
     <script src="https://use.fontawesome.com/a714bae699.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../resources/css/responsive.css" media="screen and (max-width:1024px)">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <style type="text/css">
         body {
             font-size: 120%;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-family: 'Raleway', sans-serif;
             color: #101918;
-            background: #0b384f;
+            background: #fafafa;
         }
     </style>
 

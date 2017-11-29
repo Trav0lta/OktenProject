@@ -1,6 +1,3 @@
-body {
-    font-family: 'Roboto', sans-serif
-}
 .view {
     height: 735px;
 }
@@ -287,4 +284,10 @@ input::-moz-focus-outer {
     width: 100%;
     text-align: center;
     color: #007bff;
+}
+
+.login-page .btn {
+    background: #1976D2;
+    color: #fff;
+    cursor: pointer
 }

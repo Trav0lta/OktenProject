@@ -15,7 +15,7 @@
     </form>
 </nav>
 
-<section class="container" >
+<section class="container login-page">
     <div class="row align-items-center" style="height: 500px">
         <div class="col-8">
             <form method="POST" action="${contextPath}/login">
@@ -41,7 +41,7 @@
 
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="submit" class="form-check-input" type="checkbox"/>
+                            <input type="submit" class="form-check-input btn" value="Sign In"/>
                         </label>
                     </div>
                 </div>
