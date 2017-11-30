@@ -57,7 +57,7 @@
                                                 <div class="col-sm-2 mTop">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div><p class="progressText"><b>${go.currentGoalCrNum}/${go.goalCrNum}</b></p>
+                                                    </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p>
                                                 </div>
                                                 <div class="col-sm-1 text-center mTop">
                                                     <a href="#" data-toggle="modal" data-target="#myModal"><span class="oi oi-plus"></span></a>
@@ -76,7 +76,7 @@
                                                             <div class="modal-body">
                                                                 <p>Your current progress: <b>${go.currentGoalCrNum}/${go.goalCrNum}</b></p><br>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                                 </div><br>
                                                                 <p>Change your progress:</p><br>
                                                                 <div class="range-slider">

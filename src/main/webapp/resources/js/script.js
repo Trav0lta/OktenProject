@@ -197,6 +197,19 @@ $(document).ready(function () {
         }
     });
 
+    $(".list-group-item").each(function() {
+        var set = parseInt($(this).find(".max-num").text());
+        var progress = parseInt($(this).find(".current-num").text());
+        var status = set/progress*100;
+        console.log(set, progress, status);
+        $(this).find(".progress-bar").css("width", status+"%")
+    });
+    console.log($(".modal-body"));
+    // var set = parseInt($(".max-num").text());
+    // var progress = parseInt($(".current-num").text());
+    // var status = set/progress*100;
+    // $(".progress-bar").css("width", status+"%")
+
 });
 
 var valid;
