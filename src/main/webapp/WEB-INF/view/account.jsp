@@ -11,6 +11,7 @@
         <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
         <span class="navbar-text ml-auto mr-3">
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
+            <a href="chat">Chat</a>
         </span>
         <a class="navbar-item mr-3">
             <c:if test="${currentUser.avatar != null}">

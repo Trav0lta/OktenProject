@@ -158,9 +158,12 @@ public class User implements UserDetails {
         return avatar;
     }
 
-    public void setAvatar(MultipartFile multipartFile, String avatar) {
+    public void setAvatar(MultipartFile multipartFile) {
 
-        if (multipartFile != null) {
+        if (multipartFile.isEmpty()) {
+            this.avatar = null;
+        }
+        else{
             String path = System.getProperty("user.home") + File.separator + "Pictures\\";
             try {
                 multipartFile.transferTo(new File(path + multipartFile.getOriginalFilename()));
@@ -168,9 +171,7 @@ public class User implements UserDetails {
                 e.printStackTrace();
             }
             this.avatar = "\\avatar\\" + multipartFile.getOriginalFilename();
-        }
-        else{
-            this.avatar =avatar;
+
         }
     }
 }
