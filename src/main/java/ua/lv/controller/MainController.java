@@ -14,4 +14,9 @@ public class MainController {
     public String toIndex(){
         return "index";
     }
+
+    @GetMapping("/chat")
+    public String chat(){
+        return "chat";
+    }
 }
