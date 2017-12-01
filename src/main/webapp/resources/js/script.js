@@ -200,7 +200,7 @@ $(document).ready(function () {
     $(".list-group-item").each(function() {
         var set = parseInt($(this).find(".max-num").text());
         var progress = parseInt($(this).find(".current-num").text());
-        var status = set/progress*100;
+        var status = progress/set*100;
         console.log(set, progress, status);
         $(this).find(".progress-bar").css("width", status+"%")
     });

@@ -36,9 +36,7 @@
 
         <div class="row mt-5">
             <div class="col text-center">
-                <h2>Your goals for a <select class="form-control" style="display: inline-block; width: 15%;">
-                    <option>Day</option><option>Week</option><option>Month</option><option>Year</option>
-                </select><a href="/goal" class="btn btn-outline-primary btn-sm ml-5" role="button" aria-pressed="true">Add goal</a></h2>
+                <h2>Your current goals <a href="/goal" class="btn btn-outline-primary btn-sm ml-5" role="button" aria-pressed="true">Add goal</a></h2>
             </div>
         </div>
 
@@ -60,9 +58,9 @@
                                                     </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p>
                                                 </div>
                                                 <div class="col-sm-1 text-center mTop">
-                                                    <a href="#" data-toggle="modal" data-target="#myModal"><span class="oi oi-plus"></span></a>
+                                                    <a href="#" data-toggle="modal" data-target="#myModal${go.id}"><span class="oi oi-plus"></span></a>
                                                 </div>
-                                                <div class="modal fade" id="myModal" role="dialog">
+                                                <div class="modal fade" id="myModal${go.id}" role="dialog">
                                                     <div class="modal-dialog">
 
                                                         <!-- Modal content-->
