@@ -14,7 +14,7 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
-    private String Deadline;
+    private String deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
@@ -27,11 +27,11 @@ public class Account {
     }
 
     public String getDeadline() {
-        return Deadline;
+        return deadline;
     }
 
     public void setDeadline(String deadline) {
-        Deadline = deadline;
+        this.deadline = deadline;
     }
 
     public int getId() {
