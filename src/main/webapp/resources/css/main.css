@@ -291,3 +291,7 @@ input::-moz-focus-outer {
     color: #fff;
     cursor: pointer
 }
+
+.gj-calendar{
+    z-index: 9999!important;
+}

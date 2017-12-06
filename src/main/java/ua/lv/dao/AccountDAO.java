@@ -20,6 +20,12 @@ public interface AccountDAO extends JpaRepository<Account,Integer> {
     @Query("update Account set currentGoalCrNum=:currentGoalCrNum where id=:id ")
     void updateProgress(@Param("id") int id, @Param("currentGoalCrNum") int currentGoalCrNum);
 
+    @Modifying
+    @Query("update Account set goalName=:goalName, goalDesc=:goalDesc, deadline=:deadline, goalCrNum=:goalCrNum where id=:id ")
+    void updateGoal(@Param("id") int id, @Param("goalName") String goalName, @Param("goalDesc") String goalDesc, @Param("deadline") String deadline, @Param("goalCrNum") int goalCrNum );
+
+
+
     List<Account> findAll();
 
 }

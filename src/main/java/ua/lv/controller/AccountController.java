@@ -65,10 +65,22 @@ public class AccountController {
     public String changeProgress( @RequestParam int currentGoalCrNum,
                                   @RequestParam int goalId,
                                  Principal principal){
-
-
-//        Account currentGoal = accountService.findByAccountInterest(principal.getName());
         accountService.updateProgress(goalId, currentGoalCrNum);
+        return "redirect:/account";
+    }
+
+    @RequestMapping(value = "/editGoal" ,method = RequestMethod.POST)
+    public String updateGoal( @RequestParam int goalId,
+                              @RequestParam String goalName,
+                              @RequestParam String goalDesc,
+                              @RequestParam String deadline,
+                              @RequestParam int goalCrNum){
+        accountService.updateGoal(goalId, goalName,goalDesc, deadline, goalCrNum);
+        return "redirect:/account";
+    }
+    @RequestMapping(value = "/deleteGoal" ,method = RequestMethod.POST)
+    public String deleteGoal( @RequestParam("id") int id){
+        accountService.delete(id);
         return "redirect:/account";
     }
     

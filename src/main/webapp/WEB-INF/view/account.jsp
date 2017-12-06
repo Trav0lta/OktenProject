@@ -47,10 +47,12 @@
                             <div class="list-group list-group-flush">
                                     <c:forEach items="${goalList}" var="go">
                                         <c:if test="${go.user.id == currentUser.id}">
-                                            <div class="list-group-item autoheight2 row m-0">
+                                            <div class="list-group-item autoheight2 row m-0" style="height: 100%; min-height: 100%;">
                                                 <div class="col-sm-8">
                                                     <h5>${go.goalName}</h5>
-                                                    <p>${go.goalDesc}</p>
+                                                    <p>${go.goalDesc}</p><br>
+                                                    <p style="color: #bd2130"> You have to finish your goal until: ${go.deadline}</p>
+
                                                 </div>
                                                 <div class="col-sm-2 mTop">
                                                     <div class="progress">
@@ -93,9 +95,61 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="col-sm-1 text-center mTop">
-                                                    <a href="#"><span class="oi oi-pencil"></span></a>
+                                                    <a href="#" data-toggle="modal" data-target="#modalEdit${go.id}"><span class="oi oi-pencil"></span></a>
                                                 </div>
+                                                <div class="modal fade" id="modalEdit${go.id}" role="dialog">
+                                                    <div class="modal-dialog">
+
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <form action="/editGoal" method="post">
+                                                                <input type="hidden" value="${go.id}" name="goalId">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Edit your goal</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="form-group">
+                                                                            <label for="goal-name" class="form-control-label">New name:</label>
+                                                                            <input type="text" class="form-control" name="goalName" value="${go.goalName}" id="goal-name">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="goal-text" class="form-control-label">New description:</label>
+                                                                            <input class="form-control" name="goalDesc" value="${go.goalDesc}" id="goal-text">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="datepicker" class="form-control-label">Change deadline(${go.deadline}):</label>
+                                                                            <input class="form-control"  name="deadline" value="${go.deadline}" id="datepicker">
+                                                                            <script>
+                                                                                $('#datepicker').datepicker({
+                                                                                    uiLibrary: 'bootstrap4',
+                                                                                    iconsLibrary: 'fontawesome'
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="goal-quantity" class="form-control-label">Change quantity (${go.goalCrNum}):</label>
+                                                                            <input type="number" class="form-control" name="goalCrNum" value="${go.goalCrNum}" min="${go.currentGoalCrNum}" id="goal-quantity">
+                                                                        </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <input type="submit" value="Save" class="btn btn-outline-primary" aria-pressed="true">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                                                </div>
+                                                            </form>
+                                                            <form action="/deleteGoal" method="post">
+                                                                <input type="hidden" value="${go.id}" name="id">
+                                                                <input type="submit" value="Delete goal" class="btn btn-outline-danger" aria-pressed="true">
+                                                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </c:if>
                                     </c:forEach>

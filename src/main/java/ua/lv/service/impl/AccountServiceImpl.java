@@ -22,12 +22,24 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.save(account);
     }
 
+    public void delete(int id, Account account) {
+        accountDAO.delete(id);
+    }
+
+    public void delete(int id) {
+        accountDAO.delete(id);
+    }
+
     public Account findByAccountInterest(String goalName) {
        return accountDAO.findByAccountInterest(goalName);
     }
 
     public void updateProgress(int id, int currentGoalCrNum) {
         accountDAO.updateProgress(id, currentGoalCrNum);
+    }
+
+    public void updateGoal(int id, String goalName, String goalDesc, String deadline, int goalCrNum) {
+        accountDAO.updateGoal(id, goalName, goalDesc, deadline, goalCrNum);
     }
 
     public List<Account> findAll() {
