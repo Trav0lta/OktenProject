@@ -152,9 +152,10 @@
 .card .list-group-item{
     display: flex!important;
 }
-.autoheight2 p{
-    margin:0;
-}
+/*.autoheight2 p{*/
+    /*margin: 0;*/
+/*}*/
+
 #user select.form-control:not([size]):not([multiple]) {
     height: calc(2.55rem + 2px);
 }

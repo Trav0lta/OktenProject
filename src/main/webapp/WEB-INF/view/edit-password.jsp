@@ -7,6 +7,9 @@
 <div class="autoheight">
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light ">
+        <ul class="pull-left">
+            <li><a href="/settings" class="btn btn-header btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></li>
+        </ul>
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
         <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
         <span class="navbar-text ml-auto mr-3">
@@ -35,18 +38,15 @@
 
             <div class="container">
                 <form class="form-horizontal" role="form" action="/changePassword" method="post">
-                    <h2>Changing password</h2>
+                    <h3>Changing password</h3>
                     <div class="form-group">
-                        <div class="col-sm-9">
+                        <div class="col-sm-6">
                             <input type="hidden" value="${currentUser.id}" name="userId" >
                             <p><input type="password" name="password" class="form-control"></p>
                             <p><input type="submit" value="Change password" class="btn btn-primary btn-block"></p>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
                         </div>
                     </div>
-
-
                 </form>
             </div>
 

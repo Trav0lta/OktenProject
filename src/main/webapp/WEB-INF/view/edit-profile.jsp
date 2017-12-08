@@ -7,8 +7,11 @@
 <div class="autoheight">
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light ">
+        <ul class="pull-left">
+            <li><a href="/settings" class="btn btn-header btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></li>
+        </ul>
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">AIM | Update your info</a>
         <span class="navbar-text ml-auto mr-3">
       		<b>${currentUser.firstName} ${currentUser.lastName}</b>
     	</span>
@@ -33,77 +36,37 @@
     <!-- navbar end -->
     <!-- main section -->
 
-    <div class="col-sm-8 text-center">
-        <form action="/updateUserSpring"
-              method="post" class="form-horizontal">
-
+    <div class="col-sm-8">
+        <form action="/updateUserSpring" method="post" class="form-horizontal">
 
             <!-- Form Name -->
-            <legend>Update your info</legend>
             <input type="hidden" value="${currentUser.id}" name="userId">
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="fn">First name:</label>
-                <div class="col-md-4">
-                    <input id="fn"
-                           type="text"
-
-                           name="firstName"
-                           class="form-control input-md"
-                           value="${currentUser.firstName}"
-                           >
-                </div>
+            <!-- Text inputs -->
+            <div class="form-group col-md-4">
+                <label class="control-label" for="firstName">First name:</label>
+                <input id="firstName" type="text" name="firstName" class="form-control input-md" value="${currentUser.firstName}">
             </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="ln">Last name:</label>
-                <div class="col-md-4">
-                    <input id="an"
-                           type="text"
-
-                           name="lastName"
-                           class="form-control input-md"
-                           value="${currentUser.lastName}"
-                           >
-                </div>
+            <div class="form-group col-md-4">
+                <label class="control-label" for="lastName">Last name:</label>
+                <input id="lastName" type="text" name="lastName" class="form-control input-md" value="${currentUser.lastName}">
             </div>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="ln">Email:</label>
-                <div class="col-md-4">
-                    <input id="bn"
-                           type="text"
-
-                           name="email"
-                           class="form-control input-md"
-                           value="${currentUser.email}"
-                           >
-                </div>
+            <div class="form-group col-md-4">
+                <label class="control-label" for="email">Email:</label>
+                <input id="email" type="text" name="email" class="form-control input-md" value="${currentUser.email}">
             </div>
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="ln">Username:</label>
-                <div class="col-md-4">
-                    <input id="ln"
-                           type="text"
 
-                           name="username"
-                           class="form-control input-md"
-                           value="${currentUser.username}"
-                           >
-                </div>
+            <div class="form-group col-md-4">
+                <label class="control-label" for="login">Login:</label>
+                <input id="login" type="text" name="username" class="form-control input-md" value="${currentUser.username}">
             </div>
             <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="submit"></label>
-                <div class="col-md-4">
-                    <input id="submit" type="submit" value="Save" class="btn btn-primary"></input>
-                    <input type="hidden"
-                           name="${_csrf.parameterName}"
-                           value="${_csrf.token}"/>
-                </div>
+            <div class="form-group col-md-4">
+                <input id="submit" type="submit" value="Save" class="btn btn-primary">
+                <input type="hidden"
+                       name="${_csrf.parameterName}"
+                       value="${_csrf.token}"/>
             </div>
 
         </form>

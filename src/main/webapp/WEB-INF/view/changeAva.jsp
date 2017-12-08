@@ -7,8 +7,11 @@
 <div class="autoheight">
     <!-- Navbar -->
     <nav class="navbar navbar-light bg-light ">
+        <ul class="pull-left">
+            <li><a href="/settings" class="btn btn-header btn-back"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></li>
+        </ul>
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">AIM | Changing Avatar</a>
         <span class="navbar-text ml-auto mr-3">
       		<b>${currentUser.firstName} ${currentUser.lastName}</b>
     	</span>
@@ -38,7 +41,6 @@
             <div class="col-md-3"></div>
 
             <form class="form-horizontal" role="form" action="changeAvatar" method="post" enctype="multipart/form-data">
-                <h2>changing Ava</h2>
                 <div>
                     <c:if test="${currentUser.avatar != null}">
                         <img src="${currentUser.avatar}" width="200" height="200" class="rounded-circle">
@@ -46,12 +48,12 @@
                     <c:if test="${currentUser.avatar == null}">
                         <img src="/resources/img/avatar.png" width="200" height="200" class="rounded-circle">
                     </c:if>
-
                 </div>
+
                 <div class="form-group">
                     <div class="col-sm-9">
                         <div class="field">
-                            <label for="exampleFormControlFile1">Upload an new avatar</label>
+                            <label for="exampleFormControlFile1">Upload new avatar</label>
                             <input type="file" name="avatar" class="form-control-file" formenctype="multipart/form-data" id="exampleFormControlFile1">
                             <input type="hidden" value="${currentUser.username}" name="username" >
                         </div>
@@ -59,14 +61,13 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="submit"></label>
                             <div class="col-md-4">
-                                <input id="submit" type="submit" value="Save" class="btn btn-primary"></input>
+                                <input id="submit" type="submit" value="Save" class="btn btn-primary">
                                 <input type="hidden"
                                        name="${_csrf.parameterName}"
                                        value="${_csrf.token}"/>
                             </div>
-
+                        </div>
                     </div>
-                </div>
                 </div>
 
             </form>

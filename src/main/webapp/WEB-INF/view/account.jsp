@@ -8,7 +8,7 @@
 
     <nav class="navbar navbar-light bg-light ">
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">AIM | My Account</a>
         <span class="navbar-text ml-auto mr-3">
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
             <a href="chat">Chat</a>
@@ -43,15 +43,15 @@
             <div class="container-fluid">
                 <div  class="row ml-5 mr-5 mt-4 justify-content-center">
                     <div class="col" style="max-width: 1400px">
-                        <div class="card autoheight1" style="overflow-y: auto;">
+                        <div class="card" style="overflow-y: auto;">
                             <div class="list-group list-group-flush">
                                     <c:forEach items="${goalList}" var="go">
                                         <c:if test="${go.user.id == currentUser.id}">
-                                            <div class="list-group-item autoheight2 row m-0" style="height: 100%; min-height: 100%;">
+                                            <div class="list-group-item row m-0" style="height: 100%; min-height: 100%;">
                                                 <div class="col-sm-8">
                                                     <h5>${go.goalName}</h5>
                                                     <p>${go.goalDesc}</p><br>
-                                                    <p style="color: #bd2130"> You have to finish your goal until: ${go.deadline}</p>
+                                                    <p style="color: #bd2130"> You have to complete your goal until: ${go.deadline}</p>
 
                                                 </div>
                                                 <div class="col-sm-2 mTop">
@@ -158,6 +158,6 @@
                     </div>
                 </div>
             </div>
-
     </div>
+</div>
 <%@include file="tmp/footerUser.jsp"%>

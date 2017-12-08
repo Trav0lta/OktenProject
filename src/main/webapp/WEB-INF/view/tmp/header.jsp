@@ -25,14 +25,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../resources/css/responsive.css" media="screen and (max-width:1024px)">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <style type="text/css">
-        body {
-            font-size: 120%;
-            font-family: 'Raleway', sans-serif;
-            color: #101918;
-            background: #fafafa;
-        }
-    </style>
+    <%--<style type="text/css">--%>
+        <%--body {--%>
+            <%--font-size: 120%;--%>
+            <%--/*font-family: 'Raleway', sans-serif;*/--%>
+            <%--color: #101918;--%>
+            <%--/*background: #fafafa;*/--%>
+        <%--}--%>
+    <%--</style>--%>
 
 
 
