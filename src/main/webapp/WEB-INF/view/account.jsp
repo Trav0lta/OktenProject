@@ -43,11 +43,11 @@
             <div class="container-fluid">
                 <div  class="row ml-5 mr-5 mt-4 justify-content-center">
                     <div class="col" style="max-width: 1400px">
-                        <div class="card" style="overflow-y: auto;">
+                        <div class="card autoheight1" style="overflow-y: auto;">
                             <div class="list-group list-group-flush">
                                     <c:forEach items="${goalList}" var="go">
                                         <c:if test="${go.user.id == currentUser.id}">
-                                            <div class="list-group-item row m-0" style="height: 100%; min-height: 100%;">
+                                            <div class="list-group-item autoheight2 row m-0" style="height: 100%; min-height: 100%;">
                                                 <div class="col-sm-8">
                                                     <h5>${go.goalName}</h5>
                                                     <p>${go.goalDesc}</p><br>
