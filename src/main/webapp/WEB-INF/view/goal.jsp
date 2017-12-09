@@ -7,7 +7,7 @@
 <div class="autoheight" id="goal">
     <nav class="navbar navbar-light bg-light ">
         <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">AIM</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">AIM | Create your goal</a>
         <span class="navbar-text ml-auto mr-3">
         <b>${currentUser.firstName} ${currentUser.lastName}</b>
     	</span>
