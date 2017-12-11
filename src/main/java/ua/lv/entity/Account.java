@@ -1,6 +1,7 @@
 package ua.lv.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by User on 19.10.2017.
@@ -14,7 +15,7 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
-    private String deadline;
+    private Date deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
@@ -26,11 +27,11 @@ public class Account {
     public Account() {
     }
 
-    public String getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(String deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
 
