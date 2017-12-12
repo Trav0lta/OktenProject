@@ -1,6 +1,9 @@
 package ua.lv.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by User on 19.10.2017.
@@ -14,7 +17,8 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
-    private String deadline;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
@@ -22,16 +26,14 @@ public class Account {
 
     private int currentGoalCrNum = 0;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date dateOfStartGoal = new Date();
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date dateOfFinishGoal = null;
+    private boolean statusFinished = false;
+    private  boolean statusFailed;
 
     public Account() {
-    }
-
-    public String getDeadline() {
-        return deadline;
-    }
-
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
     }
 
     public int getId() {
@@ -66,6 +68,14 @@ public class Account {
         this.goalDesc = goalDesc;
     }
 
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
+
     public String getGoalCrName() {
         return goalCrName;
     }
@@ -98,6 +108,38 @@ public class Account {
         this.currentGoalCrNum = currentGoalCrNum;
     }
 
+    public Date getDateOfStartGoal() {
+        return dateOfStartGoal;
+    }
+
+    public void setDateOfStartGoal(Date dateOfStartGoal) {
+        this.dateOfStartGoal = dateOfStartGoal;
+    }
+
+    public Date getDateOfFinishGoal() {
+        return dateOfFinishGoal;
+    }
+
+    public void setDateOfFinishGoal(Date dateOfFinishGoal) {
+        this.dateOfFinishGoal = dateOfFinishGoal;
+    }
+
+    public boolean isStatusFinished() {
+        return statusFinished;
+    }
+
+    public void setStatusFinished(boolean statusFinished) {
+        this.statusFinished = statusFinished;
+    }
+
+    public boolean isStatusFailed() {
+        return statusFailed;
+    }
+
+    public void setStatusFailed(boolean statusFailed) {
+        this.statusFailed = statusFailed;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
@@ -105,9 +147,15 @@ public class Account {
                 ", goalName='" + goalName + '\'' +
                 ", category='" + category + '\'' +
                 ", goalDesc='" + goalDesc + '\'' +
+                ", deadline=" + deadline +
                 ", goalCrName='" + goalCrName + '\'' +
-                ", goalCrNum='" + goalCrNum + '\'' +
-                ", currentGoalCrNum='" + currentGoalCrNum + '\'' +
+                ", goalCrNum=" + goalCrNum +
+                ", user=" + user +
+                ", currentGoalCrNum=" + currentGoalCrNum +
+                ", dateOfStartGoal=" + dateOfStartGoal +
+                ", dateOfFinishGoal=" + dateOfFinishGoal +
+                ", statusFinished=" + statusFinished +
+                ", statusFailed=" + statusFailed +
                 '}';
     }
 }

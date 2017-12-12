@@ -34,7 +34,7 @@
     <div class="container autoheightS">
         <div class="row align-items-center h-100">
             <div class="col-12">
-                <form:form action="/account" modelAttribute="emptyGoal">
+                <form:form action="/saveNewGoal" modelAttribute="emptyGoal">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <form:label path="goalName">
@@ -47,11 +47,11 @@
                                 <spring:message text="Category"/>
                             </form:label>
                             <form:select path="category" class="form-control" id="category">
-                                <option>Sport</option>
-                                <option>Power up my skills</option>
-                                <option>Studying</option>
-                                <option>Improving myself</option>
-                                <option>Success</option>
+                                <option>Health</option>
+                                <option>Relationship</option>
+                                <option>Self improvement</option>
+                                <option>Finance</option>
+                                <option>Hobbies</option>
                             </form:select>
                         </div>
                     </div>

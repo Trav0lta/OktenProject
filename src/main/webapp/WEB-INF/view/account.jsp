@@ -120,16 +120,6 @@
                                                                             <input class="form-control" name="goalDesc" value="${go.goalDesc}" id="goal-text">
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="datepicker" class="form-control-label">Change deadline(${go.deadline}):</label>
-                                                                            <input class="form-control"  name="deadline" value="${go.deadline}" id="datepicker">
-                                                                            <script>
-                                                                                $('#datepicker').datepicker({
-                                                                                    uiLibrary: 'bootstrap4',
-                                                                                    iconsLibrary: 'fontawesome'
-                                                                                });
-                                                                            </script>
-                                                                        </div>
-                                                                        <div class="form-group">
                                                                             <label for="goal-quantity" class="form-control-label">Change quantity (${go.goalCrNum}):</label>
                                                                             <input type="number" class="form-control" name="goalCrNum" value="${go.goalCrNum}" min="${go.currentGoalCrNum}" id="goal-quantity">
                                                                         </div>

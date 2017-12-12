@@ -38,8 +38,8 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.updateProgress(id, currentGoalCrNum);
     }
 
-    public void updateGoal(int id, String goalName, String goalDesc, String deadline, int goalCrNum) {
-        accountDAO.updateGoal(id, goalName, goalDesc, deadline, goalCrNum);
+    public void updateGoal(int id, String goalName, String goalDesc, int goalCrNum) {
+        accountDAO.updateGoal(id, goalName, goalDesc, goalCrNum);
     }
 
     public List<Account> findAll() {

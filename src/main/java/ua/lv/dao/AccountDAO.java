@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import ua.lv.entity.Account;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -21,8 +22,8 @@ public interface AccountDAO extends JpaRepository<Account,Integer> {
     void updateProgress(@Param("id") int id, @Param("currentGoalCrNum") int currentGoalCrNum);
 
     @Modifying
-    @Query("update Account set goalName=:goalName, goalDesc=:goalDesc, deadline=:deadline, goalCrNum=:goalCrNum where id=:id ")
-    void updateGoal(@Param("id") int id, @Param("goalName") String goalName, @Param("goalDesc") String goalDesc, @Param("deadline") String deadline, @Param("goalCrNum") int goalCrNum );
+    @Query("update Account set goalName=:goalName, goalDesc=:goalDesc, goalCrNum=:goalCrNum where id=:id ")
+    void updateGoal(@Param("id") int id, @Param("goalName") String goalName, @Param("goalDesc") String goalDesc, @Param("goalCrNum") int goalCrNum );
 
 
 

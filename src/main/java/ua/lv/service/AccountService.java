@@ -14,7 +14,7 @@ public interface AccountService {
     Account findByAccountInterest(String goalName);
 
     void updateProgress(int id, int currentGoalCrNum);
-    void updateGoal (int id, String goalName, String goalDesc, String deadline, int goalCrNum);
+    void updateGoal (int id, String goalName, String goalDesc, int goalCrNum);
 
     void delete(int id);
     void  delete (int id, Account account);
