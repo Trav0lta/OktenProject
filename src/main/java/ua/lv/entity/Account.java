@@ -3,7 +3,9 @@ package ua.lv.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 /**
  * Created by User on 19.10.2017.
@@ -17,8 +19,7 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date deadline;
+    private LocalDate deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
@@ -26,10 +27,8 @@ public class Account {
 
     private int currentGoalCrNum = 0;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date dateOfStartGoal = new Date();
-    @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date dateOfFinishGoal = null;
+    private LocalDate dateOfStartGoal = LocalDate.now();
+    private LocalDate dateOfFinishGoal = null;
     private boolean statusFinished = false;
     private  boolean statusFailed;
 
@@ -68,12 +67,12 @@ public class Account {
         this.goalDesc = goalDesc;
     }
 
-    public Date getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
+    public void setDeadline (String deadline) {
+        this.deadline = LocalDate.parse(deadline, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
     public String getGoalCrName() {
@@ -108,19 +107,19 @@ public class Account {
         this.currentGoalCrNum = currentGoalCrNum;
     }
 
-    public Date getDateOfStartGoal() {
+    public LocalDate getDateOfStartGoal() {
         return dateOfStartGoal;
     }
 
-    public void setDateOfStartGoal(Date dateOfStartGoal) {
+    public void setDateOfStartGoal(LocalDate dateOfStartGoal) {
         this.dateOfStartGoal = dateOfStartGoal;
     }
 
-    public Date getDateOfFinishGoal() {
+    public LocalDate getDateOfFinishGoal() {
         return dateOfFinishGoal;
     }
 
-    public void setDateOfFinishGoal(Date dateOfFinishGoal) {
+    public void setDateOfFinishGoal(LocalDate dateOfFinishGoal) {
         this.dateOfFinishGoal = dateOfFinishGoal;
     }
 

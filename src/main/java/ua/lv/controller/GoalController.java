@@ -35,10 +35,12 @@ public class GoalController {
     }
 
     @RequestMapping(value = "/saveNewGoal" ,method = RequestMethod.POST)
-    public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account){
+    public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account,
+                          @RequestParam String deadline){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
+        account.setDeadline(deadline);
         account.setUser(byUsername);
         accountService.save(account);
         return "redirect:/account";

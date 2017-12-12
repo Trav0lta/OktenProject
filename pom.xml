@@ -187,6 +187,13 @@
             <version>4.3.3.RELEASE</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>4.3.7.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 
