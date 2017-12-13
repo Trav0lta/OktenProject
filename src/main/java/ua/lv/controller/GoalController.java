@@ -62,8 +62,9 @@ public class GoalController {
     public String updateGoal( @RequestParam int goalId,
                               @RequestParam String goalName,
                               @RequestParam String goalDesc,
+                              @RequestParam String goalCrName,
                               @RequestParam int goalCrNum){
-        accountService.updateGoal(goalId, goalName,goalDesc,goalCrNum);
+        accountService.updateGoal(goalId, goalName,goalDesc, goalCrName, goalCrNum);
         return "redirect:/account";
     }
     @RequestMapping(value = "/deleteGoal" ,method = RequestMethod.POST)

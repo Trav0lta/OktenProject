@@ -63,7 +63,7 @@
                                                 <div class="col-sm-2 mTop progressGoal">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">book(s)</p>
+                                                    </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">${go.goalCrName}</p>
                                                 </div>
                                                 <div class="col-sm-1 text-center plusIco">
                                                     <a href="#" data-toggle="modal" data-target="#myModal${go.id}"><span class="oi oi-plus"></span></a>
@@ -127,7 +127,7 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="goal-crit" class="form-control-label">New critetion name:</label>
-                                                                            <input class="form-control" name="goalCr" value="" id="goal-crit">
+                                                                            <input class="form-control" name="goalCrName" value="${go.goalCrName}" id="goal-crit">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="goal-quantity" class="form-control-label">Change quantity (${go.goalCrNum}):</label>
