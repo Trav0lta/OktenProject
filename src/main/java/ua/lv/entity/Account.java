@@ -19,7 +19,7 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
-    private LocalDate deadline;
+    private String deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
@@ -67,12 +67,16 @@ public class Account {
         this.goalDesc = goalDesc;
     }
 
-    public LocalDate getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 
     public void setDeadline (String deadline) {
-        this.deadline = LocalDate.parse(deadline, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+//        if (deadline==null){
+//            this.deadline = null;
+//        }else{
+//        this.deadline = LocalDate.parse(deadline, DateTimeFormatter.ofPattern("dd/MM/yyyy"));}
+        this.deadline = deadline;
     }
 
     public String getGoalCrName() {

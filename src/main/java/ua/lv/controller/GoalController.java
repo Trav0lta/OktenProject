@@ -40,7 +40,7 @@ public class GoalController {
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
-        account.setDeadline(deadline);
+//        account.setDeadline(deadline);
         account.setUser(byUsername);
         accountService.save(account);
         return "redirect:/account";
