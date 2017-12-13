@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="../../resources/css/open-iconic-bootstrap.css">
     <script src="../../resources/js/scriptUser.js"></script>
     <script src="../../resources/js/script.js"></script>
-    <script src="https://use.fontawesome.com/a714bae699.js"></script>
     <!--Datepicker-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="http://code.gijgo.com/1.6.1/js/gijgo.js" type="text/javascript"></script>

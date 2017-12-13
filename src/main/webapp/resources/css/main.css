@@ -152,6 +152,9 @@
 .card .list-group-item{
     display: flex!important;
 }
+.autoheight2{
+    min-height: 110px!important;
+}
 .autoheight2 p{
     margin: 0;
 }
@@ -285,6 +288,7 @@ input::-moz-focus-outer {
     width: 100%;
     text-align: center;
     color: #007bff;
+    margin-top: 5%!important;
 }
 
 .login-page .btn {
@@ -299,4 +303,28 @@ input::-moz-focus-outer {
 
 #sign-up-form .field {
     margin: 15px 0
+}
+.aboutGoal{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1%;
+}
+.progressGoal{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 65%;
+}
+.pencilIco{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 90%;
+}
+.plusIco{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 81%;
 }
