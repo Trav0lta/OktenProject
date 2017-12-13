@@ -39,10 +39,10 @@
             </div>
             <div class="col text-center">
                     <form style="margin-top: 2%">
-                        <a class="btn btn-outline-success" href="#" role="button">Current</a>
-                        <a class="btn btn-outline-primary" href="#" role="button">Succesful</a>
-                        <a class="btn btn-outline-primary" href="#" role="button">Failed</a>
-                        <a class="btn btn-outline-primary" href="#" role="button">Statistic</a>
+                        <a class="btn btn-outline-success" href="/yourCurGoals" role="button">Current</a>
+                        <a class="btn btn-outline-primary" href="/yourSuccesfulGoals" role="button">Succesful</a>
+                        <a class="btn btn-outline-primary" href="/yourFailedGoals" role="button">Failed</a>
+                        <a class="btn btn-outline-primary" href="/yourStatistic" role="button">Statistic</a>
                     </form>
             </div>
         </div>
