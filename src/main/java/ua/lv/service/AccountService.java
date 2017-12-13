@@ -15,6 +15,9 @@ public interface AccountService {
 //    Account findGoalsByUserId(int id);
 
     void updateProgress(int id, int currentGoalCrNum);
+    void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished);
+    void updateStatusFinished(int id,  boolean statusFinished);
+
     void updateGoal (int id, String goalName, String goalDesc, String goalCrName, int goalCrNum);
 
     void delete(int id);

@@ -42,6 +42,14 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.updateProgress(id, currentGoalCrNum);
     }
 
+    public void updateStatusFailed(int id, boolean statusFailed, boolean statusFinished) {
+        accountDAO.updateStatusFailed(id, statusFailed, statusFinished);
+    }
+
+    public void updateStatusFinished(int id, boolean statusFinished) {
+        accountDAO.updateStatusFinished(id, statusFinished);
+    }
+
     public void updateGoal(int id, String goalName, String goalDesc, String goalCrName, int goalCrNum) {
         accountDAO.updateGoal(id, goalName, goalDesc, goalCrName, goalCrNum);
     }

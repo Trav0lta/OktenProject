@@ -141,9 +141,9 @@
                                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                                 </div>
                                                             </form>
-                                                            <form action="/deleteGoal" style="position: absolute;top: 90%;left: 5%;" method="post">
+                                                            <form action="/failGoal" style="position: absolute;top: 90%;left: 5%;" method="post">
                                                                 <input type="hidden" value="${go.id}" name="id">
-                                                                <input type="submit" value="Delete goal" class="btn btn-outline-danger" aria-pressed="true">
+                                                                <input type="submit" value="Give UP" class="btn btn-outline-danger" aria-pressed="true">
                                                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                             </form>
                                                         </div>
