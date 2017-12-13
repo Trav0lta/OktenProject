@@ -53,8 +53,13 @@ public class GoalController {
 
     @RequestMapping(value = "/changeGoal" ,method = RequestMethod.POST)
     public String changeProgress( @RequestParam int currentGoalCrNum,
-                                  @RequestParam int goalId,
-                                 Principal principal){
+                                  @RequestParam int goalCrNum,
+                                  @RequestParam int goalId){
+        boolean statusFinish = true;
+        if (currentGoalCrNum == goalCrNum) {
+            accountService.updateStatusFinished(goalId, statusFinish);
+        }
+
         accountService.updateProgress(goalId, currentGoalCrNum);
         return "redirect:/account";
     }

@@ -86,6 +86,7 @@
                                                                 </div><br>
                                                                 <p>Change your progress:</p><br>
                                                                 <div class="range-slider">
+                                                                    <input type="hidden" value="${go.goalCrNum}" name="goalCrNum">
                                                                     <input class="range-slider__range" type="range" name="currentGoalCrNum" value="${go.currentGoalCrNum}" min="${go.currentGoalCrNum}" max="${go.goalCrNum}">
                                                                     <span class="range-slider__value">${go.currentGoalCrNum}</span>
                                                                 </div>

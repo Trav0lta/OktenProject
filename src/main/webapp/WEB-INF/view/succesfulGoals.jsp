@@ -52,7 +52,7 @@
                     <div class="card autoheight1" style="overflow-y: auto;">
                         <div class="list-group list-group-flush">
                             <c:forEach items="${goalList}" var="go">
-                                <c:if test="${go.user.id == currentUser.id}">
+                                <c:if test="${go.user.id == currentUser.id && go.statusFinished==true && go.statusFailed==false}">
                                     <div class="list-group-item autoheight2 row m-0" style="height: 100%; min-height: 100%;">
                                         <div class="col-sm-8 aboutGoal">
                                             <h5>${go.goalName}</h5>
