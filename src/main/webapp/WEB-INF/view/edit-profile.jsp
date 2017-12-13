@@ -63,7 +63,7 @@
             </div>
             <!-- Button -->
             <div class="form-group col-md-4">
-                <input id="submit" type="submit" value="Save" class="btn btn-primary">
+                <div id="submitForm" class="btn btn-primary">Save</div>
                 <input type="hidden"
                        name="${_csrf.parameterName}"
                        value="${_csrf.token}"/>
@@ -77,4 +77,48 @@
 
 
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input").blur(function () {
+            if (!$(this).val()) {
+                $(this).css("background", "#FFFDE7")
+            } else {
+                $(this).css("background", "#FFF")
+            }
+        });
+        $("#email").blur(function () {
+            if (!$(this).val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                $(this).css("background", "#FFFDE7")
+            } else {
+                $(this).css("background", "#FFF")
+            }
+        });
+        $("#login").blur(function () {
+            if (!$(this).val().match(/^[a-zA-Z0-9]{4,}$/)) {
+                $(this).css("background", "#FFFDE7")
+            } else {
+                $(this).css("background", "#FFF")
+            }
+        });
+        $("#submitForm").click(function () {
+            var valid = true;
+            $("input").each(function () {
+                if(!$(this).val()) {
+                    valid = false
+                }
+            });
+            if (!$("#email").val().match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/)) {
+                valid = false
+            }
+            if (!$("#login").val().match(/^[a-zA-Z0-9]{4,}$/)) {
+                valid = false
+            }
+            if (valid) {
+                $("form").submit()
+            } else {
+                alert("Check all fields")
+            }
+        });
+    });
+</script>
 <%@include file="tmp/footerUser.jsp"%>
