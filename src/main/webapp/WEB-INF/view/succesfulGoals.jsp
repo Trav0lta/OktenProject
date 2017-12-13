@@ -57,7 +57,7 @@
                                         <div class="col-sm-8 aboutGoal">
                                             <h5>${go.goalName}</h5>
                                             <p>${go.goalDesc}</p>
-                                            <p style="margin-top: 1%"> Finished: <span  style="color: firebrick;">${go.deadline}</span></p>
+                                            <p style="margin-top: 1%"> Finished: <span  style="color: firebrick;">${go.dateOfFinishGoal}</span> Deadline: <span  style="color: firebrick;">${go.deadline}</span></p>
 
                                         </div>
                                         <div class="col-sm-2 text-center quantQ">
