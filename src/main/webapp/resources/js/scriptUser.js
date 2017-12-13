@@ -2,7 +2,7 @@ var setElementHeight = function () {
     var height = $(window).height();
     $('.autoheight').css('height', (height));
     var height1 = $(window).height()/1.45;
-    var heightS = $(window).height()/1.146;
+    var heightS = $(window).height()/1.093;
     $('.autoheightS').css('height', (heightS));
     $('.autoheight1').css('height', (height1));
     $('.autoheight1').css('min-height', (height1));

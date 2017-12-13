@@ -8,7 +8,7 @@
 
     <nav class="navbar navbar-light bg-light ">
         <a style="width: 20%" class="navbar-item ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">AIM | My Account</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">Current Goals</a>
         <span style="width: 20%;text-align: right;"><span class="navbar-text ml-auto mr-3">
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
         </span>
@@ -33,16 +33,14 @@
 
     <div class="container">
 
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <h2>Your current goals <a href="/goal" class="btn btn-outline-primary btn-sm ml-5" role="button" aria-pressed="true">Add goal</a></h2>
-            </div>
+        <div class="row pt-4">
             <div class="col text-center">
-                    <form style="margin-top: 2%">
+                    <form>
                         <a class="btn btn-outline-success" href="/yourCurGoals" role="button">Current</a>
-                        <a class="btn btn-outline-primary" href="/yourSuccesfulGoals" role="button">Succesful</a>
+                        <a class="btn btn-outline-primary" href="/yourSuccesfulGoals" role="button">Successful</a>
                         <a class="btn btn-outline-primary" href="/yourFailedGoals" role="button">Failed</a>
                         <a class="btn btn-outline-primary" href="/yourStatistic" role="button">Statistic</a>
+                        <a href="/goal" class="btn btn-outline-primary" role="button">Add goal</a>
                     </form>
             </div>
         </div>
@@ -65,7 +63,7 @@
                                                 <div class="col-sm-2 mTop progressGoal">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p>
+                                                    </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">book(s)</p>
                                                 </div>
                                                 <div class="col-sm-1 text-center plusIco">
                                                     <a href="#" data-toggle="modal" data-target="#myModal${go.id}"><span class="oi oi-plus"></span></a>

@@ -2,16 +2,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%@include file="tmp/headerGoal.jsp" %>
+<%@include file="tmp/headerUser.jsp" %>
 
 <div class="autoheight" id="goal">
-    <nav class="navbar navbar-light bg-light ">
-        <a class="navbar-item mr-auto ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">AIM | Create your goal</a>
-        <span class="navbar-text ml-auto mr-3">
-        <b>${currentUser.firstName} ${currentUser.lastName}</b>
-    	</span>
 
+    <div id="user" class="autoheight">
+
+        <nav class="navbar navbar-light bg-light ">
+            <a style="width: 20%" class="navbar-item ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
+            <a class="navbar-brand ml-auto mr-auto" href="#">Add Goal</a>
+            <span style="width: 20%;text-align: right;"><span class="navbar-text ml-auto mr-3">
+      	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
+        </span>
         <a class="navbar-item mr-3">
             <c:if test="${currentUser.avatar != null}">
                 <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
@@ -19,20 +21,24 @@
             <c:if test="${currentUser.avatar == null}">
                 <img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">
             </c:if>
-        </a>
+        </a></span>
+        </nav>
 
-    </nav>
-    <div class="collapse" id="collapseExample" style="position: absolute;left: 10px;">
-        <ul class="list-group">
-            <li class="list-group-item"><a href="/account">User Page</a></li>
-            <c:if test="${pageContext.request.userPrincipal.name != null}">
-                <li class="list-group-item"><a href="/logout">Exit</a></li>
-            </c:if>
-        </ul>
-    </div>
 
     <div class="container autoheightS">
-        <div class="row align-items-center h-100">
+
+        <div class="row pt-4">
+            <div class="col text-center">
+                <form>
+                    <a class="btn btn-outline-primary" href="/yourCurGoals" role="button">Current</a>
+                    <a class="btn btn-outline-primary" href="/yourSuccesfulGoals" role="button">Successful</a>
+                    <a class="btn btn-outline-primary" href="/yourFailedGoals" role="button">Failed</a>
+                    <a class="btn btn-outline-primary" href="/yourStatistic" role="button">Statistic</a>
+                    <a href="/goal" class="btn btn-outline-success" role="button">Add goal</a>
+                </form>
+            </div>
+        </div>
+        <div class="row align-items-center pt-5">
             <div class="col-12">
                 <form:form action="/saveNewGoal" modelAttribute="emptyGoal">
                     <div class="form-row">

@@ -328,3 +328,35 @@ input::-moz-focus-outer {
     transform: translateY(-50%);
     left: 81%;
 }
+.quantQ{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 58%;
+}
+.daysG{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 74%;
+}
+.list-group-flush:first-child .list-group-item:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-flush:last-child .list-group-item:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+span.step {
+    background: #007bff;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 1.6em;
+}
