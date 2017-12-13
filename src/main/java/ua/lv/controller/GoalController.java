@@ -57,7 +57,8 @@ public class GoalController {
                                   @RequestParam int goalId){
         boolean statusFinish = true;
         if (currentGoalCrNum == goalCrNum) {
-            accountService.updateStatusFinished(goalId, statusFinish);
+            Date date = new Date();
+            accountService.updateStatusFinished(goalId, statusFinish,date);
         }
 
         accountService.updateProgress(goalId, currentGoalCrNum);
@@ -82,7 +83,8 @@ public class GoalController {
     @RequestMapping(value = "/failGoal" ,method = RequestMethod.POST)
     public String updateStatusFailed( @RequestParam("id") int id){
         boolean statusFail = true;
-        accountService.updateStatusFailed(id, statusFail, statusFail);
+        Date date = new Date();
+        accountService.updateStatusFailed(id, statusFail, statusFail, date);
         return "redirect:/account";
     }
 

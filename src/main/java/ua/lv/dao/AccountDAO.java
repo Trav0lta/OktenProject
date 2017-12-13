@@ -29,12 +29,12 @@ public interface AccountDAO extends JpaRepository<Account,Integer> {
     void updateGoal(@Param("id") int id, @Param("goalName") String goalName, @Param("goalDesc") String goalDesc, @Param("goalCrName") String goalCrName, @Param("goalCrNum") int goalCrNum );
 
     @Modifying
-    @Query("update Account set statusFailed=:statusFailed, statusFinished=:statusFinished where id=:id ")
-    void updateStatusFailed(@Param("id") int id, @Param("statusFailed") boolean statusFailed, @Param("statusFinished") boolean statusFinished);
+    @Query("update Account set statusFailed=:statusFailed, statusFinished=:statusFinished, dateOfFinishGoal=:dateOfFinishGoal where id=:id ")
+    void updateStatusFailed(@Param("id") int id, @Param("statusFailed") boolean statusFailed, @Param("statusFinished") boolean statusFinished, @Param("dateOfFinishGoal") Date dateOfFinishGoal);
 
     @Modifying
-    @Query("update Account set statusFinished=:statusFinished where id=:id ")
-    void updateStatusFinished (@Param("id") int id, @Param("statusFinished") boolean statusFinished);
+    @Query("update Account set statusFinished=:statusFinished, dateOfFinishGoal=:dateOfFinishGoal where id=:id ")
+    void updateStatusFinished (@Param("id") int id, @Param("statusFinished") boolean statusFinished, @Param("dateOfFinishGoal") Date dateOfFinishGoal);
 
 
     List<Account> findAll();
