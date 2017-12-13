@@ -61,8 +61,8 @@
 
                                         </div>
                                         <div class="col-sm-2 text-center quantQ">
-                                            <span class="step">10</span>
-                                            books
+                                            <span class="step">${go.currentGoalCrNum}</span>
+                                                ${go.goalCrName}
                                         </div>
                                         <div class="col-sm-2 text-center daysG">
                                             <span class="step">10</span>
