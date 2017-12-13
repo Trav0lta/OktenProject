@@ -296,3 +296,7 @@ input::-moz-focus-outer {
 .gj-calendar{
     z-index: 9999!important;
 }
+
+#sign-up-form .field {
+    margin: 15px 0
+}

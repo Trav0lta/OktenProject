@@ -221,7 +221,8 @@ function checkIfFieldIsEmpty(field) {
         valid = false;
         $("#empty-fields-error").show()
     } else {
-        $(field).css("background", "#fff")
+        $(field).css("background", "#fff");
+        $("#empty-fields-error").hide()
     }
 }
 

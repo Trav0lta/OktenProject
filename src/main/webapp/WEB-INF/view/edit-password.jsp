@@ -37,13 +37,13 @@
     <!-- main section -->
 
             <div class="container">
-                <form class="form-horizontal" role="form" action="/changePassword" method="post">
+                <form id="change-password" class="form-horizontal" role="form" action="/changePassword" method="post">
                     <h3>Changing password</h3>
                     <div class="form-group">
                         <div class="col-sm-6">
                             <input type="hidden" value="${currentUser.id}" name="userId" >
-                            <p><input type="password" name="password" class="form-control"></p>
-                            <p><input type="submit" value="Change password" class="btn btn-primary btn-block"></p>
+                            <p><input id="password" type="password" name="password" class="form-control"></p>
+                            <p><div class="btn btn-primary btn-block submit">Change password</div></p>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </div>
                     </div>
@@ -54,4 +54,30 @@
 
 
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+       $("#password").blur(function () {
+           if (!$("#password").val().match(/^[a-zA-Z0-9]{4,}$/)) {
+               $("#password").css("background", "#FFFDE7")
+           } else {
+               $("#password").css("background", "#FFF")
+           }
+       });
+
+       $(".submit").click(function () {
+           var valid = true;
+           if (!$("#password").val().match(/^[a-zA-Z0-9]{4,}$/)) {
+               valid = false;
+           }
+           if (valid) {
+               $("#change-password").submit()
+           } else {
+               alert("Invalid password")
+           }
+       });
+
+    });
+</script>
+
 <%@include file="tmp/footerUser.jsp"%>
