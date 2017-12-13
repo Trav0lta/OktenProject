@@ -63,16 +63,14 @@
                             <form:textarea path="goalDesc" class="form-control" name="goalDesc" id="goalDesc" rows="3"/>
                         </div>
                         <div class="form-group col-md-6">
-                            <form:label path="deadline">
-                                <spring:message text="Deadline"/>
-                            </form:label>
-                            <form:input path="deadline" id="datepicker" name = "deadline" width="276"/>
-                            <script>
-                                $('#datepicker').datepicker({
-                                    uiLibrary: 'bootstrap4',
-                                    iconsLibrary: 'fontawesome'
-                                });
-                            </script>
+                            <label for="deadline">Deadline</label>
+                            <input type="date" id="deadline" name = "deadline" width="276"/>
+                            <%--<script>--%>
+                                <%--$('#datepicker').datepicker({--%>
+                                    <%--uiLibrary: 'bootstrap4',--%>
+                                    <%--iconsLibrary: 'fontawesome'--%>
+                                <%--});--%>
+                            <%--</script>--%>
                         </div>
                     </div>
                     <div class="form-row">

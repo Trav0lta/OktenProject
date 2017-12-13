@@ -1,15 +1,13 @@
 package ua.lv.entity;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
+//import org.springframework.format.annotation.DateTimeFormat;
+import org.joda.time.LocalDate;
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
-/**
- * Created by User on 19.10.2017.
- */
 @Entity
 public class Account {
     @Id
@@ -19,16 +17,17 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
-    private String deadline;
+//    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private User user;
 
     private int currentGoalCrNum = 0;
-
-    private LocalDate dateOfStartGoal = LocalDate.now();
-    private LocalDate dateOfFinishGoal = null;
+//    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date dateOfStartGoal = new Date();
+    private Date dateOfFinishGoal = null;
     private boolean statusFinished = false;
     private  boolean statusFailed;
 
@@ -68,15 +67,20 @@ public class Account {
     }
 
     public String getDeadline() {
-        return deadline;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String outputDate = simpleDateFormat.format(deadline);
+        return outputDate;
     }
 
     public void setDeadline (String deadline) {
-//        if (deadline==null){
-//            this.deadline = null;
-//        }else{
-//        this.deadline = LocalDate.parse(deadline, DateTimeFormatter.ofPattern("dd/MM/yyyy"));}
-        this.deadline = deadline;
+        if (deadline==null){
+            this.deadline = null;
+        }
+        else{
+            LocalDate ld = LocalDate.parse(deadline);
+            Date dateDeadline = ld.toDate();
+            this.deadline = dateDeadline;
+        }
     }
 
     public String getGoalCrName() {
@@ -111,19 +115,19 @@ public class Account {
         this.currentGoalCrNum = currentGoalCrNum;
     }
 
-    public LocalDate getDateOfStartGoal() {
+    public Date getDateOfStartGoal() {
         return dateOfStartGoal;
     }
 
-    public void setDateOfStartGoal(LocalDate dateOfStartGoal) {
+    public void setDateOfStartGoal(Date dateOfStartGoal) {
         this.dateOfStartGoal = dateOfStartGoal;
     }
 
-    public LocalDate getDateOfFinishGoal() {
+    public Date getDateOfFinishGoal() {
         return dateOfFinishGoal;
     }
 
-    public void setDateOfFinishGoal(LocalDate dateOfFinishGoal) {
+    public void setDateOfFinishGoal(Date dateOfFinishGoal) {
         this.dateOfFinishGoal = dateOfFinishGoal;
     }
 

@@ -18,6 +18,10 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountDAO accountDAO;
 
+//    public Account findGoalsByUserId(int id) {
+//        return accountDAO.findGoalsByUserId(id);
+//    }
+
     public void save(Account account) {
         accountDAO.save(account);
     }

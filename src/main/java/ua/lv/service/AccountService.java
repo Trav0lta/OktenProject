@@ -12,6 +12,7 @@ public interface AccountService {
     void save(Account account);
 
     Account findByAccountInterest(String goalName);
+//    Account findGoalsByUserId(int id);
 
     void updateProgress(int id, int currentGoalCrNum);
     void updateGoal (int id, String goalName, String goalDesc, int goalCrNum);

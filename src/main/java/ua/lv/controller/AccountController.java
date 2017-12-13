@@ -10,6 +10,8 @@ import ua.lv.service.AccountService;
 import ua.lv.service.UserService;
 
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,11 +24,13 @@ public class AccountController {
     @Autowired
     UserService userService;
 
+
     @GetMapping("/account")
     public String toWelcome(Model model,
                             Principal principal){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
+
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal",new Account());
         model.addAttribute("goalList", accountService.findAll());
