@@ -40,19 +40,19 @@
         </div>
         <div class="row align-items-center pt-5">
             <div class="col-12">
-                <form:form action="/saveNewGoal" modelAttribute="emptyGoal">
+                <form:form id="addNewGoal" action="/saveNewGoal" modelAttribute="emptyGoal">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <form:label path="goalName">
                                 <spring:message text="Goal"/>
                             </form:label>
-                            <form:input path="goalName" class="form-control" id="goalName" placeholder="Name"/>
+                            <form:input path="goalName" class="form-control input-goal" id="goalName" placeholder="Name"/>
                         </div>
                         <div class="form-group col-md-6">
                             <form:label path="category">
                                 <spring:message text="Category"/>
                             </form:label>
-                            <form:select path="category" class="form-control" id="category">
+                            <form:select path="category" class="form-control input-goal" id="category">
                                 <option>Health</option>
                                 <option>Relationship</option>
                                 <option>Self improvement</option>
@@ -66,11 +66,11 @@
                             <form:label path="goalDesc">
                                 <spring:message text="Desc"/>
                             </form:label>
-                            <form:textarea path="goalDesc" class="form-control" name="goalDesc" id="goalDesc" rows="3"/>
+                            <form:textarea path="goalDesc" class="form-control input-goal" name="goalDesc" id="goalDesc" rows="3"/>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="deadline">Deadline</label>
-                            <input type="date" id="deadline" name = "deadline" width="276"/>
+                            <input type="date" class="input-goal" id="deadline" name = "deadline" width="276"/>
                             <%--<script>--%>
                                 <%--$('#datepicker').datepicker({--%>
                                     <%--uiLibrary: 'bootstrap4',--%>
@@ -84,19 +84,19 @@
                             <form:label path="goalCrName">
                                 <spring:message text="Criterion"/>
                             </form:label>
-                            <form:input path="goalCrName" class="form-control" id="goalCrName" placeholder="Criterion"/>
+                            <form:input path="goalCrName" class="form-control input-goal" id="goalCrName" placeholder="Criterion"/>
                         </div>
                         <div class="form-group col-md-6">
                             <form:label path="goalCrNum">
                                 <spring:message text="Quantity (only numbers)"/>
                             </form:label>
-                            <form:input path="goalCrNum" min="1" class="form-control" id="goalCrNum" placeholder="Quantity"/>
+                            <form:input type="number" path="goalCrNum" min="1" class="form-control input-goal" id="goalCrNum" placeholder="Quantity"/>
                         </div>
                     </div>
                     <div class="form-row"> <div  class="form-group col-md-3">
                         <a href="/backToAccount"  class="btn btn-outline-primary" role="button" aria-pressed="true">Back</a>
                         <button type="reset" class="btn btn-outline-danger">Reset</button>
-                        <input type="submit" value="Save goal" class="btn btn-outline-success" />
+                        <div class="btn btn-outline-success submit">Save goal</div>
                         <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/></div>
                     </div>
                 </form:form>
@@ -104,5 +104,32 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".input-goal").blur(function () {
+            if (!$(this).val()) {
+                $(this).css("background", "#FFFDE7");
+            } else {
+                $(this).css("background", "#FFF");
+            }
+        });
+        $(".submit").click(function() {
+            var valid = true;
+            $(".input-goal").each(function() {
+                if (!$(this).val()) {
+                    $(this).css("background", "#FFFDE7");
+                    valid = false;
+                } else {
+                    $(this).css("background", "#FFF")
+                }
+            });
+
+            if (valid) {
+                $("#addNewGoal").submit();
+            }
+        });
+    });
+</script>
 
 <%@include file="tmp/footerUser.jsp"%>
