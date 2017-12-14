@@ -8,7 +8,7 @@
 
     <nav class="navbar navbar-light bg-light ">
         <a style="width: 20%" class="navbar-item ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">Successful Goals</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">Failed Goals</a>
         <span style="width: 20%;text-align: right;"><span class="navbar-text ml-auto mr-3">
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
         </span>
