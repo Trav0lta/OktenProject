@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@include file="tmp/headerUser.jsp" %>
 
@@ -58,6 +59,15 @@
                                                     <h5>${go.goalName}</h5>
                                                     <p>${go.goalDesc}</p>
                                                     <p style="margin-top: 1%"> Deadline: <span  style="color: firebrick;">${go.deadline}</span></p>
+                                                    <jsp:useBean id="now" class="java.util.Date"/>
+                                                    Current Date: <span style="color: #39b227;"><fmt:formatDate value="${now}" pattern="dd-MM-yyyy"/></span>
+
+                                                    <c:if test="${go.deadline==now}">
+                                                        Looooseeerrrr
+                                                    </c:if>
+
+
+
 
                                                 </div>
                                                 <div class="col-sm-2 progressGoal">
