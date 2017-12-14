@@ -67,5 +67,7 @@ public class UserServiceImpl implements UserService,UserDetailsService{
         userDAO.updateAvatar(username, avatar);
     }
 
-
+    public void removeUser(int id) {
+        userDAO.delete(id);
+    }
 }

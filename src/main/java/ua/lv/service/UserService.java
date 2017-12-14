@@ -17,5 +17,6 @@ public interface UserService {
     void updateUser (int id, String firstName, String lastName, String email, String username);
 
     void updateAvatar(String username, String avatar);
+    void removeUser(int id);
 
 }
