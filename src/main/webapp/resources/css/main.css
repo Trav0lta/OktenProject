@@ -349,14 +349,14 @@ input::-moz-focus-outer {
 }
 span.step {
     background: #007bff;
-    border-radius: 0.8em;
-    -moz-border-radius: 0.8em;
-    -webkit-border-radius: 0.8em;
+    border-radius: 1.3em;
+    -moz-border-radius: 1.3em;
+    -webkit-border-radius: 1.3em;
     color: #ffffff;
     display: inline-block;
     font-weight: bold;
-    line-height: 1.6em;
+    line-height: 2.6em;
     margin-right: 5px;
     text-align: center;
-    width: 1.6em;
+    width: 2.6em;
 }

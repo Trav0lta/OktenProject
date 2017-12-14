@@ -10,9 +10,6 @@
                 <li><a href="/registration"><button class="btn btn-header btn-sign-up" type="button"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign up</button></a></li>
 
             </ul>
-            <ul class="pull-right">
-                <li><a href="/logout"><button class="btn btn-header btn-log-out cs" type="button"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button></a></li>
-            </ul>
         </form>
     </nav>
 

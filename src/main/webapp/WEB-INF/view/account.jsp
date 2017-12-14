@@ -60,7 +60,7 @@
                                                     <p style="margin-top: 1%"> Deadline: <span  style="color: firebrick;">${go.deadline}</span></p>
 
                                                 </div>
-                                                <div class="col-sm-2 mTop progressGoal">
+                                                <div class="col-sm-2 progressGoal">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">${go.goalCrName}</p>

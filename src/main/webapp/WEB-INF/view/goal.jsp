@@ -94,7 +94,6 @@
                         </div>
                     </div>
                     <div class="form-row"> <div  class="form-group col-md-3">
-                        <a href="/backToAccount"  class="btn btn-outline-primary" role="button" aria-pressed="true">Back</a>
                         <button type="reset" class="btn btn-outline-danger">Reset</button>
                         <div class="btn btn-outline-success submit">Save goal</div>
                         <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/></div>

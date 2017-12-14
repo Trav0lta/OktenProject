@@ -70,7 +70,7 @@
                                         </div>
 
                                         <div class="col-sm-1 text-center pencilIco">
-                                            <a href="#" data-toggle="modal" data-target="#modalEdit${go.id}"><span class="fa fa-clone"></span></a>
+                                            <a href="#"><span class="fa fa-clone"></span></a>
                                         </div>
 
                                     </div>
@@ -85,14 +85,3 @@
 </div>
 <%@include file="tmp/footerUser.jsp"%>
 
-
-
-    <div class="container">
-
-
-    </div>
-
-
-
-</div>
-<%@include file="tmp/footerUser.jsp"%>
