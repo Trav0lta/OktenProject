@@ -93,7 +93,6 @@ public class SettingsController {
 
     @RequestMapping(value = "/changeAvatar", method = RequestMethod.POST)
     public String changeAvatar(Principal principal,
-
                                @RequestParam MultipartFile avatar) throws ParseException, IOException {
 
         String path = System.getProperty("user.home") + File.separator + "Pictures\\";

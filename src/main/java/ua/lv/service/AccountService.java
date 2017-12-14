@@ -3,6 +3,7 @@ package ua.lv.service;
 import org.springframework.data.repository.query.Param;
 import ua.lv.entity.Account;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,7 +16,10 @@ public interface AccountService {
 //    Account findGoalsByUserId(int id);
 
     void updateProgress(int id, int currentGoalCrNum);
-    void updateGoal (int id, String goalName, String goalDesc, int goalCrNum);
+    void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal);
+    void updateStatusFinished(int id,  boolean statusFinished, Date dateOfFinishGoal);
+
+    void updateGoal (int id, String goalName, String goalDesc, String goalCrName, int goalCrNum);
 
     void delete(int id);
     void  delete (int id, Account account);

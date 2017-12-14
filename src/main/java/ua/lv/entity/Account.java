@@ -123,8 +123,16 @@ public class Account {
         this.dateOfStartGoal = dateOfStartGoal;
     }
 
-    public Date getDateOfFinishGoal() {
-        return dateOfFinishGoal;
+    public String getDateOfFinishGoal() {
+
+        if(dateOfFinishGoal!=null){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String outputDate = simpleDateFormat.format(dateOfFinishGoal);
+        return outputDate;
+        }
+        else{
+            return null;
+        }
     }
 
     public void setDateOfFinishGoal(Date dateOfFinishGoal) {

@@ -7,6 +7,7 @@ import ua.lv.dao.AccountDAO;
 import ua.lv.entity.Account;
 import ua.lv.service.AccountService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,8 +43,16 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.updateProgress(id, currentGoalCrNum);
     }
 
-    public void updateGoal(int id, String goalName, String goalDesc, int goalCrNum) {
-        accountDAO.updateGoal(id, goalName, goalDesc, goalCrNum);
+    public void updateStatusFailed(int id, boolean statusFailed, boolean statusFinished, Date dateOfFinishGoal) {
+        accountDAO.updateStatusFailed(id, statusFailed, statusFinished, dateOfFinishGoal);
+    }
+
+    public void updateStatusFinished(int id, boolean statusFinished, Date dateOfFinishGoal) {
+        accountDAO.updateStatusFinished(id, statusFinished,dateOfFinishGoal);
+    }
+
+    public void updateGoal(int id, String goalName, String goalDesc, String goalCrName, int goalCrNum) {
+        accountDAO.updateGoal(id, goalName, goalDesc, goalCrName, goalCrNum);
     }
 
     public List<Account> findAll() {

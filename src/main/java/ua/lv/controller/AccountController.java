@@ -37,4 +37,57 @@ public class AccountController {
         return "account";
     }
 
-}
+
+    @GetMapping("/yourCurGoals")
+    public String toYourCurGoals () {
+
+        return "redirect:/account";
+    }
+
+
+
+    @GetMapping("/yourSuccesfulGoals")
+    public String toYourSuccesfulGoals (Model model,
+                     Principal principal) {
+        String principalName = principal.getName();
+        User byUsername = userService.findByName(principalName);
+
+        model.addAttribute("currentUser", byUsername);
+        model.addAttribute("emptyGoal", new Account());
+        model.addAttribute("goalList", accountService.findAll());
+        return "succesfulGoals";
+    }
+
+    @GetMapping("/yourFailedGoals")
+    public String yourFailedGoals (Model model,
+                             Principal principal) {
+        String principalName = principal.getName();
+        User byUsername = userService.findByName(principalName);
+
+        model.addAttribute("currentUser", byUsername);
+        model.addAttribute("emptyGoal", new Account());
+        model.addAttribute("goalList", accountService.findAll());
+        return "failedGoals";
+    }
+
+    @GetMapping("/yourStatistic")
+    public String toStatic(Model model,
+                             Principal principal) {
+        String principalName = principal.getName();
+        User byUsername = userService.findByName(principalName);
+
+        model.addAttribute("currentUser", byUsername);
+        model.addAttribute("emptyGoal", new Account());
+        model.addAttribute("goalList", accountService.findAll());
+        return "statisticOfUser";
+    }
+
+
+
+
+
+
+
+
+
+    }

@@ -8,11 +8,11 @@
 
     <nav class="navbar navbar-light bg-light ">
         <a style="width: 20%" class="navbar-item ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">AIM | My Account</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">Current Goals</a>
         <span style="width: 20%;text-align: right;"><span class="navbar-text ml-auto mr-3">
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
         </span>
-        <a class="navbar-item mr-3">
+        <a class="navbar-item mr-3" href="/settings">
             <c:if test="${currentUser.avatar != null}">
                 <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
             </c:if>
@@ -33,16 +33,14 @@
 
     <div class="container">
 
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <h2>Your current goals <a href="/goal" class="btn btn-outline-primary btn-sm ml-5" role="button" aria-pressed="true">Add goal</a></h2>
-            </div>
+        <div class="row pt-4">
             <div class="col text-center">
-                    <form style="margin-top: 2%">
-                        <a class="btn btn-outline-success" href="#" role="button">Current</a>
-                        <a class="btn btn-outline-primary" href="#" role="button">Succesful</a>
-                        <a class="btn btn-outline-primary" href="#" role="button">Failed</a>
-                        <a class="btn btn-outline-primary" href="#" role="button">Statistic</a>
+                    <form>
+                        <a class="btn btn-outline-success" href="/yourCurGoals" role="button">Current</a>
+                        <a class="btn btn-outline-primary" href="/yourSuccesfulGoals" role="button">Successful</a>
+                        <a class="btn btn-outline-primary" href="/yourFailedGoals" role="button">Failed</a>
+                        <a class="btn btn-outline-primary" href="/yourStatistic" role="button">Statistic</a>
+                        <a href="/goal" class="btn btn-outline-primary" role="button">Add goal</a>
                     </form>
             </div>
         </div>
@@ -54,7 +52,7 @@
                         <div class="card autoheight1" style="overflow-y: auto;">
                             <div class="list-group list-group-flush">
                                     <c:forEach items="${goalList}" var="go">
-                                        <c:if test="${go.user.id == currentUser.id}">
+                                        <c:if test="${go.user.id == currentUser.id && go.statusFinished==false}">
                                             <div class="list-group-item autoheight2 row m-0" style="height: 100%; min-height: 100%;">
                                                 <div class="col-sm-8 aboutGoal">
                                                     <h5>${go.goalName}</h5>
@@ -65,7 +63,7 @@
                                                 <div class="col-sm-2 mTop progressGoal">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p>
+                                                    </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">${go.goalCrName}</p>
                                                 </div>
                                                 <div class="col-sm-1 text-center plusIco">
                                                     <a href="#" data-toggle="modal" data-target="#myModal${go.id}"><span class="oi oi-plus"></span></a>
@@ -88,6 +86,7 @@
                                                                 </div><br>
                                                                 <p>Change your progress:</p><br>
                                                                 <div class="range-slider">
+                                                                    <input type="hidden" value="${go.goalCrNum}" name="goalCrNum">
                                                                     <input class="range-slider__range" type="range" name="currentGoalCrNum" value="${go.currentGoalCrNum}" min="${go.currentGoalCrNum}" max="${go.goalCrNum}">
                                                                     <span class="range-slider__value">${go.currentGoalCrNum}</span>
                                                                 </div>
@@ -129,7 +128,7 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="goal-crit" class="form-control-label">New critetion name:</label>
-                                                                            <input class="form-control" name="goalCr" value="" id="goal-crit">
+                                                                            <input class="form-control" name="goalCrName" value="${go.goalCrName}" id="goal-crit">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="goal-quantity" class="form-control-label">Change quantity (${go.goalCrNum}):</label>
@@ -143,9 +142,9 @@
                                                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                                 </div>
                                                             </form>
-                                                            <form action="/deleteGoal" style="position: absolute;top: 90%;left: 5%;" method="post">
+                                                            <form action="/failGoal" style="position: absolute;top: 90%;left: 5%;" method="post">
                                                                 <input type="hidden" value="${go.id}" name="id">
-                                                                <input type="submit" value="Delete goal" class="btn btn-outline-danger" aria-pressed="true">
+                                                                <input type="submit" value="Give UP" class="btn btn-outline-danger" aria-pressed="true">
                                                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                             </form>
                                                         </div>

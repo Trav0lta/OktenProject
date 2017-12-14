@@ -1,6 +1,7 @@
 package ua.lv.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -52,8 +53,14 @@ public class GoalController {
 
     @RequestMapping(value = "/changeGoal" ,method = RequestMethod.POST)
     public String changeProgress( @RequestParam int currentGoalCrNum,
-                                  @RequestParam int goalId,
-                                 Principal principal){
+                                  @RequestParam int goalCrNum,
+                                  @RequestParam int goalId){
+        boolean statusFinish = true;
+        if (currentGoalCrNum == goalCrNum) {
+            Date date = new Date();
+            accountService.updateStatusFinished(goalId, statusFinish,date);
+        }
+
         accountService.updateProgress(goalId, currentGoalCrNum);
         return "redirect:/account";
     }
@@ -62,8 +69,9 @@ public class GoalController {
     public String updateGoal( @RequestParam int goalId,
                               @RequestParam String goalName,
                               @RequestParam String goalDesc,
+                              @RequestParam String goalCrName,
                               @RequestParam int goalCrNum){
-        accountService.updateGoal(goalId, goalName,goalDesc,goalCrNum);
+        accountService.updateGoal(goalId, goalName,goalDesc, goalCrName, goalCrNum);
         return "redirect:/account";
     }
     @RequestMapping(value = "/deleteGoal" ,method = RequestMethod.POST)
@@ -71,5 +79,17 @@ public class GoalController {
         accountService.delete(id);
         return "redirect:/account";
     }
-    
+
+    @RequestMapping(value = "/failGoal" ,method = RequestMethod.POST)
+    public String updateStatusFailed( @RequestParam("id") int id){
+        boolean statusFail = true;
+        Date date = new Date();
+        accountService.updateStatusFailed(id, statusFail, statusFail, date);
+        return "redirect:/account";
+    }
+
+
+
+
+
 }
