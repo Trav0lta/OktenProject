@@ -14,7 +14,7 @@
             <span style="width: 20%;text-align: right;"><span class="navbar-text ml-auto mr-3">
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
         </span>
-        <a class="navbar-item mr-3">
+        <a class="navbar-item mr-3" href="/settings">
             <c:if test="${currentUser.avatar != null}">
                 <img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">
             </c:if>
