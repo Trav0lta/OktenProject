@@ -17,7 +17,6 @@
                 <tr>
                     <td>id</td>
                     <td>userName</td>
-                    <td>password</td>
                     <td>delete</td>
                     <td>edit</td>
                 </tr>
@@ -25,7 +24,6 @@
                     <tr>
                         <td>${user.id}</td>
                         <td><a href="/showInfoUser/${user.id}" target="_blank">${user.username}</a></td>
-                        <td>${user.password}</td>
                         <td><a href="<c:url value='/editUser/${user.id}'/>">edit</a></td>
                         <td><a href="<c:url value='/deleteUser/${user.id}'/>">delete</a></td>
                     </tr>

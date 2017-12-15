@@ -82,6 +82,12 @@ public class AccountController {
         return "statisticOfUser";
     }
 
+    @RequestMapping("/backToTheAddGoal/{id}")
+    public String backToTheAdd(@PathVariable("id") int id, Model model,Principal principal){
+        model.addAttribute("emptyGoal", accountService.findOne(id));
+        return "/goal";
+    }
+
 
 
 

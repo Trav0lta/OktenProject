@@ -70,7 +70,7 @@
                                             days
                                         </div>
                                         <div class="col-sm-1 text-center pencilIco">
-                                            <a href="#"><span class="fa fa-refresh"></span></a>
+                                            <a href="/backToTheAddGoal/${go.id}" target="_blank"><span class="fa fa-refresh"></span></a>
                                         </div>
 
                                     </div>
