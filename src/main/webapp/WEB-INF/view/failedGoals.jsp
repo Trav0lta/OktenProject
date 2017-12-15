@@ -47,7 +47,7 @@
 
 
         <div class="container-fluid">
-            <div  class="row ml-5 mr-5 mt-4 justify-content-center">
+            <div  class="row ml-sm-5 mr-sm-5 mt-4 justify-content-center">
                 <div class="col" style="max-width: 1400px">
                     <div class="card autoheight1" style="overflow-y: auto;">
                         <div class="list-group list-group-flush">
@@ -60,16 +60,16 @@
                                             <p style="margin-top: 1%"> Reason: <span  style="color: firebrick;">Failed deadline/Gived up</span></p>
 
                                         </div>
-                                        <div class="col-sm-2 quantQ">
+                                        <div class="col-sm-2 col-6  quantQ">
                                             <div class="progress">
                                                 <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">${go.goalCrName}</p>
                                         </div>
-                                        <div style="left: 75%;" class="col-sm-2 text-center daysG">
+                                        <div style="left: 75%;" class="col-sm-2  col-3 text-center daysG">
                                             <span class="step">10</span>
                                             days
                                         </div>
-                                        <div class="col-sm-1 text-center pencilIco">
+                                        <div class="col-sm-1  col-3 text-center pencilIco">
                                             <a href="#"><span class="fa fa-refresh"></span></a>
                                         </div>
 

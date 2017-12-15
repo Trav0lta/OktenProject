@@ -39,8 +39,8 @@
                 <form>
                     <a class="btn btn-outline-primary" href="/yourCurGoals" role="button">Current</a>
                     <a class="btn btn-outline-primary" href="/yourSuccesfulGoals" role="button">Successful</a>
-                    <a class="btn btn-outline-success" href="/yourFailedGoals" role="button">Failed</a>
-                    <a class="btn btn-outline-primary" href="/yourStatistic" role="button">Statistic</a>
+                    <a class="btn btn-outline-primary" href="/yourFailedGoals" role="button">Failed</a>
+                    <a class="btn btn-outline-success" href="/yourStatistic" role="button">Statistic</a>
                     <a href="/goal" class="btn btn-outline-primary" role="button">Add goal</a>
                 </form>
             </div>
@@ -48,12 +48,11 @@
 
 
         <div class="container-fluid">
-            <div  class="row ml-5 mr-5 mt-4 justify-content-center">
+            <div  class="row ml-sm-5 mr-sm-5 mt-4 justify-content-center">
                 <div class="col" style="max-width: 1400px">
                     <div class="card autoheight1" style="overflow-y: auto;">
-
-
-                        <div class="row">
+                        <div class="section">
+                        <div class="row m-0 mt-4">
                             <div class="col-4 text-center">
                                 <span class="step">10</span>
                                 finished goals
@@ -66,7 +65,70 @@
                                     <span class="step">69%</span>
                                     successful goals
                             </div>
+                            <div class="col-lg-6 mt-4 text-center">
+                                <canvas id="myChart"></canvas>
+
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+                                <script>
+
+                                    var ctx = document.getElementById('myChart').getContext('2d');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: ["Current", "Successful", "Failed"],
+                                            datasets: [{
+                                                data: [12, 19, 3],
+                                                backgroundColor: [
+                                                    'rgba(54, 162, 235, 1)',
+                                                    'rgba(255, 206, 86, 1)',
+                                                    'rgba(255, 99, 132, 1)',
+                                                ],
+
+                                            }]
+                                        },
+                                        options: {
+                                            title: {
+                                                display: true,
+                                                text: 'Statistic by goal'
+                                            },
+                                        }
+                                    });
+
+                                </script>
+                            </div>
+                            <div class="col-lg-6 mt-4 text-center">
+
+                                <canvas id="myChart2"></canvas>
+
+                                <script>
+
+                                    var ctx = document.getElementById('myChart2').getContext('2d');
+                                    var myChart = new Chart(ctx, {
+                                        type: 'radar',
+
+                                        data: {
+                                            labels: [
+                                                "Health", "Relationship", "Self improvement", "Finance", "Hobbies"],
+                                            datasets: [{
+                                                label: 'All goals',
+                                                backgroundColor: 'rgba(75, 192, 192, 0.2)' ,
+                                                borderColor: 'rgba(75, 192, 192, 1)' ,
+                                                data: [12, 19, 3, 7 , 2]
+                                            }]
+                                        },
+                                        options: {
+                                            title: {
+                                                display: true,
+                                                text: 'Statistic by category'
+                                            }
+                                        }
+                                    });
+
+                                </script>
+
+                            </div>
                         </div>
+                    </div>
 
 
                     </div>

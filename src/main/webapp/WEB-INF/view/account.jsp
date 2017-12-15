@@ -48,7 +48,7 @@
 
 
             <div class="container-fluid">
-                <div  class="row ml-5 mr-5 mt-4 justify-content-center">
+                <div  class="row ml-sm-5 mr-sm-5 mt-4 justify-content-center">
                     <div class="col" style="max-width: 1400px">
                         <div class="card autoheight1" style="overflow-y: auto;">
                             <div class="list-group list-group-flush">
@@ -70,12 +70,12 @@
 
 
                                                 </div>
-                                                <div class="col-sm-2 progressGoal">
+                                                <div class="col-sm-2  col-6 progressGoal">
                                                     <div class="progress">
                                                         <div class="progress-bar" role="progressbar" style="width: ((${go.currentGoalCrNum}/${go.goalCrNum})*100)" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                     </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">${go.goalCrName}</p>
                                                 </div>
-                                                <div class="col-sm-1 text-center plusIco">
+                                                <div class="col-sm-1  col-3 text-center plusIco">
                                                     <a href="#" data-toggle="modal" data-target="#myModal${go.id}"><span class="oi oi-plus"></span></a>
                                                 </div>
                                                 <div class="modal fade" id="myModal${go.id}" role="dialog">
@@ -113,7 +113,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-sm-1 text-center pencilIco">
+                                                <div class="col-sm-1 col-3 text-center pencilIco">
                                                     <a href="#" data-toggle="modal" data-target="#modalEdit${go.id}"><span class="oi oi-pencil"></span></a>
                                                 </div>
                                                 <div class="modal fade" id="modalEdit${go.id}" role="dialog">

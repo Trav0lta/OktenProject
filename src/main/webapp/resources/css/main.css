@@ -304,6 +304,7 @@ input::-moz-focus-outer {
 #sign-up-form .field {
     margin: 15px 0
 }
+@media (min-width: 576px){
 .aboutGoal{
     position: absolute;
     top: 50%;
@@ -339,6 +340,11 @@ input::-moz-focus-outer {
     top: 50%;
     transform: translateY(-50%);
     left: 74%;
+}}
+@media (max-width: 576px) {
+    .aboutGoal, .autoheight2{
+        height: max-content!important;
+    }
 }
 .list-group-flush:first-child .list-group-item:first-child {
     border-top: 1px solid rgba(0, 0, 0, 0.125);

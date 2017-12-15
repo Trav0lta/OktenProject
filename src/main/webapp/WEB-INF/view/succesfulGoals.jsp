@@ -47,7 +47,7 @@
 
 
         <div class="container-fluid">
-            <div  class="row ml-5 mr-5 mt-4 justify-content-center">
+            <div  class="row ml-sm-5 mr-sm-5 mt-4 justify-content-center">
                 <div class="col" style="max-width: 1400px">
                     <div class="card autoheight1" style="overflow-y: auto;">
                         <div class="list-group list-group-flush">
@@ -60,16 +60,16 @@
                                             <p style="margin-top: 1%"> Finished: <span  style="color: firebrick;">${go.dateOfFinishGoal}</span> Deadline: <span  style="color: firebrick;">${go.deadline}</span></p>
 
                                         </div>
-                                        <div class="col-sm-2 text-center quantQ">
+                                        <div class="col-sm-2 col-4 text-center quantQ">
                                             <span class="step">${go.currentGoalCrNum}</span>
                                                 ${go.goalCrName}
                                         </div>
-                                        <div class="col-sm-2 text-center daysG">
+                                        <div class="col-sm-2  col-4 text-center daysG">
                                             <span class="step">10</span>
                                             days
                                         </div>
 
-                                        <div class="col-sm-1 text-center pencilIco">
+                                        <div class="col-sm-1  col-4 text-center pencilIco">
                                             <a href="#"><span class="fa fa-clone"></span></a>
                                         </div>
 
