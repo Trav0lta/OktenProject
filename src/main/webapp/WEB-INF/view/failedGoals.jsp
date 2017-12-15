@@ -8,7 +8,7 @@
 
     <nav class="navbar navbar-light bg-light ">
         <a style="width: 20%" class="navbar-item ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
-        <a class="navbar-brand ml-auto mr-auto" href="#">Successful Goals</a>
+        <a class="navbar-brand ml-auto mr-auto" href="#">Failed Goals</a>
         <span style="width: 20%;text-align: right;"><span class="navbar-text ml-auto mr-3">
       	Hello, <b>${currentUser.firstName} ${currentUser.lastName}</b>
         </span>
@@ -52,7 +52,7 @@
                     <div class="card autoheight1" style="overflow-y: auto;">
                         <div class="list-group list-group-flush">
                             <c:forEach items="${goalList}" var="go">
-                                <c:if test="${go.user.id == currentUser.id && go.statusFinished==true && go.statusFailed==false}">
+                                <c:if test="${go.user.id == currentUser.id && go.statusFinished==true && go.statusFailed==true}">
                                     <div class="list-group-item autoheight2 row m-0" style="height: 100%; min-height: 100%;">
                                         <div class="col-sm-8 aboutGoal">
                                             <h5>${go.goalName}</h5>
