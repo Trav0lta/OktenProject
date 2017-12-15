@@ -113,6 +113,7 @@
                                                 label: 'All goals',
                                                 backgroundColor: 'rgba(75, 192, 192, 0.2)' ,
                                                 borderColor: 'rgba(75, 192, 192, 1)' ,
+                                                pointBackgroundColor:'rgba(75, 192, 192, 1)' ,
                                                 data: [12, 19, 3, 7 , 2]
                                             }]
                                         },

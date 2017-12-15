@@ -345,6 +345,15 @@ input::-moz-focus-outer {
     .aboutGoal, .autoheight2{
         height: max-content!important;
     }
+    .progressGoal, .plusIco, .pencilIco, .quantQ, .daysG{
+        margin-top: 5%;
+    }
+    .autoheight .btn{
+        padding: 0.5rem 0.35rem;
+        font-size: 0.9rem;
+    }
+
+
 }
 .list-group-flush:first-child .list-group-item:first-child {
     border-top: 1px solid rgba(0, 0, 0, 0.125);
