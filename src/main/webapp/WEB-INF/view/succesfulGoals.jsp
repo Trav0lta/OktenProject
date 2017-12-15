@@ -69,8 +69,13 @@
                                             days
                                         </div>
 
+<<<<<<< HEAD
                                         <div class="col-sm-1  col-4 text-center pencilIco">
                                             <a href="#"><span class="fa fa-clone"></span></a>
+=======
+                                        <div class="col-sm-1 text-center pencilIco">
+                                            <a href="/backToTheAddGoal/${go.id}" target="_blank"><span class="fa fa-clone"></span></a>
+>>>>>>> eeff49a8adc45e6b75487d90f1ab8360534ed350
                                         </div>
 
                                     </div>
