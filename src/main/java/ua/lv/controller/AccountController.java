@@ -86,7 +86,14 @@ public class AccountController {
 
         int a =  byUsername.getFinishedSucssesGoals();
         int b =  byUsername.getFinishedAllGoals();
-        int procentSucsses = a*100/b;
+        int procentSucsses;
+        if (b==0){
+            procentSucsses = 0;
+        }
+        else {
+            procentSucsses = a*100/b;
+        }
+
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal", new Account());
         model.addAttribute("goalList", accountService.findAll());
