@@ -108,6 +108,23 @@ public class GoalController {
     }
 
 
+    @RequestMapping(value = "/failGoalByDeadline" ,method = RequestMethod.POST)
+    public String failGoalByDeadline( @RequestParam("id") int id,
+                                      @RequestParam("userId") int userId){
+
+        Account account = accountService.findById(id);
+        Date dateStart = account.getDateOfStartGoal();
+        Date dateDeadline = account.getDeadline();
+        Date date = new Date();
+        long diff = date.getTime()-dateStart.getTime();
+        long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
+
+        if (dateDeadline.before(date) == true){
+            accountService.updateStatusFailed(id, true,true, date, days);
+        }
+        return "redirect:/account";
+    }
+
 
 
 

@@ -22,8 +22,6 @@ public class AccountValidator implements Validator {
     AccountService accountService;
 
 
-
-
     public boolean supports(Class<?> aClass) {
         return aClass.equals(Account.class);
     }
@@ -35,12 +33,12 @@ public class AccountValidator implements Validator {
             errors.rejectValue("goalCrNum", "error", "ups.");
         }
 
-       LocalDate  dateNow = LocalDate.now();
-       LocalDate deadline = LocalDate.parse(account.getDeadline());
-       boolean d = dateNow.isBefore(deadline);
-       if(d){
-           errors.rejectValue("date", "errors", "your date false");
-       }
+//       LocalDate  dateNow = LocalDate.now();
+//       LocalDate deadline = LocalDate.parse(account.getDeadline());
+//       boolean d = dateNow.isBefore(deadline);
+//       if(d){
+//           errors.rejectValue("date", "errors", "your date false");
+//       }
 //        Date deadLine = new Date(account.getDeadline());
 //        System.out.println(deadLine);
 //        Date dateNow = new Date();
