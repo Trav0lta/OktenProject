@@ -33,7 +33,6 @@ public class AccountController {
                             /*@PathVariable("id") int id*/){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
-
 //        Account account = accountService.findById(id);
 //        Date dateStart = account.getDateOfStartGoal();
 //        Date dateDeadline = account.getDeadline();
@@ -44,9 +43,6 @@ public class AccountController {
 //        if (dateDeadline.before(date) == true){
 //            accountService.updateStatusFailed(id, true,true, date, days);
 //        }
-
-
-
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal",new Account());
         model.addAttribute("goalList", accountService.findAll());
@@ -112,7 +108,10 @@ public class AccountController {
     }
 
     @RequestMapping("/backToTheAddGoal/{id}")
-    public String backToTheAdd(@PathVariable("id") int id, Model model){
+    public String backToTheAdd(@PathVariable("id") int id, Model model, Principal principal){
+        String principalName = principal.getName();
+        User byUsername = userService.findByName(principalName);
+        model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal", accountService.findOne(id));
         return "/goal";
     }
