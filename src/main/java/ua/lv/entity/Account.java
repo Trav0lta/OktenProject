@@ -144,17 +144,17 @@ public class Account {
     }
 
     public void setDays(int days) {
-        if (statusFinished = true){
-            int dayscount=0;
-            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("EEE MMM dd HH:mm:ss zzz yyyy");
-//            DateTimeFormatter dateTimeFormatter1 = DateTimeFormat.forPattern("dd-MM-yyyy");
-            LocalDate ldStart = LocalDate.parse(dateOfStartGoal.toString(), dateTimeFormatter);
-            LocalDate ldFinish = LocalDate.parse(dateOfFinishGoal.toString(), dateTimeFormatter);
-            dayscount = Days.daysBetween(ldStart, ldFinish).getDays();
-
-            this.days=dayscount;
-
-        }
+//        if (statusFinished = true){
+//            int dayscount=0;
+//            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("EEE MMM dd HH:mm:ss zzz yyyy");
+////            DateTimeFormatter dateTimeFormatter1 = DateTimeFormat.forPattern("dd-MM-yyyy");
+//            LocalDate ldStart = LocalDate.parse(dateOfStartGoal.toString(), dateTimeFormatter);
+//            LocalDate ldFinish = LocalDate.parse(dateOfFinishGoal.toString(), dateTimeFormatter);
+//            dayscount = Days.daysBetween(ldStart, ldFinish).getDays();
+//
+//            this.days=dayscount;
+//
+//        }
         this.days = days;
     }
 

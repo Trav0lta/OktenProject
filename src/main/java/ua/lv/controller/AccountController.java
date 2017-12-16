@@ -1,5 +1,6 @@
 package ua.lv.controller;
 
+import org.joda.time.Days;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by User on 20.10.2017.
@@ -30,6 +32,7 @@ public class AccountController {
                             Principal principal){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
+
 
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal",new Account());
@@ -76,14 +79,27 @@ public class AccountController {
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
 
+        Date date = new Date();
+        Date date1 = byUsername.getDateOfRegistration();
+        long diff = date.getTime() - date1.getTime();
+
+        long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
+
+        int a =  byUsername.getFinishedSucssesGoals();
+        int b =  byUsername.getFinishedAllGoals();
+        int procentSucsses = a*100/b;
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal", new Account());
         model.addAttribute("goalList", accountService.findAll());
+        model.addAttribute("dateOfStart", byUsername.getDateOfRegistration());
+
+        model.addAttribute("procentSucsses", procentSucsses);
+        model.addAttribute("daysWithUs", days);
         return "statisticOfUser";
     }
 
     @RequestMapping("/backToTheAddGoal/{id}")
-    public String backToTheAdd(@PathVariable("id") int id, Model model,Principal principal){
+    public String backToTheAdd(@PathVariable("id") int id, Model model){
         model.addAttribute("emptyGoal", accountService.findOne(id));
         return "/goal";
     }

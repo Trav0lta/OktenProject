@@ -10,16 +10,8 @@
         <a style="width: 20%" class="navbar-item ml-3" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="oi oi-cog"></span></a>
         <a class="navbar-brand ml-auto mr-auto" href="#">Your statistic</a>
         <span style="width: 20%;text-align: right;"><span class="navbar-text ml-auto mr-3">
-        <b>${currentUser.firstName} do you want to <a href="chat">chatting</a><b>?</b></b>
+        <b>${currentUser.firstName}, do you want to <a href="chat">chatting</a><b>?</b></b>
         </span>
-        <%--<a class="navbar-item mr-3" href="/settings">--%>
-            <%--<c:if test="${currentUser.avatar != null}">--%>
-                <%--<img src="${currentUser.avatar}" width="30" height="30" class="rounded-circle" alt="">--%>
-            <%--</c:if>--%>
-            <%--<c:if test="${currentUser.avatar == null}">--%>
-                <%--<img src="/resources/img/avatar.png" width="30" height="30" class="rounded-circle" alt="">--%>
-            <%--</c:if>--%>
-            <%--</a>--%>
         </span>
     </nav>
 
@@ -54,15 +46,15 @@
                         <div class="section">
                         <div class="row m-0 mt-4">
                             <div class="col-4 text-center">
-                                <span class="step">10</span>
+                                <span class="step">${currentUser.finishedAllGoals}</span>
                                 finished goals
                             </div>
                             <div class="col-4 text-center">
-                                <span class="step">7</span>
-                                days to
+                                <span class="step">${daysWithUs}</span>
+                                day(s) with us
                             </div>
                             <div class="col-4 text-center">
-                                    <span class="step">69%</span>
+                                <span class="step">${procentSucsses}%</span>
                                     successful goals
                             </div>
                             <div class="col-lg-6 mt-4 text-center">
@@ -75,11 +67,11 @@
                                     var myChart = new Chart(ctx, {
                                         type: 'doughnut',
                                         data: {
-                                            labels: ["Current", "Successful", "Failed"],
+                                            labels: ["Successful", "Failed"],
                                             datasets: [{
-                                                data: [12, 19, 3],
+                                                data: [${currentUser.finishedSucssesGoals}, ${currentUser.finishedFailedGoals}],
                                                 backgroundColor: [
-                                                    'rgba(54, 162, 235, 1)',
+//                                                    'rgba(54, 162, 235, 1)',
                                                     'rgba(255, 206, 86, 1)',
                                                     'rgba(255, 99, 132, 1)',
                                                 ],
