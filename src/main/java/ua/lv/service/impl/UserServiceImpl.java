@@ -70,4 +70,12 @@ public class UserServiceImpl implements UserService,UserDetailsService{
     public void removeUser(int id) {
         userDAO.delete(id);
     }
+
+    public void updateFinishedSucssesGoals(int id, int finishedAllGoals, int finishedSucssesGoals) {
+        userDAO.updateFinishedSucssesGoals(id, finishedAllGoals, finishedSucssesGoals);
+    }
+
+    public void updateFinishedFailedGoals(int id, int finishedAllGoals, int finishedFailedGoals) {
+        userDAO.updateFinishedFailedGoals(id, finishedAllGoals, finishedFailedGoals);
+    }
 }

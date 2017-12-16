@@ -54,14 +54,20 @@ public class GoalController {
     @RequestMapping(value = "/changeGoal" ,method = RequestMethod.POST)
     public String changeProgress( @RequestParam int currentGoalCrNum,
                                   @RequestParam int goalCrNum,
-                                  @RequestParam int goalId){
+                                  @RequestParam int goalId,
+                                  @RequestParam("userId") int userId){
         boolean statusFinish = true;
         if (currentGoalCrNum == goalCrNum) {
             Date date = new Date();
-            accountService.updateStatusFinished(goalId, statusFinish,date);
+            accountService.updateStatusFinished(goalId, statusFinish, date);
         }
-
         accountService.updateProgress(goalId, currentGoalCrNum);
+
+        User user = userService.findOne(userId);
+        int newFinishG = user.getFinishedAllGoals()+1;
+        int newSucsG = user.getFinishedSucssesGoals()+1;
+        userService.updateFinishedSucssesGoals(userId, newFinishG, newSucsG);
+
         return "redirect:/account";
     }
 
@@ -81,11 +87,15 @@ public class GoalController {
     }
 
     @RequestMapping(value = "/failGoal" ,method = RequestMethod.POST)
-    public String updateStatusFailed( @RequestParam("id") int id){
+    public String updateStatusFailed( @RequestParam("id") int id,
+                                      @RequestParam("userId") int userId){
         boolean statusFail = true;
         Date date = new Date();
         accountService.updateStatusFailed(id, statusFail, statusFail, date);
-
+        User user = userService.findOne(userId);
+        int newFinishG = user.getFinishedAllGoals()+1;
+        int newFeilG = user.getFinishedFailedGoals()+1;
+        userService.updateFinishedFailedGoals(userId, newFinishG, newFeilG);
 //        accountService.updateDays(id,days);
         return "redirect:/account";
     }

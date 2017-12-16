@@ -31,6 +31,18 @@ public interface UserDAO extends JpaRepository<User,Integer> {
     @Query("update User set avatar=:avatar where username=:username")
     void updateAvatar(@Param("username") String username, @Param("avatar") String avatar);
 
+    @Modifying
+    @Query("update User set finishedAllGoals=:finishedAllGoals, finishedSucssesGoals=:finishedSucssesGoals where id=:id ")
+    void updateFinishedSucssesGoals(@Param("id") int id, @Param("finishedAllGoals") int finishedAllGoals, @Param("finishedSucssesGoals") int finishedSucssesGoals);
+
+    @Modifying
+    @Query("update User set finishedAllGoals=:finishedAllGoals, finishedFailedGoals=:finishedFailedGoals where id=:id ")
+    void updateFinishedFailedGoals(@Param("id") int id, @Param("finishedAllGoals") int finishedAllGoals, @Param("finishedFailedGoals") int finishedFailedGoals);
+
+
+
+
+
     List<User> findAll();
 
 

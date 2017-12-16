@@ -85,7 +85,8 @@
                                                         <div class="modal-content">
                                                             <form action="/changeGoal" method="post">
                                                                 <input type="hidden" value="${go.id}" name="goalId">
-                                                            <div class="modal-header">
+                                                                <input type="hidden" value="${go.user.id}" name="userId">
+                                                                <div class="modal-header">
                                                                 <h4 class="modal-title">Add progress to your goal</h4>
                                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                             </div>
@@ -102,7 +103,6 @@
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <%--<a href="/changeGoal"  class="btn btn-outline-primary" role="button" aria-pressed="true">Save</a>--%>
                                                                     <input type="submit" value="Add progress" class="btn btn-outline-primary">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
@@ -154,6 +154,7 @@
                                                             </form>
                                                             <form action="/failGoal" style="position: absolute;top: 90%;left: 5%;" method="post">
                                                                 <input type="hidden" value="${go.id}" name="id">
+                                                                <input type="hidden" value="${go.user.id}" name="userId">
                                                                 <input type="submit" value="Give UP" class="btn btn-outline-danger" aria-pressed="true">
                                                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                             </form>

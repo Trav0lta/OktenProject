@@ -19,4 +19,8 @@ public interface UserService {
     void updateAvatar(String username, String avatar);
     void removeUser(int id);
 
+    void updateFinishedSucssesGoals(int id, int finishedAllGoals, int finishedSucssesGoals);
+    void updateFinishedFailedGoals(int id, int finishedAllGoals, int finishedFailedGoals);
+
+
 }

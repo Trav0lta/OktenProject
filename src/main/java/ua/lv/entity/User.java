@@ -43,6 +43,11 @@ public class User implements UserDetails {
     private boolean credentialsNonExpired = true;
     private boolean enabled = true;
 
+    private int finishedAllGoals = 0;
+    private int finishedSucssesGoals = 0;
+    private int finishedFailedGoals = 0;
+
+
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         ArrayList<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
@@ -173,5 +178,46 @@ public class User implements UserDetails {
             this.avatar = "\\avatar\\" + multipartFile.getOriginalFilename();
 
         }
+    }
+
+    public int getFinishedAllGoals() {
+        return finishedAllGoals;
+    }
+
+    public void setFinishedAllGoals(int finishedAllGoals) {
+        this.finishedAllGoals = finishedAllGoals;
+    }
+
+    public int getFinishedSucssesGoals() {
+        return finishedSucssesGoals;
+    }
+
+    public void setFinishedSucssesGoals(int finishedSucssesGoals) {
+        this.finishedSucssesGoals = finishedSucssesGoals;
+    }
+
+    public int getFinishedFailedGoals() {
+        return finishedFailedGoals;
+    }
+
+    public void setFinishedFailedGoals(int finishedFailedGoals) {
+        this.finishedFailedGoals = finishedFailedGoals;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", email='" + email + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", authority=" + authority +
+                ", finishedAllGoals=" + finishedAllGoals +
+                ", finishedSucssesGoals=" + finishedSucssesGoals +
+                ", finishedFailedGoals=" + finishedFailedGoals +
+                '}';
     }
 }
