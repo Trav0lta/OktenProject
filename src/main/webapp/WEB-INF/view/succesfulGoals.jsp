@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@include file="tmp/headerUser.jsp" %>
 
@@ -57,8 +58,7 @@
                                         <div class="col-sm-8 aboutGoal">
                                             <h5>${go.goalName}</h5>
                                             <p>${go.goalDesc}</p>
-                                            <p style="margin-top: 1%"> Finished: <span  style="color: firebrick;">${go.dateOfFinishGoal}</span> Deadline: <span  style="color: firebrick;">${go.deadline}</span></p>
-
+                                            <p style="margin-top: 1%"> Finished: <span  style="color: firebrick;"><fmt:formatDate value="${go.dateOfFinishGoal}" pattern="dd-MM-yyyy"/></span> Deadline: <span  style="color: firebrick;"><fmt:formatDate value="${go.deadline}" pattern="dd-MM-yyyy"/></span></p>
                                         </div>
                                         <div class="col-sm-2 col-4 text-center quantQ">
                                             <span class="step">${go.currentGoalCrNum}</span>

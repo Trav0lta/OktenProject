@@ -58,13 +58,7 @@
                                                 <div class="col-sm-8 aboutGoal">
                                                     <h5>${go.goalName}</h5>
                                                     <p>${go.goalDesc}</p>
-                                                    <p style="margin-top: 1%"> Deadline: <span  style="color: firebrick;">${go.deadline}</span></p>
-                                                    <%--<jsp:useBean id="now" class="java.util.Date"/>--%>
-                                                    <%--Current Date: <span style="color: #39b227;"><fmt:formatDate value="${now}" pattern="dd-MM-yyyy"/></span>--%>
-
-                                                    <%--<c:if test="${go.deadline==now}">--%>
-                                                        <%--Looooseeerrrr--%>
-                                                    <%--</c:if>--%>
+                                                    <p style="margin-top: 1%"> Deadline: <span  style="color: firebrick;"><fmt:formatDate value="${go.deadline}" pattern="dd-MM-yyyy"/></span></p>
 
                                                 </div>
                                                 <div class="col-sm-2  col-6 progressGoal">

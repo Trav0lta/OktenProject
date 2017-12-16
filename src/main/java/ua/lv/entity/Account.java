@@ -69,10 +69,8 @@ public class Account {
         this.goalDesc = goalDesc;
     }
 
-    public String getDeadline() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String outputDate = simpleDateFormat.format(deadline);
-        return outputDate;
+    public Date getDeadline() {
+        return deadline;
     }
 
     public void setDeadline (String deadline) {
@@ -126,35 +124,15 @@ public class Account {
         this.dateOfStartGoal = dateOfStartGoal;
     }
 
-    public String getDateOfFinishGoal() {
-
-        if(dateOfFinishGoal!=null){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String outputDate = simpleDateFormat.format(dateOfFinishGoal);
-        return outputDate;
-        }
-        else{
-            return null;
-        }
+    public Date getDateOfFinishGoal() {
+        return dateOfFinishGoal;
     }
-
 
     public int getDays() {
         return days;
     }
 
     public void setDays(int days) {
-//        if (statusFinished = true){
-//            int dayscount=0;
-//            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("EEE MMM dd HH:mm:ss zzz yyyy");
-////            DateTimeFormatter dateTimeFormatter1 = DateTimeFormat.forPattern("dd-MM-yyyy");
-//            LocalDate ldStart = LocalDate.parse(dateOfStartGoal.toString(), dateTimeFormatter);
-//            LocalDate ldFinish = LocalDate.parse(dateOfFinishGoal.toString(), dateTimeFormatter);
-//            dayscount = Days.daysBetween(ldStart, ldFinish).getDays();
-//
-//            this.days=dayscount;
-//
-//        }
         this.days = days;
     }
 
