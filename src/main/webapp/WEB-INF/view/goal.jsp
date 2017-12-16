@@ -71,6 +71,7 @@
                         <div class="form-group col-md-6">
                             <label for="deadline">Deadline</label>
                             <input type="date" class="input-goal" id="deadline" name = "deadline" width="276"/>
+                            <errors name="date" class="cs"/>
                             <%--<script>--%>
                                 <%--$('#datepicker').datepicker({--%>
                                     <%--uiLibrary: 'bootstrap4',--%>
@@ -91,6 +92,7 @@
                                 <spring:message text="Quantity (only numbers)"/>
                             </form:label>
                             <form:input type="number" path="goalCrNum" min="1" class="form-control input-goal" id="goalCrNum" placeholder="Quantity"/>
+                            <form:errors path="goalCrNum" class="cs"/>
                         </div>
                     </div>
                     <div class="form-row"> <div  class="form-group col-md-3">

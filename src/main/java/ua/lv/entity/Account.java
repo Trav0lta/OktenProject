@@ -2,11 +2,7 @@ package ua.lv.entity;
 
 
 //import org.springframework.format.annotation.DateTimeFormat;
-import org.joda.time.Days;
 import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
-
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,14 +17,15 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
+//    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private User user;
 
-    private long days = 0;
     private int currentGoalCrNum = 0;
+//    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dateOfStartGoal = new Date();
     private Date dateOfFinishGoal = null;
     private boolean statusFinished = false;
@@ -69,8 +66,10 @@ public class Account {
         this.goalDesc = goalDesc;
     }
 
-    public Date getDeadline() {
-        return deadline;
+    public String getDeadline() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String outputDate = simpleDateFormat.format(deadline);
+        return outputDate;
     }
 
     public void setDeadline (String deadline) {
@@ -124,25 +123,20 @@ public class Account {
         this.dateOfStartGoal = dateOfStartGoal;
     }
 
-    public Date getDateOfFinishGoal() {
-        return dateOfFinishGoal;
-    }
+    public String getDateOfFinishGoal() {
 
-    public long getDays() {
-        return days;
-    }
-
-    public void setDays(long days) {
-        this.days = days;
+        if(dateOfFinishGoal!=null){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String outputDate = simpleDateFormat.format(dateOfFinishGoal);
+        return outputDate;
+        }
+        else{
+            return null;
+        }
     }
 
     public void setDateOfFinishGoal(Date dateOfFinishGoal) {
-        Date date = new Date();
-        if (deadline.before(date)==true){
-            this.dateOfFinishGoal = deadline;
-        }else{
-            this.dateOfFinishGoal = dateOfFinishGoal;
-        }
+        this.dateOfFinishGoal = dateOfFinishGoal;
     }
 
     public boolean isStatusFinished() {
@@ -150,12 +144,7 @@ public class Account {
     }
 
     public void setStatusFinished(boolean statusFinished) {
-        Date date = new Date();
-        if (deadline.before(date)==true){
-            this.statusFinished = true;
-        }else{
-            this.statusFinished = statusFinished;
-        }
+        this.statusFinished = statusFinished;
     }
 
     public boolean isStatusFailed() {
@@ -163,13 +152,7 @@ public class Account {
     }
 
     public void setStatusFailed(boolean statusFailed) {
-
-        Date date = new Date();
-        if (deadline.before(date)==true){
-            this.statusFailed = true;
-        }else{
-            this.statusFailed = statusFailed;
-        }
+        this.statusFailed = statusFailed;
     }
 
     @Override
