@@ -55,6 +55,9 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.updateGoal(id, goalName, goalDesc, goalCrName, goalCrNum);
     }
 
+    public void updateDays(int id, int days) {
+        accountDAO.updateDays(id, days);
+    }
     public List<Account> findAll() {
         return accountDAO.findAll();
     }

@@ -2,7 +2,11 @@ package ua.lv.entity;
 
 
 //import org.springframework.format.annotation.DateTimeFormat;
+import org.joda.time.Days;
 import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,15 +21,14 @@ public class Account {
     private String category;
     @Column(columnDefinition = "text")
     private String goalDesc;
-//    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date deadline;
     private String goalCrName;
     private int goalCrNum;
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private User user;
 
+    private int days = 0;
     private int currentGoalCrNum = 0;
-//    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dateOfStartGoal = new Date();
     private Date dateOfFinishGoal = null;
     private boolean statusFinished = false;
@@ -135,8 +138,33 @@ public class Account {
         }
     }
 
+
+    public int getDays() {
+        return days;
+    }
+
+    public void setDays(int days) {
+        if (statusFinished = true){
+            int dayscount=0;
+            DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("EEE MMM dd HH:mm:ss zzz yyyy");
+//            DateTimeFormatter dateTimeFormatter1 = DateTimeFormat.forPattern("dd-MM-yyyy");
+            LocalDate ldStart = LocalDate.parse(dateOfStartGoal.toString(), dateTimeFormatter);
+            LocalDate ldFinish = LocalDate.parse(dateOfFinishGoal.toString(), dateTimeFormatter);
+            dayscount = Days.daysBetween(ldStart, ldFinish).getDays();
+
+            this.days=dayscount;
+
+        }
+        this.days = days;
+    }
+
     public void setDateOfFinishGoal(Date dateOfFinishGoal) {
-        this.dateOfFinishGoal = dateOfFinishGoal;
+        Date date = new Date();
+        if (deadline.before(date)==true){
+            this.dateOfFinishGoal = deadline;
+        }else{
+            this.dateOfFinishGoal = dateOfFinishGoal;
+        }
     }
 
     public boolean isStatusFinished() {
@@ -144,7 +172,12 @@ public class Account {
     }
 
     public void setStatusFinished(boolean statusFinished) {
-        this.statusFinished = statusFinished;
+        Date date = new Date();
+        if (deadline.before(date)==true){
+            this.statusFinished = true;
+        }else{
+            this.statusFinished = statusFinished;
+        }
     }
 
     public boolean isStatusFailed() {
@@ -152,7 +185,13 @@ public class Account {
     }
 
     public void setStatusFailed(boolean statusFailed) {
-        this.statusFailed = statusFailed;
+
+        Date date = new Date();
+        if (deadline.before(date)==true){
+            this.statusFailed = true;
+        }else{
+            this.statusFailed = statusFailed;
+        }
     }
 
     @Override

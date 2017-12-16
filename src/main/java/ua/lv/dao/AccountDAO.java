@@ -36,6 +36,9 @@ public interface AccountDAO extends JpaRepository<Account,Integer> {
     @Query("update Account set statusFinished=:statusFinished, dateOfFinishGoal=:dateOfFinishGoal where id=:id ")
     void updateStatusFinished (@Param("id") int id, @Param("statusFinished") boolean statusFinished, @Param("dateOfFinishGoal") Date dateOfFinishGoal);
 
+    @Modifying
+    @Query("update Account set days=:days where id=:id ")
+    void updateDays (@Param("id") int id, @Param("days") int days);
 
     List<Account> findAll();
 

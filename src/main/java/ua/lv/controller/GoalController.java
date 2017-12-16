@@ -85,6 +85,8 @@ public class GoalController {
         boolean statusFail = true;
         Date date = new Date();
         accountService.updateStatusFailed(id, statusFail, statusFail, date);
+
+//        accountService.updateDays(id,days);
         return "redirect:/account";
     }
 

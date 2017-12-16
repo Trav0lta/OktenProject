@@ -18,6 +18,8 @@ public interface AccountService {
     void updateProgress(int id, int currentGoalCrNum);
     void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal);
     void updateStatusFinished(int id,  boolean statusFinished, Date dateOfFinishGoal);
+    void updateDays (int id, int days);
+
 
     void updateGoal (int id, String goalName, String goalDesc, String goalCrName, int goalCrNum);
 
