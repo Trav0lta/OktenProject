@@ -25,7 +25,7 @@ public class DataConfig {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost/abc");
         dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setPassword("1234");
         return dataSource;
     }
     @Bean
