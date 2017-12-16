@@ -1,14 +1,10 @@
 package ua.lv.entity;
 
 
-//import org.springframework.format.annotation.DateTimeFormat;
-import org.joda.time.Days;
 import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -137,12 +133,7 @@ public class Account {
     }
 
     public void setDateOfFinishGoal(Date dateOfFinishGoal) {
-        Date date = new Date();
-        if (deadline.before(date)==true){
-            this.dateOfFinishGoal = deadline;
-        }else{
             this.dateOfFinishGoal = dateOfFinishGoal;
-        }
     }
 
     public boolean isStatusFinished() {
@@ -150,12 +141,7 @@ public class Account {
     }
 
     public void setStatusFinished(boolean statusFinished) {
-        Date date = new Date();
-        if (deadline.before(date)==true){
-            this.statusFinished = true;
-        }else{
             this.statusFinished = statusFinished;
-        }
     }
 
     public boolean isStatusFailed() {
@@ -163,13 +149,7 @@ public class Account {
     }
 
     public void setStatusFailed(boolean statusFailed) {
-
-        Date date = new Date();
-        if (deadline.before(date)==true){
-            this.statusFailed = true;
-        }else{
             this.statusFailed = statusFailed;
-        }
     }
 
     @Override
