@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -46,6 +47,8 @@ public class User implements UserDetails {
     private int finishedAllGoals = 0;
     private int finishedSucssesGoals = 0;
     private int finishedFailedGoals = 0;
+
+    private Date dateOfRegistration = new Date();
 
 
 
@@ -202,6 +205,14 @@ public class User implements UserDetails {
 
     public void setFinishedFailedGoals(int finishedFailedGoals) {
         this.finishedFailedGoals = finishedFailedGoals;
+    }
+
+    public Date getDateOfRegistration() {
+        return dateOfRegistration;
+    }
+
+    public void setDateOfRegistration(Date dateOfRegistration) {
+        this.dateOfRegistration = dateOfRegistration;
     }
 
     @Override

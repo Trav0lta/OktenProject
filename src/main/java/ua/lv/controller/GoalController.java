@@ -36,8 +36,7 @@ public class GoalController {
     }
 
     @RequestMapping(value = "/saveNewGoal" ,method = RequestMethod.POST)
-    public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account,
-                          @RequestParam String deadline){
+    public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account){
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
@@ -60,13 +59,13 @@ public class GoalController {
         if (currentGoalCrNum == goalCrNum) {
             Date date = new Date();
             accountService.updateStatusFinished(goalId, statusFinish, date);
+
+            User user = userService.findOne(userId);
+            int newFinishG = user.getFinishedAllGoals()+1;
+            int newSucsG = user.getFinishedSucssesGoals()+1;
+            userService.updateFinishedSucssesGoals(userId, newFinishG, newSucsG);
         }
         accountService.updateProgress(goalId, currentGoalCrNum);
-
-        User user = userService.findOne(userId);
-        int newFinishG = user.getFinishedAllGoals()+1;
-        int newSucsG = user.getFinishedSucssesGoals()+1;
-        userService.updateFinishedSucssesGoals(userId, newFinishG, newSucsG);
 
         return "redirect:/account";
     }
