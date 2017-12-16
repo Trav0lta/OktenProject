@@ -23,6 +23,11 @@ public class AccountServiceImpl implements AccountService {
 //        return accountDAO.findGoalsByUserId(id);
 //    }
 
+
+    public Account findById(int id) {
+        return accountDAO.findOne(id);
+    }
+
     public void save(Account account) {
         accountDAO.save(account);
     }
@@ -43,19 +48,19 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.updateProgress(id, currentGoalCrNum);
     }
 
-    public void updateStatusFailed(int id, boolean statusFailed, boolean statusFinished, Date dateOfFinishGoal) {
-        accountDAO.updateStatusFailed(id, statusFailed, statusFinished, dateOfFinishGoal);
+    public void updateStatusFailed(int id, boolean statusFailed, boolean statusFinished, Date dateOfFinishGoal, long days) {
+        accountDAO.updateStatusFailed(id, statusFailed, statusFinished, dateOfFinishGoal, days);
     }
 
-    public void updateStatusFinished(int id, boolean statusFinished, Date dateOfFinishGoal) {
-        accountDAO.updateStatusFinished(id, statusFinished,dateOfFinishGoal);
+    public void updateStatusFinished(int id, boolean statusFinished, Date dateOfFinishGoal, long days) {
+        accountDAO.updateStatusFinished(id, statusFinished, dateOfFinishGoal, days);
     }
 
     public void updateGoal(int id, String goalName, String goalDesc, String goalCrName, int goalCrNum) {
         accountDAO.updateGoal(id, goalName, goalDesc, goalCrName, goalCrNum);
     }
 
-    public void updateDays(int id, int days) {
+    public void updateDays(int id, long days) {
         accountDAO.updateDays(id, days);
     }
     public List<Account> findAll() {

@@ -13,12 +13,14 @@ public interface AccountService {
     void save(Account account);
 
     Account findByAccountInterest(String goalName);
+
+    Account findById(int id);
 //    Account findGoalsByUserId(int id);
 
     void updateProgress(int id, int currentGoalCrNum);
-    void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal);
-    void updateStatusFinished(int id,  boolean statusFinished, Date dateOfFinishGoal);
-    void updateDays (int id, int days);
+    void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal, long days);
+    void updateStatusFinished(int id,  boolean statusFinished, Date dateOfFinishGoal, long days);
+    void updateDays (int id, long days);
 
 
     void updateGoal (int id, String goalName, String goalDesc, String goalCrName, int goalCrNum);

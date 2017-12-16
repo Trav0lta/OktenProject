@@ -65,8 +65,8 @@
                                                 ${go.goalCrName}
                                         </div>
                                         <div class="col-sm-2  col-4 text-center daysG">
-                                            <span class="step">10</span>
-                                            days
+                                            <span class="step">${go.days}</span>
+                                            day(s)
                                         </div>
                                         <div class="col-sm-1  col-4  text-center pencilIco">
                                             <a href="/backToTheAddGoal/${go.id}" target="_blank"><span class="fa fa-clone"></span></a>

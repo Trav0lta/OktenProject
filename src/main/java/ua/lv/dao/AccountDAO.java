@@ -16,6 +16,8 @@ import java.util.List;
 public interface AccountDAO extends JpaRepository<Account,Integer> {
     @Query("from Account a where a.goalName=:goalName")
     Account findByAccountInterest(@Param("goalName")String goalName);
+//    @Query("from Account a where a.id=:id")
+//    Account findByAccountInterest(@Param("id")int id);
 
 //    @Query("select Account from Account account join fetch account.user where account.user.id=:id")
 //    Account findGoalsByUserId(@Param("id") int id);
@@ -29,16 +31,16 @@ public interface AccountDAO extends JpaRepository<Account,Integer> {
     void updateGoal(@Param("id") int id, @Param("goalName") String goalName, @Param("goalDesc") String goalDesc, @Param("goalCrName") String goalCrName, @Param("goalCrNum") int goalCrNum );
 
     @Modifying
-    @Query("update Account set statusFailed=:statusFailed, statusFinished=:statusFinished, dateOfFinishGoal=:dateOfFinishGoal where id=:id ")
-    void updateStatusFailed(@Param("id") int id, @Param("statusFailed") boolean statusFailed, @Param("statusFinished") boolean statusFinished, @Param("dateOfFinishGoal") Date dateOfFinishGoal);
+    @Query("update Account set statusFailed=:statusFailed, statusFinished=:statusFinished, dateOfFinishGoal=:dateOfFinishGoal, days=:days where id=:id ")
+    void updateStatusFailed(@Param("id") int id, @Param("statusFailed") boolean statusFailed, @Param("statusFinished") boolean statusFinished, @Param("dateOfFinishGoal") Date dateOfFinishGoal, @Param("days") long days);
 
     @Modifying
-    @Query("update Account set statusFinished=:statusFinished, dateOfFinishGoal=:dateOfFinishGoal where id=:id ")
-    void updateStatusFinished (@Param("id") int id, @Param("statusFinished") boolean statusFinished, @Param("dateOfFinishGoal") Date dateOfFinishGoal);
+    @Query("update Account set statusFinished=:statusFinished, dateOfFinishGoal=:dateOfFinishGoal, days=:days where id=:id ")
+    void updateStatusFinished (@Param("id") int id, @Param("statusFinished") boolean statusFinished, @Param("dateOfFinishGoal") Date dateOfFinishGoal, @Param("days") long days);
 
     @Modifying
     @Query("update Account set days=:days where id=:id ")
-    void updateDays (@Param("id") int id, @Param("days") int days);
+    void updateDays (@Param("id") int id, @Param("days") long days);
 
     List<Account> findAll();
 

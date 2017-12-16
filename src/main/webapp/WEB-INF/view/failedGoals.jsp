@@ -66,8 +66,8 @@
                                             </div><p class="progressText"><b><span class="current-num">${go.currentGoalCrNum}</span>/<span class="max-num">${go.goalCrNum}</span></b></p><p style="margin-top: -4%!important;" class="progressText text-center">${go.goalCrName}</p>
                                         </div>
                                         <div style="left: 75%;" class="col-sm-2  col-3 text-center daysG">
-                                            <span class="step">10</span>
-                                            days
+                                            <span class="step">${go.days}</span>
+                                            day(s)
                                         </div>
                                         <div class="col-sm-1 col-3 text-center pencilIco">
                                             <a href="/backToTheAddGoal/${go.id}" target="_blank"><span class="fa fa-refresh"></span></a>

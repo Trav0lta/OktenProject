@@ -12,6 +12,7 @@ import ua.lv.service.UserService;
 
 import java.security.Principal;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by User on 20.10.2017.
@@ -58,7 +59,11 @@ public class GoalController {
         boolean statusFinish = true;
         if (currentGoalCrNum == goalCrNum) {
             Date date = new Date();
-            accountService.updateStatusFinished(goalId, statusFinish, date);
+            Account account = accountService.findById(goalId);
+            Date dateStart = account.getDateOfStartGoal();
+             long diff = date.getTime()-dateStart.getTime();
+            long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
+            accountService.updateStatusFinished(goalId, statusFinish, date, days);
 
             User user = userService.findOne(userId);
             int newFinishG = user.getFinishedAllGoals()+1;
@@ -90,12 +95,15 @@ public class GoalController {
                                       @RequestParam("userId") int userId){
         boolean statusFail = true;
         Date date = new Date();
-        accountService.updateStatusFailed(id, statusFail, statusFail, date);
+        Account account = accountService.findById(id);
+        Date dateStart = account.getDateOfStartGoal();
+        long diff = date.getTime()-dateStart.getTime();
+        long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
+        accountService.updateStatusFailed(id, statusFail, statusFail, date,days);
         User user = userService.findOne(userId);
         int newFinishG = user.getFinishedAllGoals()+1;
         int newFeilG = user.getFinishedFailedGoals()+1;
         userService.updateFinishedFailedGoals(userId, newFinishG, newFeilG);
-//        accountService.updateDays(id,days);
         return "redirect:/account";
     }
 

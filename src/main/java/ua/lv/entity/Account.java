@@ -27,7 +27,7 @@ public class Account {
     @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private User user;
 
-    private int days = 0;
+    private long days = 0;
     private int currentGoalCrNum = 0;
     private Date dateOfStartGoal = new Date();
     private Date dateOfFinishGoal = null;
@@ -128,11 +128,11 @@ public class Account {
         return dateOfFinishGoal;
     }
 
-    public int getDays() {
+    public long getDays() {
         return days;
     }
 
-    public void setDays(int days) {
+    public void setDays(long days) {
         this.days = days;
     }
 
