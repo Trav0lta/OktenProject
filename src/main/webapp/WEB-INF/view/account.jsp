@@ -149,12 +149,12 @@
                                                                 <input type="submit" value="Give UP" class="btn btn-outline-danger" aria-pressed="true">
                                                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                                             </form>
-                                                            <form action="/failGoalByDeadline", method="post">
-                                                                <input type="hidden" value="${go.id}" name="id">
-                                                                <input type="hidden" value="${go.user.id}" name="userId">
-                                                                <input type="submit" value="ChekDate" class="btn btn-outline-danger" aria-pressed="true">
-                                                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                                            </form>
+                                                            <%--<form action="/failGoalByDeadline", method="post">--%>
+                                                                <%--<input type="hidden" value="${go.id}" name="id">--%>
+                                                                <%--<input type="hidden" value="${go.user.id}" name="userId">--%>
+                                                                <%--<input type="submit" value="ChekDate" class="btn btn-outline-danger" aria-pressed="true">--%>
+                                                                <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+                                                            <%--</form>--%>
                                                         </div>
                                                     </div>
                                                 </div>

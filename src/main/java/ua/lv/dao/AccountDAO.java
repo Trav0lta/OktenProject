@@ -21,8 +21,8 @@ public interface AccountDAO extends JpaRepository<Account,Integer> {
 //    @Query("from Account a where a.id=:id")
 //    Account findByAccountInterest(@Param("id")int id);
 
-    @Query("select count(id)  from Account account where account.user.id=:id")
-   Account findGoalsByUserId(@Param("id") int id);
+    @Query("from Account account where account.user.id=:id")
+    List<Account> findGoalsByUserId(@Param("id") int id);
 
     @Modifying
     @Query("update Account set currentGoalCrNum=:currentGoalCrNum where id=:id ")

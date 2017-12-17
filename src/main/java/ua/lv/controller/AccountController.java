@@ -33,6 +33,19 @@ public class AccountController {
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
 
+
+//        List<Account> accounts = accountService.findGoalsByUserId(byUsername.getId());
+//        int id = account.getId();
+//        Date dateStart = account.getDateOfStartGoal();
+//        Date dateDeadline = account.getDeadline();
+//        Date date = new Date();
+//        long diff = date.getTime()-dateStart.getTime();
+//        long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
+//
+//        if (dateDeadline.before(date) == true){
+//            accountService.updateStatusFailed(id, true,true, date, days);
+//        }
+
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal",new Account());
         model.addAttribute("goalList", accountService.findAll());

@@ -15,7 +15,7 @@ public interface AccountService {
     Account findByAccountInterest(String goalName);
 
     Account findById(int id);
-    Account findGoalsByUserId(int id);
+    List<Account> findGoalsByUserId(int id);
 
     void updateProgress(int id, int currentGoalCrNum);
     void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal, long days);

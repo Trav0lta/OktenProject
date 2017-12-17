@@ -19,7 +19,7 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountDAO accountDAO;
 
-    public Account findGoalsByUserId(int id) {
+    public List<Account> findGoalsByUserId(int id) {
         return accountDAO.findGoalsByUserId(id);
     }
 
