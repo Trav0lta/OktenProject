@@ -37,21 +37,28 @@ public class AccountController {
         int id;
         Date dateStart;
         Date dateDeadline;
+        boolean statist=false;
         List<Account> accounts = accountService.findGoalsByUserId(byUsername.getId());
         for (int i = 0; i < accounts.size(); i++) {
+
             System.out.println(accounts.get(i));
             id = accounts.get(i).getId();
             dateStart = accounts.get(i).getDateOfStartGoal();
             dateDeadline = accounts.get(i).getDeadline();
             Date date = new Date();
-        long diff = date.getTime()-dateStart.getTime();
-        long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
-            if (dateDeadline.before(date) == true){
-            accountService.updateStatusFailed(id, true,true, date, days);
-        }
+            long diff = date.getTime() - dateStart.getTime();
+            long days = TimeUnit.MILLISECONDS.toDays(diff) + 1;
 
+            if (dateDeadline.before(date) == true) {
+                accountService.updateStatusFailed(id, true, true, date, days);
+                statist=true;
+            }
         }
-
+        if (statist==true){
+            User user = userService.findOne(byUsername.getId());
+            int newFinishG = user.getFinishedAllGoals()+1;
+            int newFeilG = user.getFinishedFailedGoals()+1;
+            userService.updateFinishedFailedGoals(byUsername.getId(), newFinishG, newFeilG);}
 
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal",new Account());
