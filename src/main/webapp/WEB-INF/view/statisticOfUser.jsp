@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-4 text-center">
                                 <span class="step">${procentSucsses}%</span>
-                                    successful goals
+                                successful goals
                             </div>
                             <div class="col-lg-6 mt-4 text-center">
                                 <canvas id="myChart"></canvas>
@@ -106,7 +106,7 @@
                                                 backgroundColor: 'rgba(75, 192, 192, 0.2)' ,
                                                 borderColor: 'rgba(75, 192, 192, 1)' ,
                                                 pointBackgroundColor:'rgba(75, 192, 192, 1)' ,
-                                                data: [12, 19, 3, 7 , 2]
+                                                data: [${countCategoryHealth}, ${countCategoryRelationship}, ${countCategorySelfImprovement}, ${countCategoryFinance} ,${countCategoryHobbies}]
                                             }]
                                         },
                                         options: {
@@ -126,6 +126,19 @@
 
                     </div>
                 </div>
+            </div>
+            <div>
+
+<%--<c:forEach items="${ListCategor}" var="goal">--%>
+    <%--<c:if test="${goal.user.id == currentUser.id}">--%>
+        <%--<div class="col-sm-8 aboutGoal">--%>
+            <%--<h5>${goal.goalName}</h5>--%>
+            <%--<p>${goal.goalDesc}</p>--%>
+            <%--<p style="margin-top: 1%"> Deadline: <span  style="color: firebrick;"><fmt:formatDate value="${go.deadline}" pattern="dd-MM-yyyy"/></span></p>--%>
+
+        <%--</div>--%>
+    <%--</c:if>--%>
+<%--</c:forEach>--%>
             </div>
         </div>
     </div>

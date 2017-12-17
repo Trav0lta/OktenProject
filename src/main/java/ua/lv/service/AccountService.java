@@ -15,7 +15,7 @@ public interface AccountService {
     Account findByAccountInterest(String goalName);
 
     Account findById(int id);
-//    Account findGoalsByUserId(int id);
+    Account findGoalsByUserId(int id);
 
     void updateProgress(int id, int currentGoalCrNum);
     void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal, long days);
@@ -29,6 +29,8 @@ public interface AccountService {
     void  delete (int id, Account account);
 
     List<Account> findAll();
+
+    int findAllByCategoryIs(int userId, String category);
     Account findOne(int id);
 
 }

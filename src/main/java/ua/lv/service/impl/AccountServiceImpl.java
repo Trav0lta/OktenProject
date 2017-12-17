@@ -19,9 +19,9 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     AccountDAO accountDAO;
 
-//    public Account findGoalsByUserId(int id) {
-//        return accountDAO.findGoalsByUserId(id);
-//    }
+    public Account findGoalsByUserId(int id) {
+        return accountDAO.findGoalsByUserId(id);
+    }
 
 
     public Account findById(int id) {
@@ -66,6 +66,11 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> findAll() {
         return accountDAO.findAll();
     }
+
+    public int findAllByCategoryIs(int userId, String category) {
+        return accountDAO.findAllByCategoryIs(userId, category);
+    }
+
 
     public Account findOne(int id) {
         return accountDAO.findOne(id);

@@ -94,6 +94,14 @@ public class AccountController {
             procentSucsses = a*100/b;
         }
 
+        model.addAttribute("countCategoryHealth", accountService.findAllByCategoryIs(byUsername.getId(), "Health"));
+        model.addAttribute("countCategoryRelationship", accountService.findAllByCategoryIs(byUsername.getId(), "Relationship"));
+        model.addAttribute("countCategorySelfImprovement", accountService.findAllByCategoryIs(byUsername.getId(), "Self improvement"));
+        model.addAttribute("countCategoryFinance", accountService.findAllByCategoryIs(byUsername.getId(), "Finance"));
+        model.addAttribute("countCategoryHobbies", accountService.findAllByCategoryIs(byUsername.getId(), "Hobbies"));
+
+
+
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal", new Account());
         model.addAttribute("goalList", accountService.findAll());
