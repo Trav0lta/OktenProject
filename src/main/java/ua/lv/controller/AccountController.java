@@ -51,7 +51,7 @@ public class AccountController {
 
             if (dateDeadline.before(date) == true) {
                 String newReasonOfFailed = new String("Failed Deadline");
-                accountService.updateStatusFailed(id, true, true, date, days, newReasonOfFailed);
+                accountService.updateStatusFailed(id, true, true, dateDeadline, days, newReasonOfFailed);
                 statist=true;
             }
         }
