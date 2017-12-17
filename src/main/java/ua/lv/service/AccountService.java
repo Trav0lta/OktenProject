@@ -18,7 +18,7 @@ public interface AccountService {
     List<Account> findGoalsByUserId(int id);
 
     void updateProgress(int id, int currentGoalCrNum);
-    void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal, long days);
+    void updateStatusFailed(int id, boolean statusFailed,  boolean statusFinished, Date dateOfFinishGoal, long days, String reasonOfFailed);
     void updateStatusFinished(int id,  boolean statusFinished, Date dateOfFinishGoal, long days);
     void updateDays (int id, long days);
 

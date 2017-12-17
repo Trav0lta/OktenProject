@@ -48,8 +48,8 @@ public class AccountServiceImpl implements AccountService {
         accountDAO.updateProgress(id, currentGoalCrNum);
     }
 
-    public void updateStatusFailed(int id, boolean statusFailed, boolean statusFinished, Date dateOfFinishGoal, long days) {
-        accountDAO.updateStatusFailed(id, statusFailed, statusFinished, dateOfFinishGoal, days);
+    public void updateStatusFailed(int id, boolean statusFailed, boolean statusFinished, Date dateOfFinishGoal, long days, String reasonOfFailed) {
+        accountDAO.updateStatusFailed(id, statusFailed, statusFinished, dateOfFinishGoal, days, reasonOfFailed);
     }
 
     public void updateStatusFinished(int id, boolean statusFinished, Date dateOfFinishGoal, long days) {

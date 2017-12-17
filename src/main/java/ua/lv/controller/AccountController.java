@@ -50,7 +50,8 @@ public class AccountController {
             long days = TimeUnit.MILLISECONDS.toDays(diff) + 1;
 
             if (dateDeadline.before(date) == true) {
-                accountService.updateStatusFailed(id, true, true, date, days);
+                String newReasonOfFailed = new String("Failed Deadline");
+                accountService.updateStatusFailed(id, true, true, date, days, newReasonOfFailed);
                 statist=true;
             }
         }

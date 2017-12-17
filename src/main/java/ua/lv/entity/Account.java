@@ -29,6 +29,7 @@ public class Account {
     private Date dateOfFinishGoal = null;
     private boolean statusFinished = false;
     private  boolean statusFailed;
+    private  String reasonOfFailed;
 
     public Account() {
     }
@@ -150,6 +151,14 @@ public class Account {
 
     public void setStatusFailed(boolean statusFailed) {
             this.statusFailed = statusFailed;
+    }
+
+    public String getReasonOfFailed() {
+        return reasonOfFailed;
+    }
+
+    public void setReasonOfFailed(String reasonOfFailed) {
+        this.reasonOfFailed = reasonOfFailed;
     }
 
     @Override

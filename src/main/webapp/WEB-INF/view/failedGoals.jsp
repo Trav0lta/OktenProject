@@ -57,7 +57,7 @@
                                         <div class="col-sm-8 aboutGoal">
                                             <h5>${go.goalName}</h5>
                                             <p>${go.goalDesc}</p>
-                                            <p style="margin-top: 1%"> Reason: <span  style="color: firebrick;">Gived up</span></p>
+                                            <p style="margin-top: 1%"> Reason: <span  style="color: firebrick;">${go.reasonOfFailed}</span></p>
 
                                         </div>
                                         <div class="col-sm-2 col-6  quantQ">
