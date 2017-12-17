@@ -12,6 +12,7 @@ import ua.lv.service.UserService;
 
 import java.security.Principal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -33,18 +34,24 @@ public class AccountController {
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
 
+        int id;
+        Date dateStart;
+        Date dateDeadline;
+        List<Account> accounts = accountService.findGoalsByUserId(byUsername.getId());
+        for (int i = 0; i < accounts.size(); i++) {
+            System.out.println(accounts.get(i));
+            id = accounts.get(i).getId();
+            dateStart = accounts.get(i).getDateOfStartGoal();
+            dateDeadline = accounts.get(i).getDeadline();
+            Date date = new Date();
+        long diff = date.getTime()-dateStart.getTime();
+        long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
+            if (dateDeadline.before(date) == true){
+            accountService.updateStatusFailed(id, true,true, date, days);
+        }
 
-//        List<Account> accounts = accountService.findGoalsByUserId(byUsername.getId());
-//        int id = account.getId();
-//        Date dateStart = account.getDateOfStartGoal();
-//        Date dateDeadline = account.getDeadline();
-//        Date date = new Date();
-//        long diff = date.getTime()-dateStart.getTime();
-//        long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
-//
-//        if (dateDeadline.before(date) == true){
-//            accountService.updateStatusFailed(id, true,true, date, days);
-//        }
+        }
+
 
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal",new Account());
