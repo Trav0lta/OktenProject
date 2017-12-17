@@ -127,7 +127,7 @@ public class AccountController {
         model.addAttribute("countCategoryFinance", accountService.findAllByCategoryIs(byUsername.getId(), "Finance"));
         model.addAttribute("countCategoryHobbies", accountService.findAllByCategoryIs(byUsername.getId(), "Hobbies"));
 
-
+        model.addAttribute("countOfCurrentGoals", accountService.findAllCurrentGoals(byUsername.getId(), false));
 
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal", new Account());

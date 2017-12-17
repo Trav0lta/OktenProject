@@ -31,6 +31,8 @@ public interface AccountService {
     List<Account> findAll();
 
     int findAllByCategoryIs(int userId, String category);
+
+    int findAllCurrentGoals(int userId, boolean statusFinished);
     Account findOne(int id);
 
 }
