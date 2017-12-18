@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@include file="tmp/headerUser.jsp" %>
 
@@ -71,13 +72,13 @@
                         <div class="form-group col-md-6">
                             <label for="deadline">Deadline</label>
                             <input type="date" class="input-goal" id="deadline" name = "deadline" width="276"/>
-                            <errors name="date" class="cs"/>
-                            <%--<script>--%>
-                                <%--$('#datepicker').datepicker({--%>
-                                    <%--uiLibrary: 'bootstrap4',--%>
-                                    <%--iconsLibrary: 'fontawesome'--%>
-                                <%--});--%>
-                            <%--</script>--%>
+                            <form:errors name="deadline" class="cs"/>
+                            <%--&lt;%&ndash;<script>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;$('#datepicker').datepicker({&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;uiLibrary: 'bootstrap4',&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;iconsLibrary: 'fontawesome'&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;});&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;</script>&ndash;%&gt;--%>
                         </div>
                     </div>
                     <div class="form-row">

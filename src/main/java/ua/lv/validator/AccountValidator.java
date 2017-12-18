@@ -29,24 +29,13 @@ public class AccountValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Account account = (Account) o;
 
-        if ((account.getGoalCrNum() < 3) || (account.getGoalCrNum() > 32)) {
-            errors.rejectValue("goalCrNum", "error", "ups.");
+        Date deadLine = account.getDeadline();
+        Date dateNow = new Date();
+        long dN = dateNow.getTime();
+        long dL =  deadLine.getTime();
+        if(deadLine.before(dateNow)==true){
+            errors.rejectValue("deadline", "errors", "your date false");
         }
-
-//       LocalDate  dateNow = LocalDate.now();
-//       LocalDate deadline = LocalDate.parse(account.getDeadline());
-//       boolean d = dateNow.isBefore(deadline);
-//       if(d){
-//           errors.rejectValue("date", "errors", "your date false");
-//       }
-//        Date deadLine = new Date(account.getDeadline());
-//        System.out.println(deadLine);
-//        Date dateNow = new Date();
-//        long dN = dateNow.getTime();
-//        long dL =  deadLine.getTime();
-//        if(dN >= dL){
-//            errors.rejectValue("date", "errors", "your date false");
-//        }
 
     }
 }

@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ua.lv.entity.Account;
 import ua.lv.entity.User;
 import ua.lv.service.AccountService;
 import ua.lv.service.UserService;
+import ua.lv.validator.AccountValidator;
 
 import java.security.Principal;
 import java.util.Date;
@@ -23,6 +25,8 @@ public class GoalController {
     AccountService accountService;
     @Autowired
     UserService userService;
+    @Autowired
+    AccountValidator accountValidator;
 
 
 
@@ -37,13 +41,18 @@ public class GoalController {
     }
 
     @RequestMapping(value = "/saveNewGoal" ,method = RequestMethod.POST)
-    public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account){
+    public String addGoal(Model model,Principal principal,@ModelAttribute("emptyGoal") Account account,
+                          BindingResult bindingResult) {
         String principalName = principal.getName();
         User byUsername = userService.findByName(principalName);
         model.addAttribute("currentUser", byUsername);
+        accountValidator.validate(account, bindingResult);
+        if(bindingResult.hasErrors()){
+            return "goal";
+        }else{
         account.setUser(byUsername);
         accountService.save(account);
-        return "redirect:/account";
+        return "redirect:/account";}
     }
 
     @RequestMapping(value = "/backToAccount" ,method = RequestMethod.GET)
