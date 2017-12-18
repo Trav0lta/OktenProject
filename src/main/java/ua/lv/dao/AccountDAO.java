@@ -52,5 +52,9 @@ public interface AccountDAO extends JpaRepository<Account,Integer> {
     @Query("select count(account.id)  from Account account where account.user.id=:userId and account.statusFinished=:statusFinished")
     int findAllCurrentGoals (@Param("userId") int userId, @Param("statusFinished") boolean statusFinished);
 
+    @Query("select count(account.id)  from Account account where account.user.id=:userId and account.statusFailed=:statusFailed")
+    int findAllFailedGoals (@Param("userId") int userId, @Param("statusFailed") boolean statusFailed);
+
+
 
 }

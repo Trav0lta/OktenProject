@@ -46,7 +46,7 @@
                         <div class="section">
                         <div class="row m-0 mt-4">
                             <div class="col-4 text-center">
-                                <span class="step">${currentUser.finishedAllGoals}</span>
+                                <span class="step">${countOfFinishedGoals}</span>
                                 finished goals
                             </div>
                             <div class="col-4 text-center">
@@ -69,7 +69,7 @@
                                         data: {
                                             labels: ["Current", "Successful", "Failed"],
                                             datasets: [{
-                                                data: [ ${countOfCurrentGoals}, ${currentUser.finishedSucssesGoals}, ${currentUser.finishedFailedGoals}],
+                                                data: [ ${countOfCurrentGoals}, ${currentUser.finishedSucssesGoals}, ${countOfFailedGoals}],
                                                 backgroundColor: [
                                                     'rgba(54, 162, 235, 1)',
                                                     'rgba(255, 206, 86, 1)',

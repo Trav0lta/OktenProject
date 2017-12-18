@@ -33,6 +33,7 @@ public interface AccountService {
     int findAllByCategoryIs(int userId, String category);
 
     int findAllCurrentGoals(int userId, boolean statusFinished);
+    int findAllFailedGoals (int userId, boolean statusFailed);
     Account findOne(int id);
 
 }

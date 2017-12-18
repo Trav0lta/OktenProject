@@ -75,6 +75,10 @@ public class AccountServiceImpl implements AccountService {
         return accountDAO.findAllCurrentGoals(userId, statusFinished);
     }
 
+    public int findAllFailedGoals(int userId, boolean statusFailed) {
+        return accountDAO.findAllFailedGoals(userId, statusFailed);
+    }
+
     public Account findOne(int id) {
         return accountDAO.findOne(id);
     }

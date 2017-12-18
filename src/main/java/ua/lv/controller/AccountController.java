@@ -59,7 +59,7 @@ public class AccountController {
             if (dateDeadline.before(date) == true) {
                 String newReasonOfFailed = new String("Failed Deadline");
                 accountService.updateStatusFailed(id, true, true, dateDeadline, daysChecked, newReasonOfFailed);
-                statist=true;
+//                statist=true;
             }
         }
         if (statist==true){
@@ -120,7 +120,7 @@ public class AccountController {
         long days = TimeUnit.MILLISECONDS.toDays(diff)+1;
 
         int a =  byUsername.getFinishedSucssesGoals();
-        int b =  byUsername.getFinishedAllGoals();
+        int b =  accountService.findAllCurrentGoals(byUsername.getId(), true);
         int procentSucsses;
         if (b==0){
             procentSucsses = 0;
@@ -136,6 +136,9 @@ public class AccountController {
         model.addAttribute("countCategoryHobbies", accountService.findAllByCategoryIs(byUsername.getId(), "Hobbies"));
 
         model.addAttribute("countOfCurrentGoals", accountService.findAllCurrentGoals(byUsername.getId(), false));
+        model.addAttribute("countOfFailedGoals", accountService.findAllFailedGoals(byUsername.getId(), true));
+        model.addAttribute("countOfFinishedGoals", accountService.findAllCurrentGoals(byUsername.getId(), true));
+
 
         model.addAttribute("currentUser", byUsername);
         model.addAttribute("emptyGoal", new Account());

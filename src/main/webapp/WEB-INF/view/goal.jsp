@@ -73,12 +73,12 @@
                             <label for="deadline">Deadline</label>
                             <input type="date" class="input-goal" id="deadline" name = "deadline" width="276"/>
                             <form:errors name="deadline" class="cs"/>
-                            <%--&lt;%&ndash;<script>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;$('#datepicker').datepicker({&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;uiLibrary: 'bootstrap4',&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;iconsLibrary: 'fontawesome'&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;});&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</script>&ndash;%&gt;--%>
+                            <%--<script>--%>
+                                <%--$('#deadline').datepicker({--%>
+                                    <%--uiLibrary: 'bootstrap4',--%>
+                                    <%--iconsLibrary: 'fontawesome'--%>
+                                <%--});--%>
+                            <%--</script>--%>
                         </div>
                     </div>
                     <div class="form-row">

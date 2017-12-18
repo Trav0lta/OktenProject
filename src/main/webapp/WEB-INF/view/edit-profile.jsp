@@ -58,8 +58,8 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label class="control-label" for="login">Login:</label>
-                <input id="login" type="text" name="username" class="form-control input-md" value="${currentUser.username}">
+                <label class="control-label" for="login"><%--Login:--%></label>
+                <input id="login" type="hidden" name="username" class="form-control input-md" value="${currentUser.username}">
             </div>
             <!-- Button -->
             <div class="form-group col-md-4">
