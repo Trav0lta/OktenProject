@@ -46,12 +46,19 @@ public class AccountController {
             dateStart = accounts.get(i).getDateOfStartGoal();
             dateDeadline = accounts.get(i).getDeadline();
             Date date = new Date();
-            long diff = date.getTime() - dateStart.getTime();
+            long diff = dateDeadline.getTime() - dateStart.getTime();
             long days = TimeUnit.MILLISECONDS.toDays(diff) + 1;
+            Long daysChecked;
+            if (days<1){
+                daysChecked= Long.valueOf(0);
+            }else{
+                daysChecked = days;
+            }
+
 
             if (dateDeadline.before(date) == true) {
                 String newReasonOfFailed = new String("Failed Deadline");
-                accountService.updateStatusFailed(id, true, true, dateDeadline, days, newReasonOfFailed);
+                accountService.updateStatusFailed(id, true, true, dateDeadline, daysChecked, newReasonOfFailed);
                 statist=true;
             }
         }
