@@ -96,10 +96,12 @@
                             <form:errors path="goalCrNum" class="cs"/>
                         </div>
                     </div>
-                    <div class="form-row"> <div  class="form-group col-md-3">
-                        <button type="reset" class="btn btn-outline-danger">Reset</button>
-                        <div class="btn btn-outline-success submit">Save goal</div>
-                        <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/></div>
+                    <div class="form-row">
+                        <div  class="form-group col-md-3">
+                            <button type="reset" class="btn btn-outline-danger">Reset</button>
+                            <div class="btn btn-outline-success submit">Save goal</div>
+                            <input type="hidden" name="${_csrf.parameterName}"value="${_csrf.token}"/>
+                        </div>
                     </div>
                 </form:form>
             </div>
