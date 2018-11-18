@@ -45,6 +45,7 @@ public class AccountController {
             id = accounts.get(i).getId();
             dateStart = accounts.get(i).getDateOfStartGoal();
             dateDeadline = accounts.get(i).getDeadline();
+            boolean statusFinished=accounts.get(i).isStatusFinished();
             Date date = new Date();
             long diff = dateDeadline.getTime() - dateStart.getTime();
             long days = TimeUnit.MILLISECONDS.toDays(diff) + 1;
@@ -56,7 +57,8 @@ public class AccountController {
             }
 
 
-            if (dateDeadline.before(date) == true) {
+
+            if (dateDeadline.before(date) == true && statusFinished==false) {
                 String newReasonOfFailed = new String("Failed Deadline");
                 accountService.updateStatusFailed(id, true, true, dateDeadline, daysChecked, newReasonOfFailed);
 //                statist=true;
